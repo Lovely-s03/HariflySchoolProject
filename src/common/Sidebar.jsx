@@ -12,6 +12,10 @@ import {
   NewspaperIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { IoCallOutline } from "react-icons/io5";
+import { FcAbout } from "react-icons/fc";
+import { MdOutlinePrivacyTip } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
@@ -122,6 +126,29 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               </span>
             </li>
           </ul>
+         
+        </div>
+         <div>
+          <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase">
+          More
+          </h2>
+          <ul className="space-y-2">
+            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+              <IoCallOutline className="h-5 w-5"/>
+              <span>Contact Us</span>
+            </li>
+            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+             <FcAbout className="h-5 w-5"/>
+              <span>About Us</span>
+           
+            </li>
+            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+          <MdOutlinePrivacyTip className="h-5 w-5"/>
+              <span>Privacy Policy</span>
+             
+            </li>
+          </ul>
+         
         </div>
       </aside>
     </>
