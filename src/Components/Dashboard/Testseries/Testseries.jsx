@@ -122,7 +122,7 @@ const Testseries = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto px-8 py-8 bg-white my-5 rounded-lg shadow-md">
+    <div className="max-w-7xl mx-auto px-5 py-8 bg-white my-5 rounded-lg shadow-md">
 
     
       <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">

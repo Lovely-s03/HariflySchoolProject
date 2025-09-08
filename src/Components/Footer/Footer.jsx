@@ -11,6 +11,7 @@ export default function Footer() {
   <>
     <footer>
       <div className="bg-white py-10 border-t border-gray-400">
+       
         <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
           <div className="md:col-span-1">
@@ -156,6 +157,7 @@ export default function Footer() {
   </>
   );
 }
+
 
 
 
