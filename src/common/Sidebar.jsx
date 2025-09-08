@@ -137,16 +137,16 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <IoCallOutline className="h-5 w-5"/>
               <span>Contact Us</span>
             </li>
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+            <Link to="/about-us" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
              <FcAbout className="h-5 w-5"/>
               <span>About Us</span>
            
-            </li>
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
-          <MdOutlinePrivacyTip className="h-5 w-5"/>
+            </Link>
+            <Link to="/privacy" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+          <MdOutlinePrivacyTip className="h-5 w-5" />
               <span>Privacy Policy</span>
              
-            </li>
+            </Link>
           </ul>
          
         </div>
