@@ -11,6 +11,7 @@ import Testseries from '../Components/Dashboard/Testseries/Testseries';
 import Batch from '../Components/Dashboard/Batch/Batch';
 import Privacy from '../Components/Privacy/Privacy';
 import AboutUs from '../Components/AboutUs/AboutUs';
+import Contact from '../Components/Dashboard/Contact/Contact';
 
 const Layout = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const Layout = () => {
          </Route>
              <Route path="/privacy" element={<Privacy/>} />
                 <Route path="/about-us" element={<AboutUs/>} />
+                <Route path="/contact" element={<Contact/>} />
       </Routes>
   
       {!isDashboardRoute && <Footer />}
