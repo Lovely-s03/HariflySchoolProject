@@ -133,10 +133,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           More
           </h2>
           <ul className="space-y-2">
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+            <Link to="contact" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
               <IoCallOutline className="h-5 w-5"/>
               <span>Contact Us</span>
-            </li>
+            </Link>
             <Link to="/about-us" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
              <FcAbout className="h-5 w-5"/>
               <span>About Us</span>

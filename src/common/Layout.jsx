@@ -31,10 +31,11 @@ const Layout = () => {
          <Route path="study" element={<Study/>} />
          <Route path="testseries" element={<Testseries/>} />
             <Route path="batch" element={<Batch/>} />
+                <Route path="contact" element={<Contact/>} />
+          
          </Route>
              <Route path="/privacy" element={<Privacy/>} />
                 <Route path="/about-us" element={<AboutUs/>} />
-                <Route path="/contact" element={<Contact/>} />
       </Routes>
   
       {!isDashboardRoute && <Footer />}
