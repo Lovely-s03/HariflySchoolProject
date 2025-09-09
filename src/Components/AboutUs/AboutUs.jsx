@@ -4,6 +4,7 @@ import MissionSection from './MissionSection'
 import VisionSection from './VisionSection'
 import FoundersSection from './FoundersSection'
 import OurPresence from './OurPresence'
+import GreatPlaceSection from './GreatPlaceSection'
 
 const AboutUs = () => {
   return (
@@ -13,6 +14,7 @@ const AboutUs = () => {
         <VisionSection/>
     <FoundersSection/>
     <OurPresence/>
+    <GreatPlaceSection/>
     </div>
   )
 }

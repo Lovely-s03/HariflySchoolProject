@@ -31,7 +31,7 @@ const Dashboard = () => {
         <main className="bg-gray-50">
        <div className="fixed top-[48px] left-0 w-full border-b shadow-sm bg-white z-40">
          <div className="ml-0 md:ml-[258px]">
-            <div className="flex items-center justify-around lg:justify-center gap-0 lg:gap-[70%]  py-3 ">
+            <div className="flex items-center justify-around lg:justify-betweeen gap-0 lg:gap-[70%]  py-3 ">
       <h2 className="font-semibold text-lg">{pageTitle}</h2>
 
       <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ const Dashboard = () => {
        </div>
 <div className=" ml-0 md:ml-[258px] ">
   
-   <div className="px-5 xl:px-[118px] mt-[135px]"> 
+   <div className="px-5 xl:px-[55px] mt-[135px]"> 
   
         <Outlet/> 
         {/* <Batch/> */}
