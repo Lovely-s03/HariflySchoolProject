@@ -18,6 +18,10 @@ const Dashboard = () => {
 } else if (location.pathname.includes("batch")) {
   pageTitle = "Batch";
 }
+ else if (location.pathname.includes("contact")) {
+  pageTitle = "Contact";
+ }
+
   
   return (
     <div className="flex h-screen">

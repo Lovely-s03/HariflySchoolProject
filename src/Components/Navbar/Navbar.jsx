@@ -65,7 +65,7 @@
             <div className="hidden lg:flex items-center gap-4 xl:gap-6">
               <a href="#" className="hover:text-[#000080] font-semibold">Vidyapeeth</a>
               <a href="#" className="hover:text-[#000080] font-semibold">Upskilling</a>
-              <a href="#" className="hover:text-[#000080] font-semibold">PW Store (Books)</a>
+              <a href="#" className="hover:text-[#000080] font-semibold"> Glare Store (Books)</a>
               <a href="#" className="hover:text-[#000080] font-semibold">Real Test</a>
               <a href="#" className="hover:text-[#000080] font-semibold">Class 1st - 8th</a>
               <a href="#" className="hover:text-[#000080] font-semibold">Power Batch</a>
@@ -123,7 +123,7 @@
           
               <a href="#" className="hover:text-[#000080]">Vidyapeeth</a>
               <a href="#" className="hover:text-[#000080]">Upskilling</a>
-              <a href="#" className="hover:text-[#000080]">PW Store (Books)</a>
+              <a href="#" className="hover:text-[#000080]"> Glare Store (Books)</a>
               <a href="#" className="hover:text-[#000080]">Real Test</a>
               <a href="#" className="hover:text-[#000080]">Class 1st - 8th</a>
               <a href="#" className="hover:text-[#000080]">Power Batch</a>

@@ -17,14 +17,14 @@ const testimonials = [
     img: "https://i.pravatar.cc/50?img=2",
   },
   {
-    text: "PW helped me in establishing the basics of every subject through which I was able to progress quickly and was also able to increase my speed and also maintaining accuracy.",
+    text: " Glare helped me in establishing the basics of every subject through which I was able to progress quickly and was also able to increase my speed and also maintaining accuracy.",
     name: "Amit Kumar Mandal",
     course: "IBPS Topper",
     tag: "Banking",
     img: "https://i.pravatar.cc/50?img=3",
   },
   {
-    text: "The guidance and structured learning from PW was extremely helpful in my preparation journey. The mentors made complex concepts very easy to understand and I was motivated throughout.",
+    text: "The guidance and structured learning from  Glare was extremely helpful in my preparation journey. The mentors made complex concepts very easy to understand and I was motivated throughout.",
     name: "Sneha Sharma",
     course: "NEET AIR 56",
     tag: "NEET",
@@ -124,7 +124,7 @@ const TestimonialSection = () => {
             full score in NEET UG 2024. I started my preparation with Physics
             Wallah in 12th grade by joining the Lakshya NEET batch, then I took
             2 drop by joining Yakeen NEET batch and I completed my full
-            preparation from online PW batch. PW teachers and their guidance
+            preparation from online  Glare batch.  Glare teachers and their guidance
             helps me to achieve AIR1 and motivated me during my drop year....”
           </p>
           <h4 className="font-bold text-gray-900">Multiple Rankers</h4>

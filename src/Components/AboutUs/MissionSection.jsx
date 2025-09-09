@@ -69,20 +69,20 @@ import { FaHandsHelping, FaGlobeAmericas, FaBuilding } from "react-icons/fa";
 const missions = [
   {
     icon: <FaHandsHelping className="text-3xl text-pink-600" />,
-    title: "Equity & Inclusivity",
-    text: "We aim for equity and inclusivity in education.",
+    title: "Innovation First",
+    text: "Driving creativity and technology to build smarter digital solutions.",
     circleBg: "bg-pink-100",
   },
   {
     icon: <FaGlobeAmericas className="text-3xl text-blue-600" />,
-    title: "Reach Everywhere",
-    text: "Our mission is to reach learners in every corner of the country.",
+    title: "Customer-Centric",
+    text: "Putting people at the heart of everything we design and deliver.",
     circleBg: "bg-blue-100",
   },
   {
     icon: <FaBuilding className="text-3xl text-teal-600" />,
-    title: "Sustainability",
-    text: "We focus on building a sustainable and impactful future.",
+    title: "Excellence in Execution",
+    text: "Committed to quality, precision, and delivering beyond expectations.",
     circleBg: "bg-teal-100",
   },
 ];
@@ -92,7 +92,7 @@ const MissionSection = () => {
     <section className="relative w-full py-20 bg-gradient-to-br from-gray-50 via-white to-gray-200">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Title */}
-        <h2 className="text-gray-900 text-3xl md:text-4xl font-bold mb-14">
+        <h2 className="text-[#000080] text-3xl md:text-4xl font-bold mb-14">
           Our Mission
         </h2>
 
