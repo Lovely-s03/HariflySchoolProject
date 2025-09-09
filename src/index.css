@@ -8,3 +8,6 @@
 .animate-zoomIn {
   animation: zoomIn 0.3s ease-out;
 }
+body{
+  background: linear-gradient(to bottom, #ffffff 0%, #F7F7FC 100%);
+}

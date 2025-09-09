@@ -1,5 +1,6 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+import { IoIosStar } from "react-icons/io";
+
 import vision1 from "../../assets/vision.webp"; 
 // import vision2 from "../assets/vision2.jpg";
 // import vision3 from "../assets/vision3.jpg";
@@ -15,19 +16,19 @@ const VisionSection = () => {
           </h2>
           <ul className="space-y-4 text-lg text-gray-800">
             <li className="flex items-start gap-3">
-              <FaStar className="text-yellow-500 mt-1" />
+              <IoIosStar className="text-yellow-500 mt-1"/>
               <span>
                 To democratize education at scale in India.
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <FaStar className="text-yellow-500 mt-1" />
+              <IoIosStar className="text-yellow-500 mt-1"/>
               <span>
                 To ensure every child has access to quality education at the most affordable costs.
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <FaStar className="text-yellow-500 mt-1" />
+              <IoIosStar className="text-yellow-500 mt-1"/>
               <span>
                 To allow every child to realize his/her dream, live up to their true potential and be their lifelong learning partner.
               </span>
