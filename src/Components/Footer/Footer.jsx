@@ -10,13 +10,10 @@ export default function Footer() {
   return (
   <>
     <footer>
-      <div className="py-10 border-t border-gray-400"
-         style={{
-    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23FFA500' fill-opacity='0.15' d='M0,160L60,170C120,180,240,200,360,202.7C480,205,600,191,720,170.7C840,150,960,122,1080,133.3C1200,144,1320,192,1380,213.3L1440,235L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z'/%3E%3Cpath fill='%230C046B' fill-opacity='0.12' d='M0,96L80,122.7C160,149,320,203,480,197.3C640,192,800,128,960,117.3C1120,107,1280,149,1360,170.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'/%3E%3C/svg%3E")`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  }}>
+      <div className="py-8 border-t border-gray-400"
+       
+    
+>
        
         <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
@@ -49,14 +46,14 @@ export default function Footer() {
               />
             </div>
           </div>
-          <div className=" pl-0 xl:pl-48 md:col-span-3 grid grid-cols-1 gap-10">
+          <div className=" pl-0 xl:pl-48 md:col-span-3 grid grid-cols-1 gap-5">
             
             {/* Top Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
               {/* Company */}
               <div>
                 <h3 className="font-semibold mb-3">Company</h3>
-                <ul className="space-y-1 font-sm text-sm text-gray-900">
+                <ul className="space-y-1 font-sm text-sm text-gray-900 whitespace-nowrap">
                   <li>About Us</li>
                   <li>Contact Us</li>
                   <li>Careers</li>
@@ -67,27 +64,23 @@ export default function Footer() {
 
               <div>
                 <h3 className="font-semibold mb-3">Our Centres</h3>
-                <ul className="space-y-1 font-sm text-sm text-gray-900">
+                <ul className="space-y-1 font-sm text-sm text-gray-900 whitespace-nowrap">
                   <li>New Delhi</li>
-                  <li>Patna</li>
-                  <li>Kota</li>
-                  <li>Noida</li>
-                  <li>Dhanbad</li>
-                  <li>Varanasi</li>
-                  <li>View All</li>
+               
                 </ul>
               </div>
 
               
               <div>
                 <h3 className="font-semibold mb-3">Popular Exams</h3>
-                <ul className="space-y-1 font-sm text-sm text-gray-900">
+                <ul className="space-y-1 font-sm text-sm text-gray-900 whitespace-nowrap">
                   <li>IIT JEE</li>
                   <li>NEET</li>
                   <li>GATE</li>
-                  <li>Defence</li>
-                  <li>UPSC</li>
-                  <li>School Prep</li>
+             <li>Foundation Course</li>
+    <li>6th - 10th</li>
+<li>6th - 10th</li>
+<li>11th - 12th (Med & Non-Med)</li>
                 </ul>
               </div>
             </div>
@@ -97,7 +90,7 @@ export default function Footer() {
               {/* Connect With Us */}
               <div>
                 <h3 className="font-semibold mb-3">Connect With Us</h3>
-                <ul className="space-y-1 font-sm text-sm text-gray-900">
+                <ul className="space-y-1 font-sm text-sm text-gray-900 whitespace-nowrap">
                   <li>Email Us</li>
                   <li>Talk To A Counselor</li>
                 </ul>
@@ -106,19 +99,19 @@ export default function Footer() {
               {/* Quick Links */}
               <div>
                 <h3 className="font-semibold mb-3">Quick Links</h3>
-                <ul className="space-y-1 font-sm text-sm text-gray-900">
-                  <li>PW Prerna</li>
-                  <li>PW SIP</li>
-                  <li>PW Gurukulam</li>
+                <ul className="space-y-1 font-sm text-sm text-gray-900 whitespace-nowrap">
+                  <li> Glare Prerna</li>
+                  <li> Glare SIP</li>
+                  <li> Glare Gurukulam</li>
                 </ul>
               </div>
 
               {/* Our Products */}
               <div>
                 <h3 className="font-semibold mb-3">Our Products</h3>
-                <ul className="space-y-1 font-sm text-sm text-gray-900">
-                  <li>PW App Learning</li>
-                  <li>PW Offline Payments (Fin-Z)</li>
+                <ul className="space-y-1 font-sm text-sm text-gray-900 whitespace-nowrap ">
+                  <li> Glare App Learning</li>
+                  <li> Glare Offline Payments (Fin-Z)</li>
                 </ul>
               </div>
             </div>
@@ -130,7 +123,7 @@ export default function Footer() {
 <div className="border-t border-gray-400 max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
         
       
-        <p className="text-gray-600 text-md text-center sm:text-left">
+        <p className="text-gray-700 text-md text-center sm:text-left">
           © Copyright 2025, All Rights Reserved By{" "}
           <span className="font-semibold text-gray-800">
             Harifly Technologies Private Limited

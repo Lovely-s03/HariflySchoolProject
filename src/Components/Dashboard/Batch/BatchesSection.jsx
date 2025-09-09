@@ -89,7 +89,7 @@ const BatchesSection = () => {
     "Power Batch",
     "State Exams",
     "Real Test",
-    "PW IOI",
+    " Glare IOI",
     "Combo",
     "Study Abroad",
     "Free",

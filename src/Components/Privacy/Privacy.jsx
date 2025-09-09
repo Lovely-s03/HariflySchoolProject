@@ -4,22 +4,22 @@ const Privacy = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 mt-[120px]">
       {/* Heading */}
-      <h1 className="text-3xl font-bold mb-6">PW Privacy Policy</h1>
+      <h1 className="text-3xl font-bold mb-6"> Glare Privacy Policy</h1>
 
       {/* Intro */}
       <p className="mb-4">
         Please read the following Privacy policy of the services made available
         on{" "}
         <a
-          href="https://www.pw.live"
+          href="https://www. Glare.live"
           className="text-indigo-600 underline"
           target="_blank"
           rel="noopener noreferrer"
         >
-          www.pw.live
+          www. Glare.live
         </a>{" "}
-        or the equivalent PW Mobile Application available on Google Play,
-        ("<b>PW App</b>"/ "<b>Website</b>"). The PW App or Website on which the
+        or the equivalent  Glare Mobile Application available on Google Play,
+        ("<b> Glare App</b>"/ "<b>Website</b>"). The  Glare App or Website on which the
         Services are availed may together be referred to for convenience as the{" "}
         <b>“Platform”</b>.
       </p>
@@ -32,12 +32,12 @@ const Privacy = () => {
       </p>
 
       <p className="mb-4">
-        By viewing the PW Platform, you agree to be bound by the terms of this
+        By viewing the  Glare Platform, you agree to be bound by the terms of this
         Privacy Policy.
       </p>
 
       <p className="mb-6">
-        By using the PW Platform and/or by providing Your information, You
+        By using the  Glare Platform and/or by providing Your information, You
         consent to the collection and use of the information You disclose on our
         Website in accordance with this Privacy Policy, including but not
         limited to your consent for sharing your information as per this Privacy
@@ -116,15 +116,15 @@ const Privacy = () => {
 
       {/* Section 1.6 */}
       <p className="mb-4">
-        <b>1.6</b> You agree to immediately notify PW in writing by email to{" "}
+        <b>1.6</b> You agree to immediately notify  Glare in writing by email to{" "}
         <a
-          href="mailto:support@pw.live"
+          href="mailto:support@ Glare.live"
           className="text-indigo-600 underline"
         >
-          support@pw.live
+          support@ Glare.live
         </a>{" "}
         of any unauthorized use of your Personal User Information or any other
-        breach of security. PW is not and shall not be liable for any harm
+        breach of security.  Glare is not and shall not be liable for any harm
         arising from or relating to the theft of your Personal User Information
         that is under Your control, your disclosure of your Personal User
         Information, or the use of your Personal User Information by another

@@ -15,7 +15,7 @@ const NavbarDashboard = ({ onMenuClick }) => {
         </button>
 
         <div className="h-8 w-8 flex items-center justify-center rounded-full border border-gray-400 text-sm font-bold">
-          PW
+          Glare
         </div>
         <span className="text-lg font-semibold hidden sm:block">Physics Wallah</span>
 
