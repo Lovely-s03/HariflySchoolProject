@@ -29,6 +29,10 @@ const faqs = [
     q: "How to change mobile number on PW App ?",
     a: "Open Profile Settings in the PW App and update your registered mobile number. Verify via OTP to save changes.",
   },
+  {
+    q: "How to change mobile number on PW App ?",
+    a: "Open Profile Settings in the PW App and update your registered mobile number. Verify via OTP to save changes.",
+  },
 ];
 
 const MyIssuesFilter = ({ activeStatus, setActiveStatus }) => {
@@ -101,7 +105,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Type your query here..."
-                className="w-full pl-4 pr-10 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-400 transition outline-none text-gray-700 bg-white"
+                className="w-full pl-4 pr-10 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-400 transition outline-none text-gray-700 bg-white mt-2"
               />
               <span className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-400">
                 <svg
@@ -142,11 +146,11 @@ const Contact = () => {
             {/* Issue Image + Upload */}
             <img
               src={uploadedImg ? URL.createObjectURL(uploadedImg) : defaultIssuesImg}
-              alt="No Issues"
+              alt="No notice Found "
               className="w-56 h-56 object-contain"
             />
             <div className="text-center mt-8">
-              <h3 className="text-2xl font-semibold text-gray-800">No Notice for Today</h3>
+              <h3 className="text-2xl font-semibold text-gray-800">No Notice for Today!</h3>
             </div>
           </div>
         </div>
@@ -187,6 +191,7 @@ const Contact = () => {
                     style={{ transition: "max-height 0.3s ease" }}
                   >
                     {openIdx === idx && faq.a}
+                    
                   </div>
                 </div>
               ))}
@@ -213,11 +218,11 @@ const Contact = () => {
           </section>
 
           {/* Contact Section */}
-          <div className="bg-white rounded-lg shadow-md p-6 w-full mt-8 flex items-center justify-between gap-6">
+          <div className="bg-white rounded-lg shadow-md p-6 w-full mt-8 flex items-center justify-between gap-6 mb-8">
             <div className="flex-1">
               <h2 className="font-semibold text-xl md:text-xl mb-2">Still need help, Have Queries</h2>
               <p className="text-gray-600 mb-7 text-lg">Have Queries? Please get in touch & we will happy to help you</p>
-              <button className="bg-indigo-600 text-white py-3 px-12 rounded-lg font-semibold text-lg transition hover:bg-indigo-700 focus:outline-none">
+              <button className="bg-indigo-600 text-white py-2 px-8 rounded-lg font-semibold text-lg transition hover:bg-indigo-700 focus:outline-none">
                 Contact Us
               </button>
             </div>
