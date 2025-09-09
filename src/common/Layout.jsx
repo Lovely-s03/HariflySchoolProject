@@ -12,6 +12,7 @@ import Batch from '../Components/Dashboard/Batch/Batch';
 import Privacy from '../Components/Privacy/Privacy';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import Contact from '../Components/Dashboard/Contact/Contact';
+import Goal from '../Components/Dashboard/AllGoals/Goal';
 
 const Layout = () => {
   const location = useLocation();
@@ -32,6 +33,9 @@ const Layout = () => {
          <Route path="testseries" element={<Testseries/>} />
             <Route path="batch" element={<Batch/>} />
                 <Route path="contact" element={<Contact/>} />
+                <Route path="goal" element={<Goal/>} />
+
+
           
          </Route>
              <Route path="/privacy" element={<Privacy/>} />
