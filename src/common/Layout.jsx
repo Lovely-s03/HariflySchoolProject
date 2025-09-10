@@ -13,7 +13,7 @@ import Privacy from '../Components/Privacy/Privacy';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import Contact from '../Components/Dashboard/Contact/Contact';
 import Goal from '../Components/Dashboard/AllGoals/Goal';
-// import BuyOrderSummary from './BuyOrderSummary';
+import BuyOrderSummary from './BuyOrderSummary';
 
 const Layout = () => {
   const location = useLocation();
@@ -40,7 +40,7 @@ const Layout = () => {
           </Route>
              <Route path="/privacy" element={<Privacy/>} />
                 <Route path="/about-us" element={<AboutUs/>} />
-                  {/* <Route path="/order-summary" element={<BuyOrderSummary />} /> */}
+                  <Route path="/order-summary" element={<BuyOrderSummary />} />
       </Routes>
   
       {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer />}
