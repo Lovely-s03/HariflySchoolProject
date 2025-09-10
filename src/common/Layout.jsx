@@ -13,16 +13,17 @@ import Privacy from '../Components/Privacy/Privacy';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import Contact from '../Components/Dashboard/Contact/Contact';
 import Goal from '../Components/Dashboard/AllGoals/Goal';
+import BuyOrderSummary from './BuyOrderSummary';
 
 const Layout = () => {
   const location = useLocation();
 
   const isDashboardRoute = location.pathname.startsWith("/dashboard");
-
+  const isOrderSummaryRoute = location.pathname === "/order-summary";
 
   return (
     <>
-      {!isDashboardRoute && <Navbar/>}
+      {!isDashboardRoute && !isOrderSummaryRoute &&  <Navbar/>}
       <ScrollToTop/>
 
       <Routes>
@@ -36,13 +37,14 @@ const Layout = () => {
                 <Route path="goal" element={<Goal/>} />
 
 
-          
-         </Route>
+          </Route>
              <Route path="/privacy" element={<Privacy/>} />
                 <Route path="/about-us" element={<AboutUs/>} />
+                  <Route path="/order-summary" element={<BuyOrderSummary />} />
       </Routes>
   
-      {!isDashboardRoute && <Footer />}
+      {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer />}
+      
     </>
   );
 };
