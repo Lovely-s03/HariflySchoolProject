@@ -13,6 +13,7 @@ import Privacy from '../Components/Privacy/Privacy';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import Contact from '../Components/Dashboard/Contact/Contact';
 import Goal from '../Components/Dashboard/AllGoals/Goal';
+import Explore from '../Components/Dashboard/Batch/Explore/Explore';
 
 const Layout = () => {
   const location = useLocation();
@@ -31,9 +32,13 @@ const Layout = () => {
         <Route path="/dashboard" element={<Dashboard />} >
          <Route path="study" element={<Study/>} />
          <Route path="testseries" element={<Testseries/>} />
-            <Route path="batch" element={<Batch/>} />
-                <Route path="contact" element={<Contact/>} />
-                <Route path="goal" element={<Goal/>} />
+         <Route path="batch" element={<Batch/>} />
+         <Route path="contact" element={<Contact/>} />
+         <Route path="explore" element={<Explore/>} />
+
+         <Route path="goal" element={<Goal/>} />
+         
+
 
 
           
