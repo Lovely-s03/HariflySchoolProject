@@ -4,6 +4,7 @@ import {  FaCalendarAlt, FaFilter } from "react-icons/fa";
 import yakkenNeet from '../../../assets/yakeenNeet.jpeg'
 import RightFilter from "./RightFilter";
 import { useNavigate } from "react-router-dom";
+import BuyNowModal from "../../../common/BuyNowModal";
 
 const batches = [
   {
@@ -103,6 +104,8 @@ const BatchesSection = () => {
   const handleclick=()=>{
   navigate('/dashboard/explore');
 }
+        const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   return (
     <div className=" py-5">
@@ -118,7 +121,7 @@ const BatchesSection = () => {
         <span className="font-medium">Filter</span>
       </button>
     
-    <div className="w-full overflow-x-auto">
+    <div className="w-full overflow-x-auto  max-w-[300px] md:max-w-[350px] lg:max-w-[600px] xl:max-w-full">
           <div className="flex gap-6 min-w-max">
         {tabs.map((tab) => (
           <button
@@ -185,10 +188,14 @@ const BatchesSection = () => {
                 <button onClick={handleclick} className="flex-1 py-2 border rounded-lg text-indigo-600 font-medium hover:bg-indigo-50">
                   EXPLORE
                 </button>
-                <button className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
+                <button onClick={() => setIsModalOpen(true)} className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">
                   BUY NOW
                 </button>
               </div>
+              <BuyNowModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
             </div>
           
           </div>
