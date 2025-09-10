@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BuyNowModal from "../../../../common/BuyNowModal";
 
 
 
@@ -324,6 +325,8 @@ const ArjunaTabs = () => {
   const [showFeatures, setShowFeatures] = useState(true);
     const [showAll, setShowAll] = useState(false);
     const [openIdx, setOpenIdx] = useState(null);
+            const [isModalOpen, setIsModalOpen] = useState(false);
+    
   
   const faqsToShow = showAll ? faqs : faqs.slice(0, 4);
   
@@ -375,9 +378,13 @@ const ArjunaTabs = () => {
          <div className=" mx-auto bg-white rounded-xl shadow p-2 mt-2">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold">Choose a Plan</h2>
-        <button className="bg-indigo-500 text-white font-medium px-5 py-2 rounded-lg hover:bg-indigo-600 transition">
+        <button onClick={() => setIsModalOpen(true)} className="bg-indigo-500 text-white font-medium px-5 py-2 rounded-lg hover:bg-indigo-600 transition">
           Compare Plans
         </button>
+        <BuyNowModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       </div>
 
       <div className="flex gap-2 mb-4">
