@@ -101,8 +101,7 @@ const BatchesSection = () => {
 
   return (
     <div className=" py-5">
-      {/* Tabs */}
-  {/* <div className="sticky top-[107px] z-20 bg-white flex gap-6 border-b border-gray-50 mb-6 cursor-pointer py-3"> */}
+      
   <div className="sticky top-[107px] z-20 bg-white border-b border-gray-50 mb-6 px-3 py-3 flex items-center gap-4">
 
       <button
