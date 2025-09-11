@@ -4,7 +4,7 @@ import { FaAngleRight, FaBars } from "react-icons/fa";
 
 const NavbarDashboard = ({ onMenuClick }) => {
   return (
-    // <nav className="w-full bg-[#1e2124] text-white flex items-center justify-between px-4 py-2 shadow-md">
+  
     <nav className="fixed top-0 left-0 w-full bg-[#1e2124] text-white flex items-center justify-between px-4 py-2 shadow-md z-50">
 
       {/* Left: Logo + Name */}
@@ -14,8 +14,8 @@ const NavbarDashboard = ({ onMenuClick }) => {
           <FaBars size={20} />
         </button>
 
-        <div className="h-8 w-8 flex items-center justify-center rounded-full border border-gray-400 text-sm font-bold">
-          Glare
+        <div className="p-2 flex items-center justify-center rounded-full border border-gray-400 text-sm font-bold">
+      Glare
         </div>
         <span className="text-lg font-semibold hidden sm:block">Physics Wallah</span>
 
