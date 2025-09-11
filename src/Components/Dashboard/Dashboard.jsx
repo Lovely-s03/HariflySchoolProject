@@ -58,7 +58,7 @@ const Dashboard = () => {
    <div className="px-5 xl:px-[55px] mt-[135px]"> 
   
         <Outlet/> 
-        {/* <Batch/> */}
+      
    </div>
 
 </div>

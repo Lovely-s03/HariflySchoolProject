@@ -5,6 +5,7 @@ import yakkenNeet from '../../../assets/yakeenNeet.jpeg'
 import RightFilter from "./RightFilter";
 import { useNavigate } from "react-router-dom";
 import BuyNowModal from "../../../common/BuyNowModal";
+import { toast } from "react-toastify";
 
 const batches = [
   {
@@ -105,13 +106,12 @@ const BatchesSection = () => {
   navigate('/dashboard/explore');
 }
         const [isModalOpen, setIsModalOpen] = useState(false);
-
-
+const [enrolledBatches, setEnrolledBatches] = useState({});
   return (
     <div className=" py-5">
       {/* Tabs */}
   {/* <div className="sticky top-[107px] z-20 bg-white flex gap-6 border-b border-gray-50 mb-6 cursor-pointer py-3"> */}
-  <div className="sticky top-[107px] z-20 bg-white border-b border-gray-50 mb-6 py-3 flex items-center gap-4">
+  <div className="sticky top-[107px] z-20 bg-white border-b border-gray-50 mb-6 py-3 px-3 flex items-center gap-4">
 
       <button
          onClick={() => setIsFilterOpen(true)}
@@ -182,9 +182,9 @@ const BatchesSection = () => {
                   {batch.discount}
                 </span>
               </div>
+     
 
-              {/* Buttons */}
-             <div className="flex gap-3 mt-5">
+<div className="flex gap-3 mt-5">
   <button
     onClick={handleclick}
     className="flex-1 py-2 border rounded-lg text-indigo-600 font-medium hover:bg-indigo-50"
@@ -192,14 +192,35 @@ const BatchesSection = () => {
     EXPLORE
   </button>
 
-  <button
-    onClick={() => setIsModalOpen(true)}
-    className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700"
-  >
-    {activeTab === "Free" ? "ENROLLED" : "BUY NOW"}
-  </button>
+  {activeTab === "Free" ? (
+    <button
+      onClick={() => {
+        if (!enrolledBatches[batch.id]) {
+          toast.success(` You have successfully enrolled in ${batch.title}`);
+          setEnrolledBatches((prev) => ({
+            ...prev,
+            [batch.id]: true,
+          }));
+        }
+      }}
+      className={`flex-1 py-2 text-white rounded-lg font-medium transition ${
+        enrolledBatches[batch.id]
+          ? "bg-gray-400 cursor-not-allowed"
+          : "bg-indigo-600 hover:bg-gray-500"
+      }`}
+      disabled={enrolledBatches[batch.id]}
+    >
+      {enrolledBatches[batch.id] ? "ENROLLED" : "ENROLL NOW"}
+    </button>
+  ) : (
+    <button
+      onClick={() => setIsModalOpen(true)}
+      className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700"
+    >
+      BUY NOW
+    </button>
+  )}
 </div>
-
               <BuyNowModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
