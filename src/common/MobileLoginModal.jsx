@@ -92,7 +92,7 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
                   <select className="px-3 py-2 bg-gray-100 border-r text-gray-700 text-sm outline-none">
                     <option value="+91">+91</option>
                     <option value="+1">+1</option>
-                    <option value="+44">+44</option>
+                    <option value="+44">+44</option>  
                   </select>
                   <input
                     type="tel"

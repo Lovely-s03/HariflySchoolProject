@@ -5,7 +5,7 @@ import Sidebar from "../../common/Sidebar";
 import { FaFire } from "react-icons/fa";
 import { GiDiamondTrophy } from "react-icons/gi";
 import { Outlet } from "react-router-dom";
-import Batch from "./Batch/Batch";
+
 
 
 const Dashboard = () => {
@@ -58,7 +58,7 @@ const Dashboard = () => {
    <div className="px-5 xl:px-[55px] mt-[135px]"> 
   
         <Outlet/> 
-      
+    
    </div>
 
 </div>
