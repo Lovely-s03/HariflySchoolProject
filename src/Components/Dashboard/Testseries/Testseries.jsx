@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import top1 from '../../../assets/top1.png'
 import { FaCheckCircle, FaFilter, FaStar, FaWhatsapp } from "react-icons/fa";
 import { IoIosArrowDown, IoIosSearch } from "react-icons/io";
+import BuyNowModal from "../../../common/BuyNowModal";
 
  const tests = [
     
@@ -119,7 +120,7 @@ const Testseries = () => {
       setOpenDropdown(name);
     }
   };
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-8 bg-white my-5 rounded-lg shadow-md">
@@ -143,7 +144,7 @@ const Testseries = () => {
 </div>
 
 
-     <div className="flex justify-between items-center mb-5">
+     <div className="flex flex-col gap-5 lg-gap-0 lg:flex-row justify-between items-center mb-5">
          <h2 className="text-[25px] font-semibold ">Recommended (39)</h2>
        <div className="flex items-center gap-3">
          
@@ -281,7 +282,7 @@ const Testseries = () => {
 
      
        <div className="max-w-7xl mx-auto  py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {tests.map((test) => (
           <div
             key={test.id}
@@ -330,10 +331,17 @@ const Testseries = () => {
                   <button className="flex-1 border rounded-lg py-2 text-sm hover:bg-gray-50">
                     EXPLORE
                   </button>
-                  <button className="flex-1 bg-indigo-600 text-white rounded-lg py-2 text-sm hover:bg-indigo-700">
-                    BUY NOW
-                  </button>
+                   <button
+      onClick={() => setIsModalOpen(true)}
+      className="flex-1 bg-[#000080] text-white py-2 rounded-lg font-medium hover:bg-indigo-700"
+    >
+      BUY NOW
+    </button>
                 </div>
+                 <BuyNowModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
               </div>
             </div>
           </div>

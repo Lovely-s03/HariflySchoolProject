@@ -1,10 +1,11 @@
 // RecommendedBatches.jsx
-import React from "react";
+import React, { useState } from "react";
 import { FaUsers, FaCalendarAlt, FaWhatsapp } from "react-icons/fa";
 import top1 from '../../../assets/top1.png'
 import top2 from '../../../assets/top2.png'
 import top3 from '../../../assets/top3.png'
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import BuyNowModal from "../../../common/BuyNowModal";
 
 
 const batches = [
@@ -50,6 +51,7 @@ const batches = [
 ];
 
 const RecommendedBatches = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
   return (
  <section>
        <div className="max-w-7xl mx-auto px-8 py-10 shadow-sm border bg-white border-gray-100  my-5 rounded-md">
@@ -107,10 +109,18 @@ const RecommendedBatches = () => {
               <button className="flex-1 bg-gray-100 text-gray-800 py-2 rounded-lg font-medium hover:bg-gray-200">
                 Explore
               </button>
-              <button className="flex-1 bg-[#000080] text-white py-2 rounded-lg font-medium hover:bg-indigo-700">
-                Buy Now
-              </button>
+    <button
+      onClick={() => setIsModalOpen(true)}
+      className="flex-1 bg-[#000080] text-white py-2 rounded-lg font-medium hover:bg-indigo-700"
+    >
+      BUY NOW
+    </button>
             </div>
+            
+              <BuyNowModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
           </div>
         ))}
       </div>

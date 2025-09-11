@@ -20,7 +20,6 @@ import { Link } from "react-router-dom";
 const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
     <>
-      {/* Background Overlay (only when open on mobile) */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
@@ -33,19 +32,16 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         className={`fixed bg-white shadow-md flex flex-col p-4 space-y-6 overflow-y-auto z-50 transform transition-transform duration-300
           ${isOpen ? "translate-x-0" : "-translate-x-full"} 
           md:translate-x-0
-          md:top-[49px] md:left-0 md:h-[calc(100vh-49px)] md:w-64
-          top-0 left-0 h-screen w-full md:w-64`}
+          md:top-[49px] md:left-0 md:h-[calc(100vh-49px)] 
+          top-0 left-0 h-[100%] w-full md:w-64`}
       >
    
-
-        {/* Close Button (Mobile Only) */}
         <div className="flex justify-end md:hidden">
           <button onClick={() => setIsOpen(false)}>
             <XMarkIcon className="h-6 w-6 text-gray-700" />
           </button>
         </div>
 
-        {/* Learn Online */}
         <div>
           <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase">
             Learn Online

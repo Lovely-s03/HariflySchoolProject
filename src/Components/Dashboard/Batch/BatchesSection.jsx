@@ -143,7 +143,7 @@ const [enrolledBatches, setEnrolledBatches] = useState({});
     </div>
      
 
-      <h2 className="text-lg font-semibold mb-4">44 Batches available</h2>
+      <h2 className="text-lg font-semibold mb-4">6 Batches available</h2>
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {batches.map((batch) => (
           <div
@@ -215,7 +215,7 @@ const [enrolledBatches, setEnrolledBatches] = useState({});
   ) : (
     <button
       onClick={() => setIsModalOpen(true)}
-      className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700"
+      className="flex-1 bg-[#000080] text-white py-2 rounded-lg font-medium hover:bg-indigo-700"
     >
       BUY NOW
     </button>

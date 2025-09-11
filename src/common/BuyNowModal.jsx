@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const BuyNowModal = ({ isOpen, onClose }) => {
     const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Batch");
-
+  
+ useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; 
+    } else {
+      document.body.style.overflow = "auto"; 
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
   if (!isOpen) return null;
 
   const plans = ["Batch", "Infinity", "Infinity Pro"];
@@ -31,8 +41,8 @@ const BuyNowModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white backdrop-blur-[1px]">
-      <div className="bg-white text-black rounded-2xl shadow-2xl max-w-4xl w-full relative overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white backdrop-blur-[0.9px]">
+      <div className="bg-white text-black rounded-2xl shadow-2xl max-w-4xl w-full relative overflow-hidden  mx-5">
         {/* Close button */}
         <button
           className="absolute top-4 right-4 text-white transition"
