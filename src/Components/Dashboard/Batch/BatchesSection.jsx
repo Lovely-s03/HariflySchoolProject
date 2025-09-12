@@ -111,23 +111,23 @@ const [enrolledBatches, setEnrolledBatches] = useState({});
     <div className=" py-5">
       {/* Tabs */}
   {/* <div className="sticky top-[107px] z-20 bg-white flex gap-6 border-b border-gray-50 mb-6 cursor-pointer py-3"> */}
-  <div className="sticky top-[107px] z-20 bg-white border-b border-gray-50 mb-6 py-3 px-3 flex items-center gap-4">
+  <div className="sticky top-[107px] z-20 bg-white border-b border-gray-50 mb-6 py-3 px-3 flex items-center gap-4 ">
 
       <button
          onClick={() => setIsFilterOpen(true)}
-        className="flex items-center gap-2 border px-3 py-1 rounded-md text-gray-700 hover:text-indigo-600 hover:border-indigo-600"
+        className="flex items-center gap-2 border px-3 py-1 rounded-md text-gray-700 hover:text-indigo-600 hover:border-indigo-600 cursor-pointer"
       >
         <FaFilter className="text-sm" />
         <span className="font-medium">Filter</span>
       </button>
     
-    <div className="w-full overflow-x-auto  max-w-[300px] md:max-w-[350px] lg:max-w-[600px] xl:max-w-full">
+    <div className="w-full overflow-x-auto  max-w-[300px] md:max-w-[350px] lg:max-w-[600px] xl:max-w-full ">
           <div className="flex gap-6 min-w-max">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-shrink-0 pb-2 whitespace-nowrap  ${
+            className={`flex-shrink-0 pb-2 whitespace-nowrap cursor-pointer ${
               activeTab === tab
                 ? "text-indigo-600 font-medium border-b-2 border-indigo-600"
                 : "text-gray-700 hover:text-indigo-600"
@@ -215,7 +215,7 @@ const [enrolledBatches, setEnrolledBatches] = useState({});
   ) : (
     <button
       onClick={() => setIsModalOpen(true)}
-      className="flex-1 bg-[#000080] text-white py-2 rounded-lg font-medium hover:bg-indigo-700"
+      className="flex-1 bg-[#000080] text-white py-2 rounded-lg font-medium hover:bg-indigo-700 cursor-pointer"
     >
       BUY NOW
     </button>

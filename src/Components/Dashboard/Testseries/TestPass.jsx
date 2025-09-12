@@ -1,0 +1,147 @@
+import React, { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import top from '../../../assets/testpass.png'
+
+const JeeTestPass = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <div className="w-full bg-gray-50 min-h-screen flex justify-center p-4">
+      <div className="w-full max-w-6xl bg-white rounded-xl shadow p-4 md:p-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
+            Arjuna JEE Test Pass
+          </h2>
+          <button className="flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-700 hover:bg-gray-100 transition">
+            <FaWhatsapp className="text-green-500" />
+            Share pass
+          </button>
+        </div>
+
+        {/* Main Section */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Left Side */}
+          <div className="md:col-span-2 space-y-6">
+            {/* What is Arjuna Pass */}
+            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+              <div className="p-3 border-b">
+                <h3 className="font-semibold text-gray-700">
+                  What is Arjuna JEE Test Pass?
+                </h3>
+              </div>
+              <div className="p-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r w-full">
+                <img
+                  src={top}
+                  alt="mentor"
+                  className="w-full mt-4 md:mt-0"
+                />
+              </div>
+            </div>
+
+            {/* Why Arjuna Pass */}
+            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+              <div className="p-3 border-b">
+                <h3 className="font-semibold text-gray-700">
+                  Why Arjuna JEE Test Pass?
+                </h3>
+              </div>
+              <div className="p-6   ">
+              
+               <img
+                  src={top}
+                  alt="mentor"
+                  className="w-full mt-4 md:mt-0"
+                />
+              </div>
+            </div>
+            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+              <div className="p-3 border-b">
+                <h3 className="font-semibold text-gray-700">
+                  Why Arjuna JEE Test Pass?
+                </h3>
+              </div>
+              <div className="p-6   ">
+              
+               <img
+                  src={top}
+                  alt="mentor"
+                  className="w-full mt-4 md:mt-0"
+                />
+              </div>
+            </div>
+             <div className="w-full bg-white rounded-xl border shadow-sm overflow-hidden">
+      {/* Header */}
+      <div className="p-3 border-b">
+        <h3 className="font-semibold text-gray-700">
+          How this will help you?
+        </h3>
+      </div>
+      <div className="relative w-full aspect-video p-3">
+        {!isPlaying ? (
+          <>
+            <img
+              src={top}
+              alt="Video Thumbnail"
+              className="w-full h-full object-cover"
+            />
+            {/* Play Button */}
+            <button
+              onClick={() => setIsPlaying(true)}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <div className="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="white"
+                  viewBox="0 0 24 24"
+                  className=" ml-1"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </button>
+          </>
+        ) : (
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/yourVideoId?autoplay=1"
+            title="Video Player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        )}
+      </div>
+    </div>
+          </div>
+
+          {/* Right Side (Fixed Small Box) */}
+          <div className="md:col-span-1">
+            <div className="sticky top-20 bg-white border shadow-sm rounded-xl p-4 flex flex-col items-center w-full max-w-sm mx-auto">
+              <h3 className="text-gray-700 font-medium mb-4 text-center">
+                Choose Your Plan
+              </h3>
+
+              <div className="border rounded-xl p-4 text-center w-full relative">
+                <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 text-xs bg-purple-100 text-purple-600 px-2 py-0.5 rounded">
+                  most popular
+                </span>
+                <p className="font-semibold text-lg">12 Month</p>
+                <p className="text-2xl font-bold text-purple-600 mt-1">₹2,500</p>
+                <p className="line-through text-gray-400 text-sm">₹5,000</p>
+                <p className="text-gray-600 text-sm">208/ Month</p>
+                <p className="text-green-600 font-semibold mt-1">50% OFF</p>
+              </div>
+
+              <button className="w-full mt-6 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default JeeTestPass;

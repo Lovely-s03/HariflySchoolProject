@@ -10,7 +10,7 @@ const NavbarDashboard = ({ onMenuClick }) => {
       {/* Left: Logo + Name */}
       <div className="flex items-center gap-2">
         {/* Mobile Menu Button */}
-        <button className="md:hidden mr-3" onClick={onMenuClick}>
+        <button className="md:hidden mr-3 cursor-pointer" onClick={onMenuClick}>
           <FaBars size={20} />
         </button>
 

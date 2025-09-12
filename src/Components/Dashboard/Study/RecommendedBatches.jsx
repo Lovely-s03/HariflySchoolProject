@@ -1,9 +1,8 @@
 // RecommendedBatches.jsx
 import React, { useState } from "react";
 import { FaUsers, FaCalendarAlt, FaWhatsapp } from "react-icons/fa";
-import top1 from '../../../assets/top1.png'
-import top2 from '../../../assets/top2.png'
-import top3 from '../../../assets/top3.png'
+import top1 from '../../../assets/coursegla.jpeg'
+
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import BuyNowModal from "../../../common/BuyNowModal";
 
@@ -11,7 +10,7 @@ import BuyNowModal from "../../../common/BuyNowModal";
 const batches = [
   {
     id: 1,
-    title: "Arjuna JEE 4.0 2026",
+    title: "Glare30 JEE 4.0 2026",
     img: top1,
     language: "Hinglish",
     target: "For JEE Aspirants",
@@ -24,8 +23,8 @@ const batches = [
   },
   {
     id: 2,
-    title: "Arjuna JEE 3.0 2026",
-    img: top2,
+    title: "Glare30 JEE 3.0 2026",
+    img: top1,
     language: "Hinglish",
     target: "For JEE Aspirants",
     start: "14 Jul 2025",
@@ -37,8 +36,8 @@ const batches = [
   },
   {
     id: 3,
-    title: "Arjuna JEE Hindi 2.0 2026",
-    img: top3,
+    title: "Glare30 JEE Hindi 2.0 2026",
+    img: top1,
     language: "Hindi",
     target: "IIT JEE",
     start: "16 Jul 2025",
@@ -80,7 +79,7 @@ const RecommendedBatches = () => {
             <img
               src={batch.img}
               alt={batch.title}
-              className="rounded-lg w-full object-cover"
+              className="rounded-lg  w-full object-cover"
             />
           
             <p className="text-sm text-gray-600">{batch.target}</p>
