@@ -7,6 +7,8 @@ const contentMap = {
     { title: "All Contents", subtitle: "All Videos | All Exercises | All Notes" },
     { title: "Mechanics", subtitle: "2 Videos | 1 Exercises | 1 Notes" },
     { title: "Waves", subtitle: "1 Videos | 2 Exercises | 1 Notes" },
+    { title: "Waves", subtitle: "1 Videos | 2 Exercises | 1 Notes" },
+
   ],
   Maths: [
     { title: "All Contents", subtitle: "All Videos | All Exercises | All Notes" },
@@ -18,6 +20,9 @@ const contentMap = {
     { title: "Mole Concept", subtitle: "1 Videos | 1 Exercises | 2 Notes" },
     { title: "Solutions", subtitle: "1 Videos | 1 Exercises | 2 Notes" },
     { title: "Structure of Atom", subtitle: "1 Videos | 1 Exercises | 2 Notes" },
+    { title: "Waves", subtitle: "1 Videos | 2 Exercises | 1 Notes" },
+    { title: "Waves", subtitle: "1 Videos | 2 Exercises | 1 Notes" },
+
   ],
   // Add other subjects here...
 };

@@ -15,6 +15,10 @@ import Contact from '../Components/Dashboard/Contact/Contact';
 import Goal from '../Components/Dashboard/AllGoals/Goal';
 import Explore from '../Components/Dashboard/Batch/Explore/Explore';
 import BuyOrderSummary from './BuyOrderSummary';
+
+
+
+
 import Classes from '../Components/Dashboard/Batch/Explore/Classes';
 
 const Layout = () => {
@@ -56,7 +60,7 @@ const Layout = () => {
                 <Route path="/order-summary" element={<BuyOrderSummary/>} />
       </Routes>
   
-      {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer />}
+      {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer/>}
     </>
   );
 };
