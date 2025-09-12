@@ -17,7 +17,7 @@ const AboutUs = () => {
     {/* <OurPresence/> */}
     <GreatPlaceSection/>
       <AppPromoSection/>
-    </div>
+    </div> 
   )
 }
 

@@ -54,7 +54,7 @@ const RecommendedBatches = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
   return (
  <section>
-       <div className="max-w-7xl mx-auto px-8 py-10 shadow-sm border bg-white border-gray-100  my-5 rounded-md">
+       <div className="max-w-7xl mx-auto px-8 py-10 shadow-sm border  bg-white border-gray-100  my-5 rounded-md">
       {/* Title */}
       <div className="mb-6">
         <h2 className="text-2xl font-bold">Top Recommended Batches</h2>
