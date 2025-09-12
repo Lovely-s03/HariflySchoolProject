@@ -1,112 +1,113 @@
 import React, { useState } from "react";
-import top1 from '../../../assets/top1.png'
+import top1 from '../../../assets/coursegla.jpeg'
 import { FaCheckCircle, FaFilter, FaStar, FaWhatsapp } from "react-icons/fa";
 import { IoIosArrowDown, IoIosSearch } from "react-icons/io";
 import BuyNowModal from "../../../common/BuyNowModal";
+import { useNavigate } from "react-router-dom";
 
  const tests = [
     
-    {
-      id: 1,
-      title: "11th JEE RTS 2026",
-      img:top1,
-      price: "₹3999",
-      oldPrice: "6999",
-      features: [
-        "<b>Hybrid Test Series:</b> Online & offline",
-        "<b>NTA Simulation:</b> NTA-like exam experience",
-        "<b>18 Tests:</b> Part + Full syllabus",
-        "<b>Admit cards:</b> For offline tests, centers are similar to NTA",
-        "<b>Expert Analysis:</b> Detailed paper analysis & discussion",
-        "<b>Performance Insights:</b> In-depth performance analysis",
-        "<b>Smart Revision:</b> Question-level insights & revision help",
-      ],
-    },
-    {
-      id: 2,
-      title: "Arjuna JEE 2026 Test Series",
-      img: top1,
-      price: "₹1099",
-      oldPrice: "2199",
-      features: [
-        "Comprehensive online mock test series for class 11th JEE (Main + Advanced)",
-        "18 Tests (10 Part length + 8 Full length)",
-        "Detailed text and video solution for every test",
-        "In depth performance analysis with All India Rank (AIR)",
-        "Unlimited Re-attempt for thorough practice",
-      ],
-    },
-    {
-      id: 3,
-      title: "Arjuna JEE Hindi 2026 Test Series",
-      img: top1,
-      price: "₹799",
-      oldPrice: "1599",
-      features: [
-        "Comprehensive online mock test series for class 11th JEE (Main + Advanced)",
-        "10 Tests (7 Part length + 3 Full length)",
-        "Detailed text and video solution for every test",
-        "In depth performance analysis with All India Rank (AIR)",
-        "Unlimited Re-attempt for thorough practice",
-      ],
-    },
-     {
-      id: 4,
-      title: "Arjuna JEE Hindi 2026 Test Series",
-      img: top1,
-      price: "₹799",
-      oldPrice: "1599",
-      features: [
-        "Comprehensive online mock test series for class 11th JEE (Main + Advanced)",
-        "10 Tests (7 Part length + 3 Full length)",
-        "Detailed text and video solution for every test",
-        "In depth performance analysis with All India Rank (AIR)",
-        "Unlimited Re-attempt for thorough practice",
-      ],
-    },
-      {
-      id: 5,
-      title: "Arjuna JEE Hindi 2026 Test Series",
-      img: top1,
-      price: "₹799",
-      oldPrice: "1599",
-      features: [
-        "Comprehensive online mock test series for class 11th JEE (Main + Advanced)",
-        "10 Tests (7 Part length + 3 Full length)",
-        "Detailed text and video solution for every test",
-        "In depth performance analysis with All India Rank (AIR)",
-        "Unlimited Re-attempt for thorough practice",
-      ],
-    },
-      {
-      id: 6,
-      title: "Arjuna JEE Hindi 2026 Test Series",
-      img: top1,
-      price: "₹799",
-      oldPrice: "1599",
-      features: [
-        "Comprehensive online mock test series for class 11th JEE (Main + Advanced)",
-        "10 Tests (7 Part length + 3 Full length)",
-        "Detailed text and video solution for every test",
-        "In depth performance analysis with All India Rank (AIR)",
-        "Unlimited Re-attempt for thorough practice",
-      ],
-    },
-      {
-      id: 7,
-      title: "Arjuna JEE Hindi 2026 Test Series",
-      img: top1,
-      price: "₹799",
-      oldPrice: "1599",
-      features: [
-        "Comprehensive online mock test series for class 11th JEE (Main + Advanced)",
-        "10 Tests (7 Part length + 3 Full length)",
-        "Detailed text and video solution for every test",
-        "In depth performance analysis with All India Rank (AIR)",
-        "Unlimited Re-attempt for thorough practice",
-      ],
-    },
-  ];
+  {
+    id: 1,
+    title: "Glare 30 JEE 2026 Hybrid Test Series",
+    img: top1,
+    price: "₹3999",
+    oldPrice: "₹6999",
+    features: [
+      "<b>Hybrid Test Series:</b> Online & Offline",
+      "<b>NTA Simulation:</b> Real NTA-like exam experience",
+      "<b>18 Tests:</b> Part + Full syllabus coverage",
+      "<b>Admit Cards:</b> For offline tests, centers similar to NTA",
+      "<b>Expert Analysis:</b> Detailed paper discussion & strategy",
+      "<b>Performance Insights:</b> Advanced performance analytics",
+      "<b>Smart Revision:</b> Question-level insights for effective revision",
+    ],
+  },
+  {
+    id: 2,
+    title: "Glare 30 JEE Online Test Series 2026",
+    img: top1,
+    price: "₹1099",
+    oldPrice: "₹2199",
+    features: [
+      "Comprehensive online mock test series for JEE (Main + Advanced)",
+      "18 Tests (10 Part length + 8 Full length)",
+      "Text + Video solutions for every question",
+      "In-depth performance analysis with All India Rank (AIR)",
+      "Unlimited re-attempts for thorough practice",
+    ],
+  },
+  {
+    id: 3,
+    title: "Glare 30 Hindi JEE Test Series 2026",
+    img: top1,
+    price: "₹799",
+    oldPrice: "₹1599",
+    features: [
+      "Mock test series in Hindi for JEE (Main + Advanced)",
+      "10 Tests (7 Part length + 3 Full length)",
+      "Text + Video solutions provided",
+      "Performance analysis with AIR ranking",
+      "Unlimited re-attempts for deep learning",
+    ],
+  },
+  {
+    id: 4,
+    title: "Glare 30 Advanced Rank Booster 2026",
+    img: top1,
+    price: "₹1499",
+    oldPrice: "₹2999",
+    features: [
+      "Specially designed rank booster tests for JEE Advanced",
+      "12 High-level mock tests based on latest patterns",
+      "Expert-curated solutions with tips & tricks",
+      "All India performance comparison",
+      "Concept-wise error analysis & correction",
+    ],
+  },
+  {
+    id: 5,
+    title: "Glare 30 JEE Crash Test Series 2026",
+    img: top1,
+    price: "₹999",
+    oldPrice: "₹1999",
+    features: [
+      "Crash course style test series for final revision",
+      "8 Mock tests (Full syllabus)",
+      "Quick solution PDFs + discussion videos",
+      "Time management & attempt strategy analysis",
+      "Unlimited re-attempts till JEE exam",
+    ],
+  },
+  {
+    id: 6,
+    title: "Glare 30 JEE Mains Practice Series 2026",
+    img: top1,
+    price: "₹599",
+    oldPrice: "₹1199",
+    features: [
+      "Exclusive practice series for JEE Mains",
+      "15 Mock tests designed for speed & accuracy",
+      "Topic-wise analysis for weak areas",
+      "Smart timer feature for exam practice",
+      "Instant solution access",
+    ],
+  },
+  {
+    id: 7,
+    title: "Glare 30 JEE Full Length Test Series 2026",
+    img: top1,
+    price: "₹1299",
+    oldPrice: "₹2599",
+    features: [
+      "Full syllabus test series covering JEE Main & Advanced",
+      "10 Full length mock exams",
+      "Detailed solution + strategy notes",
+      "AIR performance ranking included",
+      "Personalized analysis for improvement",
+    ],
+  },
+];
 
 const Testseries = () => {
       const [openDropdown, setOpenDropdown] = useState(null);
@@ -121,7 +122,12 @@ const Testseries = () => {
     }
   };
     const [isModalOpen, setIsModalOpen] = useState(false);
+    
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/dashboard/testpass"); 
+  };
   return (
     <div className="max-w-7xl mx-auto px-5 py-8 bg-white my-5 rounded-lg shadow-md">
 
@@ -224,7 +230,7 @@ const Testseries = () => {
 <div className="bg-white  rounded-lg mb-8 shadow-md border border-[#ddebf8] max-w-full xl:max-w-[325px]">
       {/* Header */}
       <div className="flex items-start justify-between p-4">
-        <h3 className="text-lg font-semibold">Arjuna JEE Test Pass</h3>
+        <h3 className="text-lg font-semibold">Glare30 JEE Test Pass</h3>
         <span className="bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
           12 Month
         </span>
@@ -273,7 +279,7 @@ const Testseries = () => {
 
       {/* Button */}
       <div className="p-4">
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white w-full py-2 rounded-lg font-medium">
+        <button  onClick={handleClick} className="bg-indigo-600 hover:bg-indigo-700 text-white w-full py-2 rounded-lg font-medium">
           Get Pass
         </button>
       </div>

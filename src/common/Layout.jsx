@@ -15,6 +15,7 @@ import Contact from '../Components/Dashboard/Contact/Contact';
 import Goal from '../Components/Dashboard/AllGoals/Goal';
 import Explore from '../Components/Dashboard/Batch/Explore/Explore';
 import BuyOrderSummary from './BuyOrderSummary';
+import TestPass from '../Components/Dashboard/Testseries/TestPass';
 
 const Layout = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const Layout = () => {
         <Route index element={<Study />} />
          <Route path="study" element={<Study/>} />
          <Route path="testseries" element={<Testseries/>} />
+      <Route path="testpass" element={<TestPass/>} />
          <Route path="batch" element={<Batch/>} />
          <Route path="contact" element={<Contact/>} />
          <Route path="explore" element={<Explore/>} />
