@@ -17,6 +17,11 @@ import Explore from '../Components/Dashboard/Batch/Explore/Explore';
 import BuyOrderSummary from './BuyOrderSummary';
 import TestPass from '../Components/Dashboard/Testseries/TestPass';
 
+
+
+
+import Classes from '../Components/Dashboard/Batch/Explore/Classes';
+
 const Layout = () => {
   const location = useLocation();
 
@@ -41,6 +46,9 @@ const Layout = () => {
          <Route path="batch" element={<Batch/>} />
          <Route path="contact" element={<Contact/>} />
          <Route path="explore" element={<Explore/>} />
+         <Route path="classes" element={<Classes/>} />
+
+
 
          <Route path="goal" element={<Goal/>} />
          
@@ -54,7 +62,7 @@ const Layout = () => {
                 <Route path="/order-summary" element={<BuyOrderSummary/>} />
       </Routes>
   
-      {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer />}
+      {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer/>}
     </>
   );
 };
