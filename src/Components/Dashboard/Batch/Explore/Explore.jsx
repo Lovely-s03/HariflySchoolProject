@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import BuyNowModal from "../../../../common/BuyNowModal";
 import { FaWhatsapp } from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+
 const tabData = [
   { label: "Description" },
   { label: "All Classes" },
@@ -427,6 +429,7 @@ const videos = [
     bg: "bg-purple-100",
     text: "text-purple-600",
   },
+  
 ];
 
 const details = [
@@ -539,6 +542,7 @@ const icons = {
   ),
 };
 
+
 const subjects = [
   { name: "Physics", chapters: 3 },
   { name: "Maths", chapters: 3 },
@@ -548,6 +552,7 @@ const subjects = [
   { name: "Notices", chapters: 2 },
 ];
 
+ 
 const features1 = [
   {
     title: "Saarthi",
@@ -608,11 +613,18 @@ const ArjunaTabs = () => {
 
   const faqsToShow = showAll ? faqs : faqs.slice(0, 4);
   const currentFeatures = planFeatures[selectedPlan] || [];
+  const navigate = useNavigate();
+
+  const handleClick = (subject) => {
+    
+    navigate("/dashboard/classes", { state: { subject } });
+  };
+
 
   return (
-    <div className="bg-indigo-500 rounded-t-xl">
-      <div className="max-w-5xl mx-auto px-4 pt-6 pb-2">
-        <h2 className="text-white text-3xl font-bold">Arjuna JEE 4.0 2026</h2>
+    <div className="bg-[#000080] rounded-t-xl">
+      <div className="max-w-5xl mx-auto px-2 pt-6 pb-2 items-center justify-start">
+        <h2 className="text-white text-3xl font-bold ">Arjuna JEE 4.0 2026</h2>
       </div>
       <div className="bg-white px-4 flex flex-col gap-5 xl:gap-0 xl:flex-row items-center border-b justify-between pt-2 whitespace-nowrap">
         <div className="flex space-x-6 overflow-x-scroll max-w-[400px] xl:max-w-full">
@@ -652,7 +664,7 @@ const ArjunaTabs = () => {
                 <h2 className="text-xl font-semibold">Choose a Plan</h2>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-indigo-500 text-white font-medium px-5 py-2 rounded-lg hover:bg-indigo-600 transition"
+                  className="bg-[#000080] text-white font-medium px-5 py-2 rounded-lg bg-[#000080] transition"
                 >
                   Compare Plans
                 </button>
@@ -924,10 +936,11 @@ const ArjunaTabs = () => {
                 Select your subjects &amp; start learning
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
                 {subjects.map((subject) => (
                   <div
                     key={subject.name}
+                    onClick={() => handleClick(subject)}
                     className="bg-white rounded-xl shadow flex items-center p-5 min-w-[240px] transition hover:shadow-lg"
                   >
                     {icons[subject.name] || (

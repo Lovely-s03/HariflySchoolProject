@@ -15,6 +15,7 @@ import Contact from '../Components/Dashboard/Contact/Contact';
 import Goal from '../Components/Dashboard/AllGoals/Goal';
 import Explore from '../Components/Dashboard/Batch/Explore/Explore';
 import BuyOrderSummary from './BuyOrderSummary';
+import Classes from '../Components/Dashboard/Batch/Explore/Classes';
 
 const Layout = () => {
   const location = useLocation();
@@ -39,6 +40,9 @@ const Layout = () => {
          <Route path="batch" element={<Batch/>} />
          <Route path="contact" element={<Contact/>} />
          <Route path="explore" element={<Explore/>} />
+         <Route path="classes" element={<Classes/>} />
+
+
 
          <Route path="goal" element={<Goal/>} />
          
