@@ -72,12 +72,11 @@ function App() {
   const [selectedSection, setSelectedSection] = useState(null);
   const [activeTab, setActiveTab] = useState("Lectures");
 
-  // Get videos for selected section - default empty array if none
   const videos = selectedSection ? videosData[selectedSection.title] || [] : [];
 
   function handleSectionClick(section) {
     setSelectedSection(section);
-    setActiveTab("Lectures"); // reset tab on new selection
+    setActiveTab("Lectures"); 
   }
 
   return (
@@ -104,7 +103,7 @@ function App() {
         </div>
       )}
 
-      {/* If a section is selected show detailed view */}
+    
       {selectedSection && (
         <div className="bg-white rounded-xl shadow-md border p-6 max-w-screen-lg mx-auto">
           <h2 className="text-3xl font-semibold mb-6">{selectedSection.title}</h2>
@@ -139,7 +138,7 @@ function App() {
             </button>
           </div>
 
-          {/* Content based on active tab */}
+        
           <div>
             {activeTab === "Lectures" && (
               <>

@@ -25,10 +25,6 @@ const location = useLocation();
  else if (location.pathname.includes("testpass")) {
   pageTitle = "Back";
  }
- else if (location.pathname.includes("classes")) {
-  pageTitle = "Back";
- }
- 
 
 
    const handleClick = () => {
@@ -73,7 +69,7 @@ const location = useLocation();
    
         </div>
        </div>
-<div className=" ml-0 md:ml-[258px] ">
+<div className=" ml-0 md:ml-[258px]">
   
    <div className="px-5 xl:px-[55px] mt-[135px]"> 
   
