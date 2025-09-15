@@ -1,56 +1,84 @@
-import React from "react";
-
-const stats = [
-  {
-    number: "15Million+",
-    label: "Happy Students",
-    bg: "bg-orange-100",
-    img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-  },
-  {
-    number: "24000+",
-    label: "Mock Tests",
-    bg: "bg-pink-100",
-    img: "https://cdn-icons-png.flaticon.com/512/2942/2942929.png",
-  },
-  {
-    number: "14000+",
-    label: "Video Lectures",
-    bg: "bg-blue-100",
-    img: "https://cdn-icons-png.flaticon.com/512/1160/1160358.png",
-  },
-  {
-    number: "80000+",
-    label: "Practice Papers",
-    bg: "bg-purple-100",
-    img: "https://cdn-icons-png.flaticon.com/512/1828/1828911.png",
-  },
-];
+import React, { useEffect, useState } from "react";
+import { gettrusted_sections } from "../../service/api";
+// ✅ import your API
 
 export default function TrustedSection() {
+  const [stats, setStats] = useState([]);
+  const [section, setSection] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+    const BASE_URL = "https://pw.harifly.in/"; 
+
+ 
+    const fetchTrusted = async () => {
+      try {
+        const res = await gettrusted_sections();
+        const data = res.data?.data?.[0]; // take the first record
+
+        if (data) {
+          setSection(data);
+
+          // 🔹 Map API → your old stats structure
+          setStats([
+            {
+              number: data.icon1_title,
+              label: data.icon1_subtitle,
+              bg: "bg-orange-100",
+              img: BASE_URL + data.icon1,
+            },
+            {
+              number: data.icon2_title,
+              label: data.icon2_subtitle,
+              bg: "bg-pink-100",
+              img: BASE_URL + data.icon2,
+            },
+            {
+              number: data.icon3_title,
+              label: data.icon3_subtitle,
+              bg: "bg-blue-100",
+              img: BASE_URL + data.icon3,
+            },
+            {
+              number: data.icon4_title,
+              label: data.icon4_subtitle,
+              bg: "bg-purple-100",
+              img: BASE_URL + data.icon4,
+            },
+          ]);
+        }
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load trusted section");
+      } finally {
+        setLoading(false);
+      }
+    };
+ useEffect(() => {
+    fetchTrusted();
+  }, []);
+
+  if (loading) return <p className="text-center py-10">Loading trusted section...</p>;
+  if (error) return <p className="text-center text-red-500 py-10">{error}</p>;
+  if (!section) return null;
+
   return (
     <section className="text-center py-12 px-4">
-      <h2 className="text-2xl md:text-3xl font-bold mb-2">
-        A Platform Trusted by Students
-      </h2>
-      <p className="text-gray-600 mb-8">
-        Physics Wallah aims to transform not just through words, but provide
-        results with numbers!
-      </p>
+      <h2 className="text-2xl md:text-3xl font-bold mb-2">{section.heading}</h2>
+      <p className="text-gray-600 mb-8">{section.subheading1} {section.subheading2}</p>
 
+      {/* ✅ your old code still works, but now uses API data */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {stats.map((item, index) => (
           <div
             key={index}
             className={`${item.bg} relative rounded-xl p-6 h-56 flex flex-col justify-center items-center overflow-hidden group`}
           >
- 
             <div className="transition-all duration-500 group-hover:-translate-y-4">
               <h3 className="text-xl md:text-4xl font-bold">{item.number}</h3>
               <p className="text-gray-700">{item.label}</p>
             </div>
-
-       
             <img
               src={item.img}
               alt={item.label}
@@ -61,7 +89,7 @@ export default function TrustedSection() {
       </div>
 
       <button className="mt-10 px-16 py-3 bg-[#000080] text-white rounded-lg font-medium hover:bg-[#220bf1] transition">
-        Get Started
+        {section.button_text}
       </button>
     </section>
   );

@@ -19,3 +19,66 @@ export const getCourses = async () => {
     throw error;
   }
 }
+export const getCategories = async () => {
+  try {
+    const response = await axios.get(API.categories);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}
+export const getSubCategories = async () => {
+  try {
+    const response = await axios.get(API.sub_categories);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}
+export const gettrusted_sections = async () => {
+  try {
+    const response = await axios.get(API.trusted_sections);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}
+export const gethome_vidyapeeth_centers = async () => {
+  try {
+    const response = await axios.get(API.home_vidyapeeth_centers);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}
+export const getresults_n_app_store = async () => {
+  try {
+    const response = await axios.get(API.results_n_app_store);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}
+export const getstudy_materials = async () => {
+  try {
+    const response = await axios.get(API.study_materials);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}
+export const gettestimonials = async () => {
+  try {
+    const response = await axios.get(API.testimonials);
+    return response;
+  } catch (error) {
+    console.error("Error fetching home sliders:", error);
+    throw error;
+  }
+}

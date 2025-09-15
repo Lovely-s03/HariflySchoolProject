@@ -1,43 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { getresults_n_app_store } from "../../service/api";
 
-const channels = [
-  {
-    title: "Physics Wallah",
-    subs: "11.5M Subscribers",
-    img: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
-    bg: "bg-gradient-to-r from-gray-200 to-gray-300",
-  },
-  {
-    title: "Competition Wallah",
-    subs: "2.71M Subscribers",
-    img: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
-    bg: "bg-gradient-to-r from-yellow-100 to-yellow-200",
-  },
-  {
-    title: "JEE Wallah",
-    subs: "1.69M Subscribers",
-    img: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
-    bg: "bg-gradient-to-r from-yellow-100 to-yellow-200",
-  },
-  {
-    title: "NEET Wallah",
-    subs: "1.2M Subscribers",
-    img: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
-    bg: "bg-gradient-to-r from-pink-100 to-pink-200",
-  },
-];
+const BASE_URL = "https://pw.harifly.in"; // ✅ fixed base URL
 
 const PWFamily = () => {
+  const [channels, setChannels] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 0, 
-    speed: 4000, 
-    cssEase: "linear", 
+    autoplaySpeed: 0,
+    speed: 4000,
+    cssEase: "linear",
     slidesToShow: 3,
     slidesToScroll: 1,
     pauseOnHover: false,
@@ -46,6 +26,38 @@ const PWFamily = () => {
       { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
   };
+
+  
+    const fetchChannels = async () => {
+      try {
+        setLoading(true);
+        const res = await getresults_n_app_store();
+        const apiCards = res.data?.result_cards || [];
+
+        const formatted = apiCards.map((card, i) => ({
+          id: card.id,
+          title: card.name,
+          subs: "Subscribe Now", // API doesn’t provide subscribers → static text
+          img: card.image ? `${BASE_URL}/${card.image}` : "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+          bg:
+            i % 3 === 0
+              ? "bg-gradient-to-r from-gray-200 to-gray-300"
+              : i % 3 === 1
+              ? "bg-gradient-to-r from-yellow-100 to-yellow-200"
+              : "bg-gradient-to-r from-pink-100 to-pink-200",
+        }));
+
+        setChannels(formatted);
+      } catch (err) {
+        console.error("Error fetching channels:", err);
+        setError("Failed to load PW Family channels.");
+      } finally {
+        setLoading(false);
+      }
+    };
+useEffect(() => {
+    fetchChannels();
+  }, []);
 
   return (
     <div className="bg-white py-12 px-6">
@@ -59,21 +71,27 @@ const PWFamily = () => {
           </p>
         </div>
 
+        {/* Loading & Error */}
+        {loading && <p className="text-center text-gray-500">Loading channels...</p>}
+        {error && <p className="text-center text-red-500">{error}</p>}
+
         {/* Slider */}
-        <Slider {...settings}>
-          {channels.map((ch, i) => (
-            <div key={i} className="px-3">
-              <div
-                className={`${ch.bg} rounded-lg p-6 flex flex-col items-center justify-center 
-                           shadow-sm transition-transform duration-300 transform hover:scale-105`}
-              >
-                <img src={ch.img} alt={ch.title} className="w-14 h-14 mb-4" />
-                <h3 className="text-lg font-semibold">{ch.title}</h3>
-                <p className="text-gray-700 mt-1 font-medium">{ch.subs}</p>
+        {!loading && !error && (
+          <Slider {...settings}>
+            {channels.map((ch) => (
+              <div key={ch.id} className="px-3">
+                <div
+                  className={`${ch.bg} rounded-lg p-6 flex flex-col items-center justify-center 
+                             shadow-sm transition-transform duration-300 transform hover:scale-105`}
+                >
+                  <img src={ch.img} alt={ch.title} className="w-14 h-14 mb-4" />
+                  <h3 className="text-lg font-semibold">{ch.title}</h3>
+                  <p className="text-gray-700 mt-1 font-medium">{ch.subs}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
 
         {/* Button */}
         <div className="text-center mt-10">

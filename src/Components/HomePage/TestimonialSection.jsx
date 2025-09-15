@@ -1,36 +1,9 @@
-import React, { useState } from "react";
-import team from '../../assets/teamImage.png'
+import React, { useEffect, useState } from "react";
+import team from "../../assets/teamImage.png";
 import Slider from "react-slick";
-const testimonials = [
-  {
-    text: "I used to regularly follow the youtube videos, prelims booster videos and specially editorial discussion from where I made important pointers. I also watched some history videos like Buddhism, Jainism as the topics were explained very clearly... all these were very",
-    name: "Anmol Rathore",
-    course: "UPSC CSE 2023 AIR 7",
-    tag: "UPSC",
-    img: "https://i.pravatar.cc/50?img=1",
-  },
-  {
-    text: "From the very beginning, Physics Wallah stood out for its structured and comprehensive curriculum. The faculty members, with their in-depth knowledge and teaching expertise, ensured that every concept was crystal clear. GATE Wallah not only provided academic support but also fostered a positive and encouraging environment.",
-    name: "Raja Majhi",
-    course: "GATE 2024 AIR 1",
-    tag: "GATE",
-    img: "https://i.pravatar.cc/50?img=2",
-  },
-  {
-    text: " Glare helped me in establishing the basics of every subject through which I was able to progress quickly and was also able to increase my speed and also maintaining accuracy.",
-    name: "Amit Kumar Mandal",
-    course: "IBPS Topper",
-    tag: "Banking",
-    img: "https://i.pravatar.cc/50?img=3",
-  },
-  {
-    text: "The guidance and structured learning from  Glare was extremely helpful in my preparation journey. The mentors made complex concepts very easy to understand and I was motivated throughout.",
-    name: "Sneha Sharma",
-    course: "NEET AIR 56",
-    tag: "NEET",
-    img: "https://i.pravatar.cc/50?img=4",
-  },
-];
+import { gettestimonials } from "../../service/api";
+
+const BASE_URL = "https://pw.harifly.in";
 
 // Custom Arrows
 const NextArrow = ({ onClick }) => (
@@ -52,7 +25,13 @@ const PrevArrow = ({ onClick }) => (
 );
 
 const TestimonialSection = () => {
-      const settings = {
+  const [isOpen, setIsOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const settings = {
     dots: false,
     infinite: true,
     speed: 600,
@@ -61,27 +40,48 @@ const TestimonialSection = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-     
-         {
-      breakpoint: 1280, // below xl
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 768, // below md
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-    ]
+      { breakpoint: 1280, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+    ],
   };
-  const [isOpen, setIsOpen] = useState(false);
+
+  
+    const fetchTestimonials = async () => {
+      try {
+        setLoading(true);
+        const res = await gettestimonials();
+
+        const apiData = res.data?.data || {};
+        const apiTestimonials = apiData.testimonial_cards || [];
+
+        // Save video from main_content
+        setVideoUrl(apiData.main_content?.video || null);
+
+        // Format testimonials
+        const formatted = apiTestimonials.map((item) => ({
+          id: item.id,
+          text: item.testimonial_text || "",
+          name: item.name || "Anonymous",
+          course: item.rank || "",
+          img: item.avatar_url
+            ? `${BASE_URL}/${item.avatar_url}`
+            : "https://i.pravatar.cc/50",
+        }));
+
+        setTestimonials(formatted);
+      } catch (err) {
+        console.error("Error fetching testimonials:", err);
+        setError("Failed to load testimonials.");
+      } finally {
+        setLoading(false);
+      }
+    };
+useEffect(() => {
+    fetchTestimonials();
+  }, []);
 
   return (
-    <div className=" bg-gray-50 py-10 px-4 md:px-20">
+    <div className="bg-gray-50 py-10 px-4 md:px-20">
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold">
@@ -90,16 +90,15 @@ const TestimonialSection = () => {
         <p className="text-gray-600 mt-2">Hear from our students</p>
       </div>
 
-      
-      <div className="max-w-6xl bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 p-6 max-w-5xl mx-auto">
-      
+      {/* Main Video + Highlight */}
+      <div className="max-w-6xl bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 p-6 mx-auto">
         <div
           className="relative cursor-pointer w-full md:w-1/3"
           onClick={() => setIsOpen(true)}
         >
           <img
             src={team}
-            alt="NEET AIR 1"
+            alt="Highlight Video"
             className="rounded-lg w-full object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -117,31 +116,33 @@ const TestimonialSection = () => {
           </div>
         </div>
 
-        {/* Right - Text */}
+        {/* Right - Static Highlight */}
         <div className="md:w-2/3">
           <p className="text-gray-700 italic mb-4 overflow-y-scroll">
             “My name is Tathagat Awatar. I secured All India Rank 1 by scoring
             full score in NEET UG 2024. I started my preparation with Physics
             Wallah in 12th grade by joining the Lakshya NEET batch, then I took
             2 drop by joining Yakeen NEET batch and I completed my full
-            preparation from online  Glare batch.  Glare teachers and their guidance
-            helps me to achieve AIR1 and motivated me during my drop year....”
+            preparation from online Glare batch. Glare teachers and their
+            guidance helped me achieve AIR1 and motivated me during my drop
+            year....”
           </p>
           <h4 className="font-bold text-gray-900">Multiple Rankers</h4>
           <p className="text-[#000080] font-medium mt-1">
-            AIR 1, AIR 86 and other | NEET
+            AIR 1, AIR 86 and others | NEET
           </p>
         </div>
       </div>
 
-      {isOpen && (
+      {/* Video Modal */}
+      {isOpen && videoUrl && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg overflow-hidden w-[90%] md:w-[60%]">
             <div className="relative pb-[56.25%]">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/1xB4tXkK3ew"
-                title="NEET AIR 1 Video"
+                src={videoUrl.replace("shorts/", "embed/")}
+                title="Testimonial Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -156,32 +157,37 @@ const TestimonialSection = () => {
           </div>
         </div>
       )}
-       <div className="bg-gray-50 py-10 px-6 md:px-32 relative flex flex-col">
-     
 
-      <Slider {...settings}>
-        {testimonials.map((item, index) => (
-          <div key={index} className="px-3 ">
-            <div className="bg-white shadow-md rounded-lg  p-6 h-full md:h-[300px] flex flex-col overflow-y-scroll">
-              <p className="text-gray-700 italic mb-4">“{item.text}”</p>
-              <div className="flex items-center gap-3 mt-auto">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-12 h-12 rounded-full border"
-                />
-                <div>
-                  <h4 className="font-bold text-gray-900">{item.name}</h4>
-                  <p className="text-[#000080] font-medium text-sm">
-                    {item.course} | {item.tag}
-                  </p>
+      {/* Testimonials Carousel */}
+      <div className="bg-gray-50 py-10 px-6 md:px-32 relative flex flex-col">
+        {loading && <p className="text-center text-gray-500">Loading testimonials...</p>}
+        {error && <p className="text-center text-red-500">{error}</p>}
+
+        {!loading && !error && testimonials.length > 0 && (
+          <Slider {...settings}>
+            {testimonials.map((item) => (
+              <div key={item.id} className="px-3 ">
+                <div className="bg-white shadow-md rounded-lg p-6 h-full md:h-[300px] flex flex-col overflow-y-scroll">
+                  <p className="text-gray-700 italic mb-4">“{item.text}”</p>
+                  <div className="flex items-center gap-3 mt-auto">
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="w-12 h-12 rounded-full border"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900">{item.name}</h4>
+                      <p className="text-[#000080] font-medium text-sm">
+                        {item.course}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+            ))}
+          </Slider>
+        )}
+      </div>
     </div>
   );
 };
