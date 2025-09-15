@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import book from '../../assets/books.webp'
-import ncrt from '../../assets/ncert.webp'
-import notes from '../../assets/notes.webp'
+import book from "../../assets/books.webp";
+import ncrt from "../../assets/ncert.webp";
+import notes from "../../assets/notes.webp";
+import { getstudy_materials } from "../../service/api";
 
-const resources = [
+const BASE_URL = "https://pw.harifly.in"; // ✅ fixed base url
+
+// fallback local resources (in case API fails)
+const fallbackResources = [
   {
     title: "Reference Books",
     desc: "Our experts have created thorough study materials that break down complicated concepts into easily understandable content",
-    img: book, 
+    img: book,
     bg: "bg-blue-50 hover:bg-blue-100",
   },
   {
@@ -26,15 +30,66 @@ const resources = [
 ];
 
 const StudyResources = () => {
+  const [resources, setResources] = useState([]);
+  const [subtitle, setSubtitle] = useState("");
+  const [playstoreIcon, setPlaystoreIcon] = useState(null);
+  const [appstoreIcon, setAppstoreIcon] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  
+    const fetchResources = async () => {
+      try {
+        setLoading(true);
+        const res = await getstudy_materials();
+        const apiData = res.data;
+
+        // extract main details
+        setSubtitle(apiData?.data?.subtitle || "A diverse array of learning materials to enhance your educational journey.");
+        setPlaystoreIcon(apiData?.data?.playstore_icon ? `${BASE_URL}/${apiData.data.playstore_icon}` : null);
+        setAppstoreIcon(apiData?.data?.appstore_icon ? `${BASE_URL}/${apiData.data.appstore_icon}` : null);
+
+        // result cards
+        const cards = apiData?.result_cards || [];
+
+        const formatted = cards.map((item, idx) => ({
+          title: item.name,
+          desc: apiData.data?.subtitle || "Explore our resources",
+          img: item.image ? `${BASE_URL}/${item.image}` : fallbackResources[idx]?.img,
+          bg:
+            idx === 0
+              ? "bg-blue-50 hover:bg-blue-100"
+              : idx === 1
+              ? "bg-yellow-50 hover:bg-yellow-100"
+              : "bg-green-50 hover:bg-green-100",
+        }));
+
+        setResources(formatted.length > 0 ? formatted : fallbackResources);
+      } catch (err) {
+        console.error("Error fetching resources:", err);
+        setError("Failed to load study resources.");
+        setResources(fallbackResources); // fallback
+      } finally {
+        setLoading(false);
+      }
+    };
+useEffect(() => {
+    fetchResources();
+  }, []);
+
   return (
     <div className="bg-white py-5 lg:py-12 px-6 md:px-16">
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold">Study Resources</h2>
         <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
-          A diverse array of learning materials to enhance your educational journey.
+          {subtitle}
         </p>
       </div>
+
+      {/* Loading & Error States */}
+      {loading && <p className="text-center text-gray-500">Loading resources...</p>}
+      {error && <p className="text-center text-red-500">{error}</p>}
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -65,6 +120,22 @@ const StudyResources = () => {
           </div>
         ))}
       </div>
+
+      {/* ✅ Playstore & Appstore icons */}
+      {(playstoreIcon || appstoreIcon) && (
+        <div className="flex justify-center gap-6 mt-10">
+          {playstoreIcon && (
+            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
+              <img src={playstoreIcon} alt="Play Store" className="h-12 object-contain" />
+            </a>
+          )}
+          {appstoreIcon && (
+            <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+              <img src={appstoreIcon} alt="App Store" className="h-12 object-contain" />
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 };
