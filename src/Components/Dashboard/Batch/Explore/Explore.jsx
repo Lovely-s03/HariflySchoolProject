@@ -980,7 +980,7 @@ const ArjunaTabs = () => {
             </div>
           </div>
         )}
-        {activeTab === 3 && <div>Tests Content...</div>}
+        {activeTab === 3 && <div>Tests Content.....</div>}
         {activeTab === 4 && <div>Community Content...</div>}
       </div>
     </div>
