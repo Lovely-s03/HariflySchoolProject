@@ -1,8 +1,5 @@
 import React, { useState, useRef } from "react";
-import logo from "../../../assets/logo.png"
-// import noticeImg from "../../../assets/notice_illustration.svg";
-import noDataAnimation from "../../../assets/notfound.json";
-import Lottie from "lottie-react";
+
 
 import glare from "../../../assets/glare_logo.webp"
 

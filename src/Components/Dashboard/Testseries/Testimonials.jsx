@@ -83,14 +83,14 @@ const Testimonials = () => {
 
   return (
     <div className="w-full bg-white py-12 px-4 relative">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-600 mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-[#000080] mb-8">
         Why students would love the Test Pass?
       </h2>
 
       <Slider {...settings}>
         {testimonials.map((t, index) => (
           <div key={index} className="px-4">
-            <div className="bg-gray-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center h-full">
+            <div className="bg-gray-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center h-full  md:h-[310px]">
               <img
                 src={t.img}
                 alt={t.name}

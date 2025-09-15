@@ -25,6 +25,9 @@ const location = useLocation();
  else if (location.pathname.includes("testpass")) {
   pageTitle = "Back";
  }
+  else if (location.pathname.includes("center")) {
+  pageTitle = "Centers";
+ }
  
 
 

@@ -279,7 +279,7 @@ const Testseries = () => {
 
       {/* Button */}
       <div className="p-4">
-        <button  onClick={handleClick} className="bg-indigo-600 hover:bg-indigo-700 text-white w-full py-2 rounded-lg font-medium">
+        <button  onClick={handleClick} className="bg-indigo-600 hover:bg-indigo-700 text-white w-full py-2 rounded-lg font-medium cursor-pointer">
           Get Pass
         </button>
       </div>
