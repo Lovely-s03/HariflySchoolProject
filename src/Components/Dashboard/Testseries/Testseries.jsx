@@ -122,7 +122,7 @@ const Testseries = () => {
     }
   };
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
+
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -227,7 +227,7 @@ const Testseries = () => {
     </div>
         </div>
      </div>
-<div className="bg-white  rounded-lg mb-8 shadow-md border border-[#ddebf8] max-w-full xl:max-w-[325px]">
+<div className="bg-white  rounded-lg mb-8 shadow-md border border-[#ddebf8] max-w-full xl:max-w-[367px]">
       {/* Header */}
       <div className="flex items-start justify-between p-4">
         <h3 className="text-lg font-semibold">Glare30 JEE Test Pass</h3>
