@@ -97,10 +97,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             Offline
           </h2>
           <ul className="space-y-2">
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+            <Link to="center" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
               <BuildingOffice2Icon className="h-5 w-5" />
               <span>Centres</span>
-            </li>
+            </Link>
           </ul>
         </div>
 

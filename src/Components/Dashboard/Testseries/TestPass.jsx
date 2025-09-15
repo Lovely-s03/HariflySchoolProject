@@ -4,32 +4,32 @@ import { FaWhatsapp } from "react-icons/fa";
 import top from "../../../assets/testpass.png";
 import Testimonials from "./Testimonials";
 import FAQSection1 from "./FAQSection1";
-
+import { useNavigate } from "react-router-dom";
 const JeeTestPass = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-
+    const navigate = useNavigate();
   return (
-    <div className="w-full bg-gray-50 min-h-screen flex justify-center p-4">
+    <div className="w-full bg-gray-50 min-h-screen flex justify-center p-0 md:p-4">
       <div className="w-full max-w-6xl bg-white rounded-xl shadow p-4 md:p-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 text-center sm:text-left">
             Arjuna JEE Test Pass
           </h2>
-          <button className="flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-700 hover:bg-gray-100 transition">
+          <button className="flex items-center gap-2 px-4 py-2 border  rounded-lg text-gray-700 hover:bg-gray-100 transition">
             <FaWhatsapp className="text-green-500" />
             Share pass
           </button>
         </div>
 
         {/* Main Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Side */}
           <div className="md:col-span-2 space-y-6">
           
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
-              <div className="p-3 border-b">
-                <h3 className="font-semibold text-gray-700">
+            <div className="bg-white rounded-xl border border-gray-50 shadow-md overflow-hidden">
+              <div className="p-3 bg-[#000080] text-white">
+                <h3 className="font-semibold ">
                   What is Arjuna JEE Test Pass?
                 </h3>
               </div>
@@ -37,15 +37,15 @@ const JeeTestPass = () => {
                 <img
                   src={top}
                   alt="mentor"
-                  className="w-full max-w-lg rounded-md object-contain"
+                  className="w-full  rounded-md object-contain"
                 />
               </div>
             </div>
 
             {/* Why Arjuna Pass */}
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
-              <div className="p-3 border-b">
-                <h3 className="font-semibold text-gray-700">
+            <div className="bg-white rounded-xl border border-gray-50 shadow-md overflow-hidden">
+              <div className="p-3 bg-[#000080] text-white">
+                <h3 className="font-semibold ">
                   Why Arjuna JEE Test Pass?
                 </h3>
               </div>
@@ -53,14 +53,14 @@ const JeeTestPass = () => {
                 <img
                   src={top}
                   alt="mentor"
-                  className="w-full max-w-lg rounded-md object-contain"
+                  className="w-full  rounded-md object-contain"
                 />
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
-              <div className="p-3 border-b">
-                <h3 className="font-semibold text-gray-700">
+            <div className="bg-white rounded-xl border border-gray-50 shadow-md overflow-hidden">
+              <div className="p-3 bg-[#000080] text-white">
+                <h3 className="font-semibold ">
                   Benefits of Arjuna JEE Pass
                 </h3>
               </div>
@@ -68,15 +68,15 @@ const JeeTestPass = () => {
                 <img
                   src={top}
                   alt="mentor"
-                  className="w-full max-w-lg rounded-md object-contain"
+                  className="w-full  rounded-md object-contain"
                 />
               </div>
             </div>
 
             {/* Video Section */}
-            <div className="w-full bg-white rounded-xl border shadow-sm overflow-hidden">
-              <div className="p-3 border-b">
-                <h3 className="font-semibold text-gray-700">
+            <div className="w-full bg-white rounded-xl border  border-gray-50 shadow-md overflow-hidden">
+              <div className="p-3 bg-[#000080] text-white">
+                <h3 className="font-semibold ">
                   How this will help you?
                 </h3>
               </div>
@@ -91,9 +91,9 @@ const JeeTestPass = () => {
                     {/* Play Button */}
                     <button
                       onClick={() => setIsPlaying(true)}
-                      className="absolute inset-0 flex items-center justify-center"
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer"
                     >
-                      <div className="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition">
+                      <div className="w-14 h-14 bg-[#000080] rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="white"
@@ -108,28 +108,30 @@ const JeeTestPass = () => {
                 ) : (
                   <iframe
                     className="w-full h-full rounded-lg"
-                    src="https://www.youtube.com/embed/yourVideoId?autoplay=1"
+                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&controls=0&modestbranding=1&rel=0"
                     title="Video Player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
+                 
+
                 )}
               </div>
             </div>
 
         
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+            <div className="bg-white rounded-xl border border-gray-50 shadow-md overflow-hidden">
               <Testimonials />
             </div>
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+            <div className="bg-white rounded-xl border border-gray-50 shadow-md overflow-hidden">
               <FAQSection1 />
             </div>
           </div>
 
           {/* Right Side */}
           <div className="lg:col-span-1">
-            <div className="sticky top-28 bg-white border shadow-sm rounded-xl p-4 flex flex-col items-center w-full">
+            <div className="sticky top-28 bg-white border border-gray-50 shadow-md rounded-xl p-4 flex flex-col items-center w-full">
               <h3 className="text-gray-700 font-medium mb-4 text-center">
                 Choose Your Plan
               </h3>
@@ -145,7 +147,7 @@ const JeeTestPass = () => {
                 <p className="text-green-600 font-semibold mt-1">50% OFF</p>
               </div>
 
-              <button className="w-full mt-6 bg-[#000080] hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">
+              <button  onClick={() => navigate("/order-summary")} className="w-full mt-6 bg-[#000080] hover:bg-[#0c0ce8] text-white font-medium py-2 rounded-lg transition cursor-pointer">
                 Buy Now
               </button>
             </div>

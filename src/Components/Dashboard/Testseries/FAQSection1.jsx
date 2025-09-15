@@ -48,13 +48,13 @@ const FAQSection1 = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-xl">
+    <div className="max-w-4xl mx-auto p-2 md:p-6 bg-white shadow-md rounded-xl">
       <h2 className="text-2xl font-bold mb-6">FAQ's</h2>
       <div className="space-y-3">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border rounded-lg bg-blue-50"
+            className=" rounded-lg bg-blue-50"
           >
             <button
               className="flex justify-between items-center w-full px-4 py-3 text-left font-medium focus:outline-none"

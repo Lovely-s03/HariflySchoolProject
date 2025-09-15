@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
-import logo from '../../assets/logo.png';
+import logo from '../../assets/glare_logo.webp';
 import DropdownMenu from '../DropDown/DropdownMenu';
 import MobileLoginModal from '../../common/MobileLoginModal';
 import { Link } from 'react-router-dom';

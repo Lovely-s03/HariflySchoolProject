@@ -21,6 +21,7 @@ import TestPass from '../Components/Dashboard/Testseries/TestPass';
 
 
 import Classes from '../Components/Dashboard/Batch/Explore/Classes';
+import Centers from '../Components/Dashboard/Centers/Centers';
 
 const Layout = () => {
   const location = useLocation();
@@ -44,6 +45,7 @@ const Layout = () => {
          <Route path="testseries" element={<Testseries/>} />
       <Route path="testpass" element={<TestPass/>} />
          <Route path="batch" element={<Batch/>} />
+          <Route path="center" element={<Centers/>} />
          <Route path="contact" element={<Contact/>} />
          <Route path="explore" element={<Explore/>} />
          <Route path="classes" element={<Classes/>} />
