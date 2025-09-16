@@ -1,14 +1,12 @@
-// CentreType.jsx
 import React from "react";
 import center from '../../../assets/centers.webp'
 const centres = [
   {
     id: 1,
     type: "Complete Offline centre",
-    typeColor: "bg-pink-600",
-    borderColor: "border-pink-300",
+   
     title: "Vidyapeeth Centres",
-    titleColor: "text-pink-600",
+   
     description:
       "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
     img: center, 
@@ -21,28 +19,26 @@ const centres = [
   },
   {
     id: 2,
-    type: "Hybrid Learning centre",
-    typeColor: "bg-indigo-600",
-    borderColor: "border-indigo-300",
-    title: "Pathshala Centres",
-    titleColor: "text-indigo-600",
+    type: "Complete Offline centre",
+   
+    title: "Vidyapeeth Centres",
+
     description:
-      "PW Pathshala offers a hybrid learning programme with our learning experts",
+      "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
     img: center, 
     features: [
-      { name: "Pathshala Classroom" },
-      { name: "Batch Prime" },
+      { name: "Vidyapeeth Classroom" },
+      { name: "Marks Improvement Plan" },
       { name: "All India Test Series" },
-      { name: "Marks Improvement" },
+      { name: "Fastrack" },
     ],
   },
    {
     id: 3,
     type: "Complete Offline centre",
-    typeColor: "bg-pink-600",
-    borderColor: "border-pink-300",
+    
     title: "Vidyapeeth Centres",
-    titleColor: "text-pink-600",
+ 
     description:
       "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
     img: center, 
@@ -56,10 +52,9 @@ const centres = [
    {
     id: 4,
     type: "Complete Offline centre",
-    typeColor: "bg-pink-600",
-    borderColor: "border-pink-300",
+ 
     title: "Vidyapeeth Centres",
-    titleColor: "text-pink-600",
+   
     description:
       "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
     img: center, 
@@ -88,26 +83,22 @@ const CentreType = () => {
         {centres.map((centre) => (
           <div
             key={centre.id}
-            className={`relative border ${centre.borderColor} rounded-lg shadow-md hover:shadow-lg transition bg-white`}
+            className={`relative border border-[#000080] rounded-lg shadow-md hover:shadow-lg transition bg-white`}
           >
             {/* Tag */}
             <span
-              className={`absolute -top-3 left-1/2 transform -translate-x-1/2 text-white text-sm px-3 py-1 rounded-full ${centre.typeColor}`}
+              className=" absolute -top-3 left-1/2 text-center  transform -translate-x-1/2 text-white text-sm px-3 py-1 rounded-full bg-[#000080]"
             >
               {centre.type}
             </span>
-
-            {/* Image */}
             <img
               src={centre.img}
               alt={centre.title}
               className="w-full h-48 object-cover rounded-t-lg"
             />
-
-            {/* Content */}
             <div className="p-6">
               <h3
-                className={`text-xl font-semibold mb-2 ${centre.titleColor}`}
+                className={`text-xl font-semibold mb-2 text-[#000080]`}
               >
                 {centre.title}
               </h3>
@@ -115,8 +106,8 @@ const CentreType = () => {
 
               <hr className="mb-4" />
 
-              {/* Features */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
+        
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3 mb-6">
                 {centre.features.map((feature, i) => (
                   <div
                     key={i}
@@ -127,10 +118,8 @@ const CentreType = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Button */}
-              <button className="w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition">
-                Know more
+              <button className="w-full bg-[#000080] text-white py-2 rounded-md hover:bg-gray-800 transition">
+                 Know more
               </button>
             </div>
           </div>

@@ -36,18 +36,18 @@ const ExploreByCity = () => {
           placeholder="Find city or pin code"
           className="flex-1 outline-none text-gray-700"
         />
-        <button className="flex items-center gap-1 text-purple-600 font-medium">
+        <button className="flex items-center gap-1 text-purple-600 font-medium whitespace-nowrap">
           <IoLocationSharp />
           Near me
         </button>
       </div>
 
       {/* Cities Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mb-10 max-w-5xl mx-auto">
         {cities.map((city, index) => (
           <div
             key={index}
-            className="bg-white border rounded-xl p-3 flex items-center gap-3 hover:shadow-lg transition cursor-pointer"
+            className="bg-white border border-gray-50 shadow-md rounded-xl p-3 flex items-center gap-3 hover:shadow-lg transition cursor-pointer"
           >
             <img
               src={city.image}

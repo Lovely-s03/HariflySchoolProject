@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { gettrusted_sections } from "../../service/api";
-// ✅ import your API
+import { gettrusted_sections } from "../../../service/api";
+import banner from '../../../assets/banner.jpg'
 
-export default function Students() {
+export default function TrustedSection() {
   const [stats, setStats] = useState([]);
   const [section, setSection] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,12 +15,11 @@ export default function Students() {
     const fetchTrusted = async () => {
       try {
         const res = await gettrusted_sections();
-        const data = res.data?.data?.[0]; // take the first record
+        const data = res.data?.data?.[0]; 
 
         if (data) {
           setSection(data);
 
-          // 🔹 Map API → your old stats structure
           setStats([
             {
               number: data.icon1_title,
@@ -85,10 +84,9 @@ export default function Students() {
           </div>
         ))}
       </div>
-
-      <button className="mt-10 px-16 py-3 bg-[#000080] text-white rounded-lg font-medium hover:bg-[#220bf1] transition">
-        {section.button_text}
-      </button>
+      <div className="pt-12">
+        <img src={banner} alt="" />
+      </div>
     </section>
   );
 }
