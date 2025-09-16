@@ -1,40 +1,82 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
-import logo from '../../assets/glare_logo.webp';
+import { Link } from 'react-router-dom';
 import DropdownMenu from '../DropDown/DropdownMenu';
 import MobileLoginModal from '../../common/MobileLoginModal';
-import { Link } from 'react-router-dom';
+import { getheader_footer } from '../../service/api';
+
+const BASE_URL = "https://pw.harifly.in";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  // ✅ State from API
+  const [headerData, setHeaderData] = useState({
+    logo: "",
+    phone: "",
+    email: "",
+    address: ""
+  });
+
+  // ✅ Fetch header/footer API
+  const fetchHeader = async () => {
+    try {
+      const res = await getheader_footer();
+      const header = res.data?.data?.header;
+
+      if (header) {
+        setHeaderData({
+          logo: header.logo ? `${BASE_URL}/${header.logo}` : "",
+          phone: header.phone || "",
+          email: header.email || "",
+          address: header.address || ""
+        });
+      }
+    } catch (err) {
+      console.error("Error fetching header:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchHeader();
+  }, []);
+
   return (
     <div className="w-full fixed top-0 left-0 z-50">
+      {/* Top Bar */}
       <div className="w-full bg-[#f8f9fa] text-sm text-gray-700 hidden min-[750px]:block">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-2 gap-2">
           {/* Contact Info */}
           <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-            <span className="flex items-center gap-2">
-              <FaPhoneAlt className="text-indigo-900" />
-              <a href="tel:+917766828010" className="hover:text-[#000080] whitespace-nowrap">+91 7766828010</a>
-            </span>
-            <span className="flex items-center gap-2">
-              <FaEnvelope className="text-indigo-900" />
-              <a href="mailto:info@harifly.com" className="hover:text-[#000080] whitespace-nowrap">info@harifly.com</a>
-            </span>
-            <span className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-indigo-900" />
-              <span>
-                Flat No. B3 on Ground floor, DDA LIG Arunodaya Apartment, Poket 2, Sector-7 Dwarka, Delhi 110075
+            {headerData.phone && (
+              <span className="flex items-center gap-2">
+                <FaPhoneAlt className="text-indigo-900" />
+                <a href={`tel:${headerData.phone}`} className="hover:text-[#000080] whitespace-nowrap">
+                  {headerData.phone}
+                </a>
               </span>
-            </span>
+            )}
+            {headerData.email && (
+              <span className="flex items-center gap-2">
+                <FaEnvelope className="text-indigo-900" />
+                <a href={`mailto:${headerData.email}`} className="hover:text-[#000080] whitespace-nowrap">
+                  {headerData.email}
+                </a>
+              </span>
+            )}
+            {headerData.address && (
+              <span className="flex items-center gap-2">
+                <FaMapMarkerAlt className="text-indigo-900" />
+                <span>{headerData.address}</span>
+              </span>
+            )}
           </div>
 
-          {/* Social Icons */}
+          {/* Social Icons (static for now, can also come from API if added) */}
           <div className="flex items-center gap-4 text-indigo-900">
             <a href="#" className="hover:text-[#000080]"><FaFacebookF /></a>
             <a href="#" className="hover:text-[#000080]"><FaXTwitter /></a>
@@ -48,10 +90,14 @@ const Navbar = () => {
       {/* Header */}
       <nav className="w-full bg-white shadow-sm relative">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      
+          {/* Logo */}
           <div className="flex items-center gap-2">
             <Link to="/">
-              <img src={logo} alt="Logo" className="h-16 w-16 rounded-full" />
+              {headerData.logo ? (
+                <img src={headerData.logo} alt="Logo" className="h-16 w-16 rounded-full" />
+              ) : (
+                <span className="font-bold text-xl text-[#000080]">LOGO</span>
+              )}
             </Link>
           </div>
 
@@ -64,6 +110,8 @@ const Navbar = () => {
             <a href="#" className="hover:text-[#000080] font-semibold">Class 1st - 8th</a>
             <a href="#" className="hover:text-[#000080] font-semibold">Power Batch</a>
           </div>
+
+          {/* Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
@@ -75,7 +123,7 @@ const Navbar = () => {
             {dropdownOpen && <DropdownMenu />}
           </div>
 
-       
+          {/* Login Button */}
           <div className="hidden lg:block">
             <button
               onClick={() => setOpen(true)}
@@ -94,7 +142,7 @@ const Navbar = () => {
           </button>
         </div>
 
-    
+        {/* Mobile Overlay */}
         {menuOpen && (
           <div
             className="fixed inset-0 bg-black/50 z-40"
@@ -102,9 +150,9 @@ const Navbar = () => {
           />
         )}
 
+        {/* Mobile Sidebar */}
         <div
-          className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+          className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
           <div className="flex items-center justify-between px-4 py-3 border-b">
             <h2 className="font-bold text-lg">Menu</h2>
@@ -121,14 +169,14 @@ const Navbar = () => {
             <a href="#" className="hover:text-[#000080]">Class 1st - 8th</a>
             <a href="#" className="hover:text-[#000080]">Power Batch</a>
             <button
-  onClick={() => {
-    setOpen(true);    
-    setMenuOpen(false); 
-  }}
-  className="bg-[#000080] text-white px-5 py-2 rounded-md font-medium hover:bg-indigo-700 mt-2 cursor-pointer"
->
-  Login/Register
-</button>
+              onClick={() => {
+                setOpen(true);
+                setMenuOpen(false);
+              }}
+              className="bg-[#000080] text-white px-5 py-2 rounded-md font-medium hover:bg-indigo-700 mt-2 cursor-pointer"
+            >
+              Login/Register
+            </button>
           </div>
         </div>
 

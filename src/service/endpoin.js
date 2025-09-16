@@ -9,5 +9,6 @@ export const API= {
     results_n_app_store: `${API_URL}/results-n-app-store`,
     study_materials: `${API_URL}/study-materials`,
     testimonials: `${API_URL}/testimonials`,
+    header_footer: `${API_URL}/header-footer`,
 }
 
