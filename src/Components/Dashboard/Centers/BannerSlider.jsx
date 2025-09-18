@@ -22,7 +22,7 @@ const BannerSlider = () => {
   const banners = [banner1, banner3];
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto">
+    <div className="w-full max-w-[1200px] mx-auto ">
       <Slider {...settings}>
         {banners.map((img, index) => (
           <div key={index} >

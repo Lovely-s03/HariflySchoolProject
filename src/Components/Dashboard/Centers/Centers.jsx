@@ -6,17 +6,25 @@ import CentreType from './CentreType'
 import ExploreBatches from './ExploreBatches'
 import ScholarshipSection from './ScholarshipSection'
 import CounsellingSection from './CounsellingSection'
+import TrustedSection from './TrustedSection'
+import AdmissionCard from './AdmissionCard'
+import AboutPWCentres from './AboutPWCentres'
+import CenterTestimonials from './CenterTestimonials'
 
 const Centers = () => {
   return (
     <div>
         <ClassroomPrograms/>
-        <BannerSlider/>
+        {/* <BannerSlider/> */}
         <ExploreByCity/>
         <CentreType/>
         <ExploreBatches/>
         <ScholarshipSection/>
         <CounsellingSection/>
+        <TrustedSection/>
+        <AdmissionCard/>
+        <AboutPWCentres/>
+        <CenterTestimonials/>
     </div>
   )
 }

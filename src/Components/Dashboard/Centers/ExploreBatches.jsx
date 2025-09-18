@@ -13,28 +13,28 @@ const batches = [
     oldPrice: "14000",
     discount: "Discount of 46% applied",
   },
-  {
+ 
+ {
     id: 2,
     tag: "MIP",
     tagColor: "bg-pink-600",
-    title:
-      "VP MIP (Offline Test + Doubt Support + Real Test) Class 12th NEET 2026",
-    img: banner, 
-    subtitle: "Doubt+Test",
-    price: "₹ 10999",
-    oldPrice: "23000",
-    discount: "Discount of 52% applied",
+    title: "VP MIP (Offline Test + Real Test) Class 12th NEET 2026",
+    img: banner,
+    subtitle: "Test Only",
+    price: "₹ 7499",
+    oldPrice: "14000",
+    discount: "Discount of 46% applied",
   },
-  {
+   {
     id: 3,
-    tag: "VIDYAPEETH",
-    tagColor: "bg-red-600",
-    title: "Vidyapeeth 12th NEET (Target 2026)",
-    img: banner, 
-    subtitle: "For Class 12th NEET II 1 Year Program",
-    price: "₹ 5000",
-    oldPrice: null,
-    discount: null,
+    tag: "MIP",
+    tagColor: "bg-pink-600",
+    title: "VP MIP (Offline Test + Real Test) Class 12th NEET 2026",
+    img: banner,
+    subtitle: "Test Only",
+    price: "₹ 7499",
+    oldPrice: "14000",
+    discount: "Discount of 46% applied",
   },
 ];
 
@@ -50,11 +50,11 @@ const ExploreBatches = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {batches.map((batch) => (
           <div
             key={batch.id}
-            className="relative border rounded-lg shadow-md hover:shadow-lg transition bg-white"
+            className="relative border border-gray-100 rounded-lg shadow-md hover:shadow-lg transition bg-white"
           >
             {/* Ribbon Tag */}
             <span
@@ -63,10 +63,6 @@ const ExploreBatches = () => {
               {batch.tag}
             </span>
 
-            {/* Share Icon (dummy) */}
-            <span className="absolute top-3 right-3 text-gray-500 cursor-pointer">
-              &#x1F517;
-            </span>
 
             {/* Image */}
          
@@ -87,7 +83,7 @@ const ExploreBatches = () => {
 
               {/* Pricing */}
               <div className="mb-4">
-                <p className="text-lg font-bold text-purple-700">
+                <p className="text-lg font-bold text-[#000080]">
                   {batch.price}
                 </p>
                 {batch.oldPrice && (
@@ -104,10 +100,10 @@ const ExploreBatches = () => {
 
               {/* Buttons */}
               <div className="flex space-x-2">
-                <button className="flex-1 border border-purple-600 text-purple-600 py-2 rounded-md hover:bg-purple-50 transition">
+                <button className="flex-1 border border-[#000080] text-[#000080] py-2 rounded-md hover:bg-purple-50 transition">
                   EXPLORE
                 </button>
-                <button className="flex-1 bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition">
+                <button className="flex-1 bg-[#000080] text-white py-2 rounded-md hover:bg-[#1c1cec] transition">
                   BOOK A SEAT
                 </button>
               </div>

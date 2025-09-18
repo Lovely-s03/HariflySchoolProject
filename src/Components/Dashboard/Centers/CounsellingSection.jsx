@@ -1,6 +1,6 @@
-// CounsellingSection.jsx
-import React from "react";
 
+import React from "react";
+import pathsala from '../../../assets/pathshala.jpg'
 const CounsellingSection = () => {
   return (
     <section className="bg-white py-10 px-4 md:px-12 ">
@@ -56,10 +56,7 @@ const CounsellingSection = () => {
         {/* Right Section */}
         <div className="w-full">
           <div className="bg-white shadow-md rounded-xl overflow-hidden relative">
-            {/* Banner Label */}
-            <span className="absolute -top-3 left-4 bg-indigo-600 text-white text-xs px-3 py-1 rounded-t-md">
-              IIT-JEE/NEET
-            </span>
+           
 
             {/* Webinar Card */}
             <div className="p-5">
@@ -67,7 +64,7 @@ const CounsellingSection = () => {
                 Tips for NEET 2026
               </h3>
               <img
-                src="https://via.placeholder.com/400x180"
+                src={pathsala}
                 alt="Webinar Banner"
                 className="rounded-lg mb-4"
               />

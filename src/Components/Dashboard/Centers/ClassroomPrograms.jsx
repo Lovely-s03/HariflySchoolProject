@@ -40,7 +40,7 @@ const ClassroomPrograms = () => {
       </h2>
 
       {/* Options Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto relative">
         {/* Centres Near You */}
         <div className="flex flex-col items-center text-center cursor-pointer">
           <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 mb-3 shadow-sm">
