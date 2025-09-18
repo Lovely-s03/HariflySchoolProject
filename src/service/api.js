@@ -82,3 +82,12 @@ export const gettestimonials = async () => {
     throw error;
   }
 }
+export const getheader_footer = async () => {
+  try {
+    const response = await axios.get(API["header_footer"]); 
+    return response;
+  } catch (error) {
+    console.error("Error fetching footer:", error);
+    throw error;
+  }
+};

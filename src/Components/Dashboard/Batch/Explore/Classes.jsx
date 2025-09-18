@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Download } from "lucide-react";
 
 const contentMap = {
   Physics: [
@@ -18,16 +19,13 @@ const contentMap = {
     { title: "Solutions", subtitle: "1 Videos | 1 Exercises | 2 Notes" },
     { title: "Structure of Atom", subtitle: "1 Videos | 1 Exercises | 2 Notes" },
   ],
-  // Add other subjects here...
 };
 
-// Sample videos data mapped by section title
 const videosData = {
   "All Contents": [
     {
       id: 1,
-      thumbnail:
-        "https://i.ytimg.com/vi/abc123/maxresdefault.jpg",
+      thumbnail: "https://i.ytimg.com/vi/abc123/maxresdefault.jpg",
       date: "November 23, 2024",
       duration: "3:11:53",
       title: "Redox Reactions : Complete Chapter in 1 Video || Concepts + PYQs",
@@ -35,8 +33,7 @@ const videosData = {
     },
     {
       id: 2,
-      thumbnail:
-        "https://i.ytimg.com/vi/def456/maxresdefault.jpg",
+      thumbnail: "https://i.ytimg.com/vi/def456/maxresdefault.jpg",
       date: "October 30, 2024",
       duration: "3:27:19",
       title: "Ionic Equilibrium : Complete Chapter in 1 Video || Concepts +...",
@@ -44,8 +41,7 @@ const videosData = {
     },
     {
       id: 3,
-      thumbnail:
-        "https://i.ytimg.com/vi/ghi789/maxresdefault.jpg",
+      thumbnail: "https://i.ytimg.com/vi/ghi789/maxresdefault.jpg",
       date: "October 16, 2024",
       duration: "2:03:28",
       title: "Chemical Equilibrium : Complete Chapter in 1 Video || Concepts +...",
@@ -53,20 +49,35 @@ const videosData = {
     },
     {
       id: 4,
-      thumbnail:
-        "https://i.ytimg.com/vi/jkl012/maxresdefault.jpg",
+      thumbnail: "https://i.ytimg.com/vi/jkl012/maxresdefault.jpg",
       date: "October 10, 2024",
       duration: "4:11:26",
       title: "Thermodynamics : Complete Chapter in 1 Video || Concepts +...",
       description: "Complete concepts + PYQs",
     },
   ],
-  // Add videos for other sections if needed
 };
+
+const notesData = [
+  { title: "Unit and Measurements 01 : Class Notes", file: "/pdfs/unit-measurements.pdf" },
+  { title: "Fluid Mechanics : Mind Maps (Physics)", file: "/pdfs/fluid-mechanics.pdf" },
+  { title: "Gravitation : Mind Maps (Physics)", file: "/pdfs/gravitation.pdf" },
+  { title: "Kinematics : Mind Maps (Physics)", file: "/pdfs/kinematics.pdf" },
+];
+
+const dppData = [
+  { title: "Mechanics : Daily Practice Problems", file: "/pdfs/dpp-mechanics.pdf" },
+  { title: "Waves : Daily Practice Problems", file: "/pdfs/dpp-waves.pdf" },
+];
+
+const dppPdfData = [
+  { title: "Mechanics : DPP Solutions", file: "/pdfs/dpp-mechanics-solutions.pdf" },
+  { title: "Waves : DPP Solutions", file: "/pdfs/dpp-waves-solutions.pdf" },
+];
 
 function App() {
   const location = useLocation();
-  const subject = location.state?.subject?.name || "Physical Chemistry"; // default fallback
+  const subject = location.state?.subject?.name || "Physical Chemistry";
   const sections = contentMap[subject] || [];
 
   const [selectedSection, setSelectedSection] = useState(null);
@@ -76,14 +87,44 @@ function App() {
 
   function handleSectionClick(section) {
     setSelectedSection(section);
-    setActiveTab("Lectures"); 
+    setActiveTab("Lectures");
   }
+
+  const handleDownload = (file) => {
+    const link = document.createElement("a");
+    link.href = file;
+    link.download = file.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const renderDownloadList = (data) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {data.map((item, idx) => (
+        <div
+          key={idx}
+          className="rounded-2xl shadow p-4 border flex flex-col justify-between bg-white"
+        >
+          <h2 className="font-semibold mb-4">{item.title}</h2>
+          <div className="flex justify-between items-center">
+            <span className="text-purple-600 font-medium">PDF</span>
+            <button
+              onClick={() => handleDownload(item.file)}
+              className="p-2 rounded-full hover:bg-purple-100"
+            >
+              <Download className="w-5 h-5 text-purple-600" />
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className="bg-white min-h-screen p-6">
       <h1 className="text-xl font-semibold mb-8">{subject}</h1>
 
-      {/* If no section selected - show all sections */}
       {!selectedSection && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {sections.map((section) => (
@@ -103,11 +144,10 @@ function App() {
         </div>
       )}
 
-    
       {selectedSection && (
         <div className="bg-white rounded-xl shadow-md border p-6 max-w-screen-lg mx-auto">
           <h2 className="text-3xl font-semibold mb-6">{selectedSection.title}</h2>
-          {/* Tab Navigation */}
+
           <div className="flex gap-3 mb-6">
             {["Lectures", "Notes", "DPP", "DPP PDF"].map((tab) => (
               <button
@@ -121,7 +161,7 @@ function App() {
               </button>
             ))}
           </div>
-          {/* XP Banner */}
+
           <div className="flex items-center bg-gray-100 rounded px-4 py-2 mb-4 gap-2">
             <span>Watch lectures, earn</span>
             <span className="bg-blue-50 text-blue-800 px-2 py-1 rounded font-bold">
@@ -131,24 +171,20 @@ function App() {
             <button
               className="ml-auto text-gray-400 hover:text-gray-600 text-lg"
               onClick={() => {
-                /* dismiss banner logic here */
+                /* dismiss banner */
               }}
             >
               ×
             </button>
           </div>
 
-        
           <div>
             {activeTab === "Lectures" && (
               <>
                 {videos.length === 0 && <p>No lectures available.</p>}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   {videos.map((video) => (
-                    <div
-                      key={video.id}
-                      className="bg-white rounded-xl shadow border p-4"
-                    >
+                    <div key={video.id} className="bg-white rounded-xl shadow border p-4">
                       <img
                         src={video.thumbnail}
                         alt={video.title}
@@ -190,9 +226,10 @@ function App() {
                 </div>
               </>
             )}
-            {activeTab === "Notes" && <p>Notes content goes here.</p>}
-            {activeTab === "DPP" && <p>DPP content goes here.</p>}
-            {activeTab === "DPP PDF" && <p>DPP PDF content goes here.</p>}
+
+            {activeTab === "Notes" && renderDownloadList(notesData)}
+            {activeTab === "DPP" && renderDownloadList(dppData)}
+            {activeTab === "DPP PDF" && renderDownloadList(dppPdfData)}
           </div>
 
           <button
