@@ -10,5 +10,7 @@ export const API= {
     study_materials: `${API_URL}/study-materials`,
     testimonials: `${API_URL}/testimonials`,
     header_footer: `${API_URL}/header-footer`,
+    about_us: `${API_URL}/about-us`,
+    privacy_policy: `${API_URL}/privacy-policy`, // privacy 
 }
 
