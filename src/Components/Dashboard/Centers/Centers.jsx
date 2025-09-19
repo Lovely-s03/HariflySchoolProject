@@ -17,7 +17,7 @@ const Centers = () => {
         <ClassroomPrograms/>
         {/* <BannerSlider/> */}
         <ExploreByCity/>
-        <CentreType/>
+        {/* <CentreType/> */}
         <ExploreBatches/>
         <ScholarshipSection/>
         <CounsellingSection/>

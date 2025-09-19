@@ -69,7 +69,7 @@ const centres = [
 
 const CentreType = () => {
   return (
-    <section className="py-12 px-4 md:px-8 lg:px-16 bg-white">
+    <section className="max-w-6xl m-auto py-12 px-4 md:px-8 lg:px-16 bg-white">
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-2">
           Explore by Centre Type

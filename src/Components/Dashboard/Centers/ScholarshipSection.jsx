@@ -31,7 +31,7 @@ const stats = [
 
 const ScholarshipSection = () => {
   return (
-    <section className="bg-amber-50 py-12 px-4 md:px-10 lg:px-16 rounded-xl relative overflow-hidden">
+    <section className="max-w-6xl m-auto bg-amber-50 py-12 px-2 md:px-10 lg:px-16 rounded-xl relative overflow-hidden">
       <div className="absolute right-0 top-0 opacity-10">
         <img
           src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"

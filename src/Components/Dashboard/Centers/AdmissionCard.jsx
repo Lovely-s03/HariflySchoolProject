@@ -12,7 +12,7 @@ const AdmissionCard = () => {
         <p className="text-gray-600 mb-4 text-[18px]">
           Speak to our admission counsellor over a phone call
         </p>
-        <button className="flex items-center gap-2 border border-purple-500 text-purple-600 px-4 py-2 rounded-md hover:bg-purple-50 transition">
+        <button className="flex items-center gap-2 border border-[#000080] text-[#000080] px-4 py-2 rounded-md hover:bg-purple-50 transition">
           <Phone size={18} />
           Talk to a counsellor
         </button>

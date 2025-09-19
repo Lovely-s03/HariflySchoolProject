@@ -3,10 +3,8 @@ import React from "react";
 import pathsala from '../../../assets/pathshala.jpg'
 const CounsellingSection = () => {
   return (
-    <section className="bg-white py-10 px-4 md:px-12 ">
+    <section className="max-w-6xl m-auto bg-white py-10 px-2 md:px-12 ">
       <div className="grid md:grid-cols-2 gap-10 items-center">
-        
-        {/* Left Section */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             Get free counselling sessions
@@ -16,8 +14,7 @@ const CounsellingSection = () => {
             Join and get your all queries resolved
           </p>
 
-          <div className="mt-6 grid sm:grid-cols-2 gap-5">
-            {/* Item */}
+          <div className="mt-6 grid xl:grid-cols-2 gap-5">
             <div className="flex items-center gap-3">
               <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-md font-bold">
                 ● LIVE
@@ -56,9 +53,6 @@ const CounsellingSection = () => {
         {/* Right Section */}
         <div className="w-full">
           <div className="bg-white shadow-md rounded-xl overflow-hidden relative">
-           
-
-            {/* Webinar Card */}
             <div className="p-5">
               <h3 className="font-semibold text-lg text-gray-800 mb-3">
                 Tips for NEET 2026

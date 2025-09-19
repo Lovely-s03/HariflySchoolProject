@@ -63,10 +63,10 @@ export default function TrustedSection() {
   if (!section) return null;
 
   return (
-    <section className="text-center py-12 px-4">
+    <section className="max-w-6xl m-auto text-center py-12 px-2">
       <h2 className="text-2xl md:text-3xl font-bold mb-2">{section.heading}</h2>
       <p className="text-gray-600 mb-8">{section.subheading1} {section.subheading2}</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {stats.map((item, index) => (
           <div
             key={index}
