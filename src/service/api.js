@@ -91,3 +91,21 @@ export const getheader_footer = async () => {
     throw error;
   }
 };
+export const getabout = async () => {
+  try {
+    const response = await axios.get(API.about_us); 
+    return response;
+  } catch (error) {
+    console.error("Error fetching footer:", error);
+    throw error;
+  }
+};
+export const getprivacy_policy = async () => {
+  try {
+    const response = await axios.get(API.privacy_policy); 
+    return response;
+  } catch (error) {
+    console.error("Error fetching footer:", error);
+    throw error;
+  }
+};
