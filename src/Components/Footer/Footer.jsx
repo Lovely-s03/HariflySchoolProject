@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa6";
-import logoFallback from "../../assets/glare_logo.webp"; // fallback logo
+import logoFallback from "../../assets/glare_logo.webp"; 
 import { getheader_footer } from "../../service/api";
 
 const BASE_URL = "https://pw.harifly.in";
@@ -36,7 +36,7 @@ export default function Footer() {
       const footer = res.data?.data?.footer;
 
       if (header) {
-        // ✅ logo is in header
+  
         setCompanyLogo(
           header.logo ? `${BASE_URL}/${header.logo}` : logoFallback
         );
@@ -61,8 +61,6 @@ export default function Footer() {
           quick_links: ["Glare Prerna", "Glare SIP", "Glare Gurukulam"],
           products: ["Glare App Learning", "Glare Offline Payments (Fin-Z)"],
         });
-
-        // social links not in API yet, keep placeholders
         setSocialLinks({
           facebook: null,
           twitter: null,
@@ -95,7 +93,7 @@ export default function Footer() {
                 {companyDesc}
               </p>
 
-              <div className="flex gap-3 mb-4">
+              <div className="flex  flex-row lg:flex-col xl:flex-row gap-3 mb-4">
                 {playstoreIcon && (
                   <img src={playstoreIcon} alt="Google Play" className="h-10" />
                 )}
@@ -104,12 +102,10 @@ export default function Footer() {
                 )}
               </div>
             </div>
-
-            {/* Right Section */}
             <div className="pl-0 xl:pl-48 md:col-span-3 grid grid-cols-1 gap-5">
-              {/* Top Row */}
+             
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-                {/* Company */}
+            
                 <div>
                   <h3 className="font-semibold mb-3">Company</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -118,8 +114,6 @@ export default function Footer() {
                     ))}
                   </ul>
                 </div>
-
-                {/* Centres */}
                 <div>
                   <h3 className="font-semibold mb-3">Our Centres</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -129,7 +123,7 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                {/* Popular Exams */}
+              
                 <div>
                   <h3 className="font-semibold mb-3">Popular Exams</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -140,9 +134,8 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Bottom Row */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-                {/* Connect With Us */}
+            
                 <div>
                   <h3 className="font-semibold mb-3">Connect With Us</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -152,7 +145,6 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                {/* Quick Links */}
                 <div>
                   <h3 className="font-semibold mb-3">Quick Links</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -186,8 +178,6 @@ export default function Footer() {
           </span>
           . CIN: U62099DL2024PTC432975
         </p>
-
-        {/* Social Media Icons */}
         <div className="flex items-center gap-4 text-gray-600">
           {socialLinks.facebook && (
             <a href={socialLinks.facebook} target="_blank" rel="noreferrer">

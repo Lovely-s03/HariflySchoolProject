@@ -32,7 +32,7 @@ const CenterTestimonials = () => {
   const [openVideo, setOpenVideo] = useState(null);
 
   return (
-    <section className="w-full py-12 px-4 md:px-10 lg:px-20">
+    <section className="max-w-6xl m-auto w-full py-12 px-4 md:px-10 lg:px-2">
       <h2 className="text-center text-2xl md:text-3xl font-bold mb-10">
         Here is what students say
       </h2>
@@ -44,7 +44,7 @@ const CenterTestimonials = () => {
             key={index}
             className="bg-white rounded-lg shadow-md p-5 flex flex-col items-center text-center relative"
           >
-            {/* Student Image */}
+        
             <div className="relative">
               <img
                 src={t.img}
@@ -53,7 +53,7 @@ const CenterTestimonials = () => {
               />
               <button
                 onClick={() => setOpenVideo(t.video)}
-                className="absolute -bottom-3 -left-3 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition"
+                className="absolute -bottom-3 -left-3 bg-[#000080] text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition"
               >
                 <FaPlay />
               </button>
@@ -64,7 +64,7 @@ const CenterTestimonials = () => {
 
             {/* Name and Info */}
             <h3 className="font-bold mt-3">{t.name}</h3>
-            <p className="text-indigo-600 text-sm font-medium">
+            <p className="text-[#000080] text-sm font-medium">
               {t.rank} | {t.exam}
             </p>
           </div>

@@ -623,11 +623,11 @@ const ArjunaTabs = () => {
 
   return (
     <div className="bg-[#000080] rounded-t-xl">
-      <div className="max-w-5xl mx-auto px-2 pt-6 pb-2 items-center justify-start">
+      <div className="max-w-6xl mx-auto px-2 py-4 items-center justify-start">
         <h2 className="text-white text-3xl font-bold ">Arjuna JEE 4.0 2026</h2>
       </div>
       <div className="bg-white px-4 flex flex-col gap-5 xl:gap-0 xl:flex-row items-center border-b justify-between pt-2 whitespace-nowrap">
-        <div className="flex space-x-6 overflow-x-scroll max-w-[400px] xl:max-w-full">
+        <div className="flex space-x-6 overflow-x-scroll max-w-[400px] xl:max-w-full xl:overflow-x-hidden">
           {tabData.map((tab, idx) => (
             <button
               key={tab.label}
@@ -647,7 +647,7 @@ const ArjunaTabs = () => {
             onClick={handleShareOnWhatsApp}
             className="flex items-center px-4 py-1 border rounded font-medium text-gray-700 hover:bg-gray-50 transition"
           >
-            <FaWhatsapp className="mr-2" /> {/* WhatsApp Icon */}
+            <FaWhatsapp className="mr-2" /> 
             Share Batch
           </button>
           <button className="flex items-center px-4 py-1 border rounded font-medium text-gray-700 hover:bg-gray-50 transition">
@@ -740,7 +740,7 @@ const ArjunaTabs = () => {
               </div>
 
               {showFeatures && (
-                <div className="grid grid-cols-2 gap-y-4 gap-x-2 px-5 pb-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-2 px-5 pb-4">
                   {currentFeatures.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       {feature.icon}
@@ -765,75 +765,78 @@ const ArjunaTabs = () => {
                 ))}
               </ul>
 
-              <div className="p-4 md:p-6">
-                <h2 className="text-xl font-semibold mb-4 md:mb-6">
-                  Demo Videos
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-                  {videos.map((video, idx) => (
-                    <div
-                      key={idx}
-                      className={`rounded-xl shadow-lg ${video.bg} p-4 flex flex-col`}
-                    >
-                      <div className="flex flex-col sm:flex-row items-start mb-3 md:mb-4">
-                        <div className="flex items-center mb-2 sm:mb-0 sm:mr-4">
-                          <div className="rounded-full bg-black p-2 text-white font-bold text-base md:text-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0">
-                            {video.logo}
-                          </div>
-                          <div className="ml-3 sm:ml-0 sm:mt-0">
-                            <div
-                              className={`font-semibold ${video.text} text-base md:text-lg`}
-                            >
-                              {video.label}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="ml-auto sm:ml-0 sm:mt-2 flex-shrink-0">
-                          <button
-                            className={`bg-purple-600 hover:bg-purple-700 text-white rounded-full p-1 md:p-2`}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              height={20}
-                              width={20}
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <polygon
-                                points="9.5,7.5 9.5,16.5 16.5,12"
-                                fill="white"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
+      
+              <div className="p-4 md:p-8 lg:p-10 bg-white">
+  <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-gray-900 text-center">
+    Demo Videos
+  </h2>
 
-                      <div className="mb-2 md:mb-3">
-                        <div className="font-bold text-gray-800 text-sm md:text-base line-clamp-2">
-                          {video.subtitle}
-                        </div>
-                      </div>
-
-                      <div className="mt-auto">
-                        <div className="flex items-center text-gray-500 text-xs md:text-sm mb-2">
-                          <span>{video.date}</span>
-                          <span className="mx-2">•</span>
-                          <span>{video.time}</span>
-                        </div>
-                        <div className="font-semibold text-sm md:text-base line-clamp-2">
-                          {video.title}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 md:mt-8 flex justify-center">
-                  <button className="px-5 py-2 text-sm md:text-base rounded-full bg-gray-100 hover:bg-gray-200 font-semibold text-gray-700">
-                    View All
-                  </button>
-                </div>
+  <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+    {videos.map((video, idx) => (
+      <div
+        key={idx}
+        className={`group rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden ${video.bg} p-5 flex flex-col`}
+      >
+     
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center">
+            <div className="rounded-full bg-black text-white font-bold text-lg w-12 h-12 flex items-center justify-center">
+              {video.logo}
+            </div>
+            <div className="ml-3">
+              <div className={`font-semibold ${video.text} text-base md:text-lg`}>
+                {video.label}
               </div>
+            </div>
+          </div>
+
+          <button
+            className="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2 transition-transform duration-300 group-hover:scale-110"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              height={22}
+              width={22}
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <polygon
+                points="9.5,7.5 9.5,16.5 16.5,12"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+
+  
+        <div className="mb-3">
+          <p className="font-bold text-gray-800 text-sm md:text-base line-clamp-2">
+            {video.subtitle}
+          </p>
+        </div>
+
+    
+        <div className="mt-auto">
+          <div className="flex items-center text-gray-500 text-xs md:text-sm mb-2">
+            <span>{video.date}</span>
+            <span className="mx-2">•</span>
+            <span>{video.time}</span>
+          </div>
+          <p className="font-semibold text-gray-900 text-sm md:text-base line-clamp-2 group-hover:text-purple-700 transition-colors duration-300">
+            {video.title}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div className="mt-8 flex justify-center">
+    <button className="px-6 py-2.5 text-sm md:text-base rounded-full bg-gray-100 hover:bg-gray-200 font-semibold text-gray-700 transition-colors duration-300">
+      View All
+    </button>
+  </div>
+</div>
+
             </div>
             <div className="bg-white rounded-xl shadow p-6  mx-auto">
               <h2 className="text-xl font-semibold mb-6">Other Details</h2>
@@ -988,3 +991,5 @@ const ArjunaTabs = () => {
 };
 
 export default ArjunaTabs;
+
+

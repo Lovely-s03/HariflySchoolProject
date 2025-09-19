@@ -19,7 +19,7 @@ const cities = [
 
 const ExploreByCity = () => {
   return (
-    <div className="w-full px-4 md:px-8 py-12 bg-white text-center">
+    <div className=" max-w-6xl m-auto w-full px-2  md:px-8 py-12 bg-white text-center">
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
         Explore by City
@@ -36,13 +36,12 @@ const ExploreByCity = () => {
           placeholder="Find city or pin code"
           className="flex-1 outline-none text-gray-700"
         />
-        <button className="flex items-center gap-1 text-purple-600 font-medium whitespace-nowrap">
+        <button className="flex items-center gap-1 text-[#000080] font-medium whitespace-nowrap">
           <IoLocationSharp />
           Near me
         </button>
       </div>
 
-      {/* Cities Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mb-10 max-w-5xl mx-auto">
         {cities.map((city, index) => (
           <div
@@ -63,7 +62,7 @@ const ExploreByCity = () => {
       </div>
 
       {/* Button */}
-      <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition">
+      <button className="bg-[#000080] hover:bg-[#000090c4] text-white px-6 py-3 rounded-lg font-medium transition">
         View All Cities
       </button>
     </div>

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+
+import React, { useState, useEffect, useRef } from 'react'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
@@ -13,8 +14,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const btnRef = useRef(null); 
 
-  // ✅ State from API
   const [headerData, setHeaderData] = useState({
     logo: "",
     phone: "",
@@ -22,7 +23,6 @@ const Navbar = () => {
     address: ""
   });
 
-  // ✅ Fetch header/footer API
   const fetchHeader = async () => {
     try {
       const res = await getheader_footer();
@@ -76,7 +76,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Social Icons (static for now, can also come from API if added) */}
+          {/* Social Icons */}
           <div className="flex items-center gap-4 text-indigo-900">
             <a href="#" className="hover:text-[#000080]"><FaFacebookF /></a>
             <a href="#" className="hover:text-[#000080]"><FaXTwitter /></a>
@@ -88,7 +88,7 @@ const Navbar = () => {
       </div>
 
       {/* Header */}
-      <nav className="w-full bg-white shadow-sm relative">
+      <nav className="w-full bg-white shadow-sm relative ">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
@@ -103,25 +103,31 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-            <a href="#" className="hover:text-[#000080] font-semibold">Vidyapeeth</a>
-            <a href="#" className="hover:text-[#000080] font-semibold">Upskilling</a>
+            <Link to="/about-us" className="hover:text-[#000080] font-semibold">About Us</Link>
+            <Link to="center" className="hover:text-[#000080] font-semibold">Centers</Link>
             <a href="#" className="hover:text-[#000080] font-semibold">Glare Store (Books)</a>
             <a href="#" className="hover:text-[#000080] font-semibold">Real Test</a>
             <a href="#" className="hover:text-[#000080] font-semibold">Class 1st - 8th</a>
             <a href="#" className="hover:text-[#000080] font-semibold">Power Batch</a>
           </div>
 
-          {/* Dropdown */}
+         
           <div
-            className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
-            <button className="flex items-center border px-4 py-3 rounded-md text-[#000080] font-medium hover:bg-indigo-50">
-              All Course <FiChevronDown className="ml-1" />
-            </button>
-            {dropdownOpen && <DropdownMenu />}
-          </div>
+  className="relative"
+  onMouseEnter={() => setDropdownOpen(true)}
+  onMouseLeave={() => setDropdownOpen(false)}
+>
+  <button className="flex items-center border px-4 py-3 rounded-md text-[#000080] font-medium hover:bg-indigo-50">
+    All Course <FiChevronDown className="ml-1" />
+  </button>
+
+  {dropdownOpen && (
+    <div className="absolute top-full left-1/2 -translate-x-1/2  rounded-2xl p-6 grid grid-cols-[280px_1fr] gap-6 z-50">
+      <DropdownMenu />
+    </div>
+  )}
+</div>
+
 
           {/* Login Button */}
           <div className="hidden lg:block">
