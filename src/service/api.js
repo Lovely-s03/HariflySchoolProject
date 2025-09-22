@@ -73,6 +73,7 @@ export const getstudy_materials = async () => {
     throw error;
   }
 }
+
 export const gettestimonials = async () => {
   try {
     const response = await axios.get(API.testimonials);
