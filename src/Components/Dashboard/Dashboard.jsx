@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from "react";
 import NavbarDashboard from "../../common/NavbarDasboard";
 import Sidebar from "../../common/Sidebar";
@@ -9,8 +8,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+ const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   let pageTitle = "Study";
   if (location.pathname.includes("testseries")) {
     pageTitle = "Test Series";
@@ -25,7 +23,12 @@ const Dashboard = () => {
   } else if (location.pathname.includes("center")) {
     pageTitle = "Centers";
   }
-
+else if (location.pathname.includes("explore")) {
+    pageTitle = "Back";
+  }
+  else if (location.pathname.includes("classes")) {
+    pageTitle = "Back";
+  }
   const handleClick = () => {
     if (pageTitle === "Back") {
       navigate(-1);
@@ -51,11 +54,11 @@ const Dashboard = () => {
                 </h2>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1 bg-gray-50 border rounded-full px-3 py-1">
-                    <FaFire className="text-gray-500" />
+                    <FaFire className="text-gray-500"/>
                     <span className="text-gray-700 font-medium">0</span>
                   </div>
                   <div className="flex items-center gap-1 bg-gray-50 border rounded-full px-3 py-1">
-                    <GiDiamondTrophy className="text-blue-500" />
+                    <GiDiamondTrophy className="text-blue-500"/>
                     <span className="text-gray-700 font-medium">0</span>
                   </div>
                 </div>
@@ -64,7 +67,7 @@ const Dashboard = () => {
           </div>
           <div className=" ml-0 md:ml-[258px]">
             <div className="px-5 xl:px-[55px] mt-[135px]">
-              <Outlet />
+              <Outlet/>
             </div>
           </div>
         </main>

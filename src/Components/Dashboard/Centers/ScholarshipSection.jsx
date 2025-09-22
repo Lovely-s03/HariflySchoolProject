@@ -1,4 +1,3 @@
-// ScholarshipSection.jsx
 import React from "react";
 import { ClipboardList, Award, HandCoins, FileText } from "lucide-react"; // icons
 

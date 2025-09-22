@@ -122,7 +122,7 @@ const Navbar = () => {
   </button>
 
   {dropdownOpen && (
-    <div className="absolute top-full left-1/2 -translate-x-1/2  rounded-2xl p-6 grid grid-cols-[280px_1fr] gap-6 z-50">
+    <div className="absolute top-full left-1/2 -translate-x-1/2  rounded-2xl p-6 grid grid-cols-[280px_1fr] gap-6 z-50 ">
       <DropdownMenu />
     </div>
   )}

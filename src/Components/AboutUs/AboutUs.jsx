@@ -15,9 +15,9 @@ const AboutUs = () => {
   useEffect(() => {
     const fetchAboutUs = async () => {
       try {
-        const res = await getabout();  // API call
-        setAboutUsData(res.data.data); // Set correct nested data
-        console.log("Fetched About Us Data:", res.data.data); // Debug log
+        const res = await getabout();  
+        setAboutUsData(res.data.data);
+        console.log("Fetched About Us Data:", res.data.data); 
       } catch (err) {
         console.error('Error fetching About Us:', err);
       }
