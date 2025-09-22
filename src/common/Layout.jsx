@@ -22,6 +22,7 @@ import TestPass from '../Components/Dashboard/Testseries/TestPass';
 
 import Classes from '../Components/Dashboard/Batch/Explore/Classes';
 import Centers from '../Components/Dashboard/Centers/Centers';
+import Profile from './Profile';
 
 const Layout = () => {
   const location = useLocation();
@@ -49,6 +50,7 @@ const Layout = () => {
          <Route path="contact" element={<Contact/>} />
          <Route path="explore" element={<Explore/>} />
          <Route path="classes" element={<Classes/>} />
+         <Route path="profile" element={<Profile/>} />
 
 
 
