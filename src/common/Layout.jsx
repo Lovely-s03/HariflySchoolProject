@@ -22,6 +22,8 @@ import TestPass from '../Components/Dashboard/Testseries/TestPass';
 
 import Classes from '../Components/Dashboard/Batch/Explore/Classes';
 import Centers from '../Components/Dashboard/Centers/Centers';
+import Purchases from '../Components/Dashboard/Purchases/Purchases';
+import OrderDetails from '../Components/Dashboard/Purchases/OrderDetails';
 
 const Layout = () => {
   const location = useLocation();
@@ -53,6 +55,9 @@ const Layout = () => {
 
 
          <Route path="goal" element={<Goal/>} />
+          <Route path="purchases" element={<Purchases/>} />
+          <Route path="purchases/:id" element={<OrderDetails/>} />
+          
            </Route>
              <Route path="/privacy" element={<Privacy/>} />
                 <Route path="/about-us" element={<AboutUs/>} />

@@ -1,7 +1,7 @@
 // BatchesSection.jsx
 import React, { useState } from "react";
 import {  FaCalendarAlt, FaFilter } from "react-icons/fa";
-import yakkenNeet from '../../../assets/yakeenNeet.jpeg'
+import yakkenNeet from '../../../assets/coursegla.jpeg'
 import RightFilter from "./RightFilter";
 import { useNavigate } from "react-router-dom";
 import BuyNowModal from "../../../common/BuyNowModal";
