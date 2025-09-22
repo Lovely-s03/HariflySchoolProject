@@ -4,9 +4,9 @@ import quote from "../../assets/quotes.webp";
 const BASE_URL = "https://pw.harifly.in"; // fixed base URL
 
 export default function FoundersSection({ data }) {
-  if (!data) return null; // Handle loading or null gracefully
+  if (!data) return null;
 
-  // Helper to decode HTML entities in founder descriptions
+
   const decodeHtml = (html) => {
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
@@ -14,7 +14,6 @@ export default function FoundersSection({ data }) {
   };
   const doubleDecode = (html) => decodeHtml(decodeHtml(html));
 
-  // Construct founder image URL or fallback
   const founderImageUrl = data?.image1
     ? `${BASE_URL}/${data.image1}`
     : "/path/to/default-founder-image.jpg";
@@ -22,7 +21,7 @@ export default function FoundersSection({ data }) {
   return (
     <section className="py-5 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Heading with HTML */}
+ 
         <h2
           className="text-3xl md:text-4xl font-bold text-center mb-7"
 dangerouslySetInnerHTML={{ __html: decodeHtml(data.founder_title) }}        ></h2>
@@ -38,7 +37,7 @@ dangerouslySetInnerHTML={{ __html: decodeHtml(data.founder_title) }}        ></h
             />
           </div>
 
-          {/* Founder Text Info */}
+        
           <div className="flex-1 text-gray-700">
             <div className="flex items-center justify-between">
               <div>

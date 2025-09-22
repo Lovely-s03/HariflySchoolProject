@@ -30,8 +30,7 @@ const DropdownMenu = ({ anchorRef, onClose }) => {
   const [rightMenu, setRightMenu] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // fetch data
+  
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -129,9 +128,6 @@ const DropdownMenu = ({ anchorRef, onClose }) => {
           ))}
         </div>
       </div>
-
-      {/* Mobile All Courses (slide-in) */}
-      {/* This will be rendered in DOM flow only when mobileOpen is true and xl screen hides the desktop menu */}
       <button
         className="xl:hidden px-4 py-2 bg-[#000080] text-white rounded-lg"
         onClick={() => setMobileOpen(true)}
@@ -143,7 +139,7 @@ const DropdownMenu = ({ anchorRef, onClose }) => {
         <div className="fixed inset-0 z-50 flex">
           <div className="fixed inset-0 bg-black/40" onClick={() => setMobileOpen(false)}></div>
 
-          <div className="relative w-80 bg-white h-full shadow-lg p-4 overflow-y-auto animate-slide-in">
+          <div className="relative w-80 bg-white h-[100vh] shadow-lg p-4 overflow-y-auto animate-slide-in">
             <button className="absolute top-3 right-3 text-2xl" onClick={() => setMobileOpen(false)}>
               ×
             </button>

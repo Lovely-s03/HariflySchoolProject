@@ -1,10 +1,10 @@
 import React from "react";
 import { IoIosStar } from "react-icons/io";
 
-const BASE_URL = "https://pw.harifly.in"; // Your fixed base URL
+const BASE_URL = "https://pw.harifly.in"; 
 
 const VisionSection = ({ data }) => {
-  if (!data) return null; // Handle loading state
+  if (!data) return null; 
 
   return (
     <section className="relative w-full py-16 bg-gradient-to-b from-[#fff7ef] to-[#fffdf8]">
@@ -29,7 +29,7 @@ const VisionSection = ({ data }) => {
           </ul>
         </div>
         <div className="md:w-1/2 flex justify-center gap-6 flex-wrap">
-          {/* Example: showing image1 from API */}
+        
           {data.image1 && (
             <div className="clip-hexagon overflow-hidden">
               <img
@@ -57,7 +57,7 @@ const VisionSection = ({ data }) => {
               />
             </div>
           )}
-          {/* Add more images as needed */}
+       
         </div>
       </div>
     </section>

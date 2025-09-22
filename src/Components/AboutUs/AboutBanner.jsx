@@ -11,8 +11,6 @@ const AboutBanner = ({ data }) => {
   const headingScale = useTransform(scrollY, [0, 300], [1, 0.75]);
   const headingOpacity = useTransform(scrollY, [0, 300], [1, 0.6]);
   const headingY = useTransform(scrollY, [0, 300], [0, -60]);
-
-  // Compose image URL from fixed base URL
   const bannerImageUrl = data?.image ? `${BASE_URL}/${data.image}` : null;
 
   return (
