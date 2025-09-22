@@ -29,11 +29,8 @@ export default function ProfileDashboard() {
   </span>
 </div>
 
-
-        {/* Main Content */}
         <div className="md:col-span-3 flex flex-col gap-6">
           <div className="text-lg font-semibold">Level Up Overview</div>
-          {/* Level Up Overview */}
           <div className="bg-white rounded-2xl shadow-sm p-6 grid grid-cols-2 gap-4">
             
             <div className="flex flex-col items-center">
@@ -45,8 +42,6 @@ export default function ProfileDashboard() {
               <p className="text-sm font-semibold">NA</p>
             </div>
           </div>
-
-          {/* Profile Detail */}
           <div className="bg-white rounded-2xl shadow-sm p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">Profile Detail</h3>
@@ -59,7 +54,7 @@ export default function ProfileDashboard() {
             </div>
 
             <div className="space-y-6">
-              {/* Personal Details */}
+            
               <div>
                 <h4 className="font-medium mb-2">Personal Details</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
@@ -136,10 +131,8 @@ export default function ProfileDashboard() {
 
             {/* Title */}
             <h2 className="text-lg font-semibold mb-6">Edit Details</h2>
-
-            {/* Form */}
             <form className="space-y-4">
-              {/* First Name */}
+            
               <div>
                 <label className="block text-sm font-medium mb-1">
                   First Name

@@ -16,13 +16,13 @@ import Goal from '../Components/Dashboard/AllGoals/Goal';
 import Explore from '../Components/Dashboard/Batch/Explore/Explore';
 import BuyOrderSummary from './BuyOrderSummary';
 import TestPass from '../Components/Dashboard/Testseries/TestPass';
-
+import Profile from './Profile';
 
 
 
 import Classes from '../Components/Dashboard/Batch/Explore/Classes';
 import Centers from '../Components/Dashboard/Centers/Centers';
-import Profile from './Profile';
+
 
 const Layout = () => {
   const location = useLocation();
