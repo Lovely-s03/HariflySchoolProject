@@ -15,7 +15,7 @@ import {
 import { IoCallOutline } from "react-icons/io5";
 import { LuMessageCircleWarning } from "react-icons/lu";
 import { MdOutlinePrivacyTip } from "react-icons/md";
-
+import { IoBagOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
@@ -56,6 +56,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <BookOpenIcon className="h-5 w-5" />
               <span>Library</span>
             </li>
+             <Link to="purchases" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+              <IoBagOutline className="h-5 w-5"/>
+              <span>My Purchases</span>
+            </Link>
           </ul>
         </div>
 
