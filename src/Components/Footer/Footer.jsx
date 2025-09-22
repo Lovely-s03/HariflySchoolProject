@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa6";
-import logoFallback from "../../assets/glare_logo.webp"; 
+import logoFallback from "../../assets/glare_logo.webp";
 import { getheader_footer } from "../../service/api";
 
 const BASE_URL = "https://pw.harifly.in";
@@ -36,7 +36,6 @@ export default function Footer() {
       const footer = res.data?.data?.footer;
 
       if (header) {
-  
         setCompanyLogo(
           header.logo ? `${BASE_URL}/${header.logo}` : logoFallback
         );
@@ -47,14 +46,22 @@ export default function Footer() {
         setCompanyDesc(footer.description || companyDesc);
 
         setPlaystoreIcon(
-          footer.playstore_image ? `${BASE_URL}/${footer.playstore_image}` : null
+          footer.playstore_image
+            ? `${BASE_URL}/${footer.playstore_image}`
+            : null
         );
         setAppstoreIcon(
           footer.appstore_image ? `${BASE_URL}/${footer.appstore_image}` : null
         );
 
         setMenus({
-          company: ["About Us", "Contact Us", "Careers", "Updates", "Account Deletion"],
+          company: [
+            "About Us",
+            "Contact Us",
+            "Careers",
+            "Updates",
+            "Account Deletion",
+          ],
           centres: footer.centers || [],
           exams: footer.exams || [],
           connect: ["Email Us", "Talk To A Counselor"],
@@ -86,7 +93,11 @@ export default function Footer() {
             {/* Left Section */}
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <img src={companyLogo} alt={companyTitle} className="w-10 h-10" />
+                <img
+                  src={companyLogo}
+                  alt={companyTitle}
+                  className="w-10 h-10"
+                />
                 <h2 className="text-xl font-semibold">{companyTitle}</h2>
               </div>
               <p className="text-gray-600 text-sm mb-4 w-full xl:w-[450px]">
@@ -103,9 +114,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="pl-0 xl:pl-48 md:col-span-3 grid grid-cols-1 gap-5">
-             
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-            
                 <div>
                   <h3 className="font-semibold mb-3">Company</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -123,7 +132,6 @@ export default function Footer() {
                   </ul>
                 </div>
 
-              
                 <div>
                   <h3 className="font-semibold mb-3">Popular Exams</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -135,7 +143,6 @@ export default function Footer() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-            
                 <div>
                   <h3 className="font-semibold mb-3">Connect With Us</h3>
                   <ul className="space-y-1 text-sm text-gray-900">
@@ -179,31 +186,21 @@ export default function Footer() {
           . CIN: U62099DL2024PTC432975
         </p>
         <div className="flex items-center gap-4 text-gray-600">
-          {socialLinks.facebook && (
-            <a href={socialLinks.facebook} target="_blank" rel="noreferrer">
-              <FaFacebook size={18} />
-            </a>
-          )}
-          {socialLinks.twitter && (
-            <a href={socialLinks.twitter} target="_blank" rel="noreferrer">
-              <FaXTwitter size={18} />
-            </a>
-          )}
-          {socialLinks.linkedin && (
-            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer">
-              <FaLinkedinIn size={18} />
-            </a>
-          )}
-          {socialLinks.instagram && (
-            <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
-              <FaInstagram size={18} />
-            </a>
-          )}
-          {socialLinks.youtube && (
-            <a href={socialLinks.youtube} target="_blank" rel="noreferrer">
-              <FaYoutube size={18} />
-            </a>
-          )}
+          <a href="#" target="_blank" rel="noreferrer">
+            <FaFacebook size={18} />
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            <FaXTwitter size={18} />
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            <FaLinkedinIn size={18} />
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            <FaInstagram size={18} />
+          </a>
+          <a href="#" target="_blank" rel="noreferrer">
+            <FaYoutube size={18} />
+          </a>
         </div>
       </div>
     </footer>
