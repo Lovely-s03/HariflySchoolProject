@@ -68,10 +68,10 @@ useEffect(() => {
               <span>Study</span>
          
             </Link>
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+            <Link to="chatbox" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
               <BookOpenIcon className="h-5 w-5" />
-              <span>Library</span>
-            </li>
+              <span>Doubt Class</span>
+            </Link>
              <Link to="purchases" className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
               <IoBagOutline className="h-5 w-5"/>
               <span>My Purchases</span>

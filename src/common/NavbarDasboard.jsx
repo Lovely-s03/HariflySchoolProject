@@ -25,6 +25,7 @@ const NavbarDashboard = ({ onMenuClick }) => {
   const confirmLogout = () => {
     setShowLogoutModal(false);
     console.log("User logged out");
+      navigate("/"); 
   };
 
   return (

@@ -24,6 +24,7 @@ import Classes from '../Components/Dashboard/Batch/Explore/Classes';
 import Centers from '../Components/Dashboard/Centers/Centers';
 import Purchases from '../Components/Dashboard/Purchases/Purchases';
 import OrderDetails from '../Components/Dashboard/Purchases/OrderDetails';
+import ChatBox from '../Components/Dashboard/Chatbox/ChatBox';
 
 
 const Layout = () => {
@@ -53,7 +54,7 @@ const Layout = () => {
          <Route path="explore" element={<Explore/>} />
          <Route path="classes" element={<Classes/>} />
          <Route path="profile" element={<Profile/>} />
-
+  <Route path="chatbox" element={<ChatBox/>} />
 
 
          <Route path="goal" element={<Goal/>} />

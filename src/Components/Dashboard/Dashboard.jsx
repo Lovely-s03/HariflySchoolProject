@@ -35,7 +35,9 @@ else if (location.pathname.includes("explore")) {
     else if (location.pathname.includes("purchases") && id) {
     pageTitle = "Order Details ";
   }
-
+ else if (location.pathname.includes("chatbox")) {
+    pageTitle = "Doubt Class";
+  }
 
  const handleClick = () => {
   if (pageTitle.trim() === "Back" || pageTitle.trim() === "Order Details") {
