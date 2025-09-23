@@ -9,9 +9,6 @@ import Result from './Result';
 import Students from './Students';
 import Location from './Location';
 import AppPromoSection from './AppPromoSection';
-
-// const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY; // Store your API key in .env file for safety
-
 const HomePage = () => {
   const [showPermission, setShowPermission] = useState(false);
   const [liveChatEnabled, setLiveChatEnabled] = useState(false);
