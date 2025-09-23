@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { gethome_vidyapeeth_centers } from "../../service/api";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Location() {
   const [centres, setCentres] = useState([]);
@@ -108,9 +109,15 @@ export default function Location() {
       </motion.div>
 
       <div className="fixed bottom-6 right-6 z-20">
-        <button className="bg-[#000080] text-white p-4 rounded-full shadow-lg hover:bg-[#402ee0] transition">
-          📞
-        </button>
+         
+         <a
+      href="https://wa.me/1234567890" 
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-green-500 text-5xl"
+    >
+      <FaWhatsapp/>
+    </a>
       </div>
     </section>
   );

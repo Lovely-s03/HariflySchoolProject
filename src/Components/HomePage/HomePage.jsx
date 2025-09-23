@@ -9,6 +9,7 @@ import Result from './Result'
 import Students from './Students'
 import Location from './Location'
 import AppPromoSection from './AppPromoSection'
+
 const HomePage = () => {
   return (
     <div>

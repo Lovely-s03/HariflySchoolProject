@@ -66,7 +66,7 @@ const RecommendedBatches = () => {
         {batches.map((batch) => (
           <div
             key={batch.id}
-            className="bg-white rounded-xl shadow-md border p-4 flex flex-col"
+            className="bg-white rounded-xl shadow-md border border-0 p-4 flex flex-col"
           >
            <div className="flex justify-between px-2 pb-5">
                <h3 className=" text-lg font-semibold">{batch.title}</h3>
