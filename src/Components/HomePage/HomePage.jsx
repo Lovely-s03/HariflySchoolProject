@@ -23,8 +23,7 @@ const HomePage = () => {
     const timer = setTimeout(() => setShowPermission(true), 2000);
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
+   useEffect(() => {
     if (chatOpen && messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
