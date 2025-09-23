@@ -766,12 +766,12 @@ const ArjunaTabs = () => {
               </ul>
 
       
-              <div className="p-4 md:p-8 lg:p-10 bg-white">
+              <div className="p-4  md:p-8 lg:p-10 lg:px-5 bg-white">
   <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-gray-900 text-center">
     Demo Videos
   </h2>
 
-  <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+  <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-5">
     {videos.map((video, idx) => (
       <div
         key={idx}

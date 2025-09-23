@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   PencilSquareIcon,
   BookOpenIcon,
@@ -18,6 +18,22 @@ import { MdOutlinePrivacyTip } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 const Sidebar = ({ isOpen, setIsOpen }) => {
+
+useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  };
+}, [isOpen]);
+
   return (
     <>
       {isOpen && (
@@ -156,3 +172,6 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 };
 
 export default Sidebar;
+
+
+ 
