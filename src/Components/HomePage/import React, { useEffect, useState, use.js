@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import Hero from './Hero';
 import Hero2 from './Hero2';
@@ -10,20 +9,6 @@ import Result from './Result';
 import Students from './Students';
 import Location from './Location';
 import AppPromoSection from './AppPromoSection';
-
-import React from 'react'
-import Hero from './Hero'
-import Hero2 from './Hero2'
-import Exam from './Exam'
-import TestimonialSection from './TestimonialSection'
-import StudyResources from './StudyResources'
-import PWFamily from './PWFamily'
-import Result from './Result'
-import Students from './Students'
-import Location from './Location'
-import AppPromoSection from './AppPromoSection'
-
-
 const HomePage = () => {
   const [showPermission, setShowPermission] = useState(false);
   const [liveChatEnabled, setLiveChatEnabled] = useState(false);
