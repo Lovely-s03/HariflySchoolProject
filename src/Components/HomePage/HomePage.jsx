@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import Hero from './Hero';
 import Hero2 from './Hero2';
@@ -10,19 +9,6 @@ import Result from './Result';
 import Students from './Students';
 import Location from './Location';
 import AppPromoSection from './AppPromoSection';
-
-import React from 'react'
-import Hero from './Hero'
-import Hero2 from './Hero2'
-import Exam from './Exam'
-import TestimonialSection from './TestimonialSection'
-import StudyResources from './StudyResources'
-import PWFamily from './PWFamily'
-import Result from './Result'
-import Students from './Students'
-import Location from './Location'
-import AppPromoSection from './AppPromoSection'
-
 
 const HomePage = () => {
   const [showPermission, setShowPermission] = useState(false);
@@ -38,7 +24,8 @@ const HomePage = () => {
     const timer = setTimeout(() => setShowPermission(true), 2000);
     return () => clearTimeout(timer);
   }, []);
-   useEffect(() => {
+
+  useEffect(() => {
     if (chatOpen && messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -60,10 +47,9 @@ const HomePage = () => {
     setMessages((msgs) => [...msgs, { sender: 'user', text: input }]);
     setInput('');
 
-    // Example API call to Google Geocoding API
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(input)}&key=${GOOGLE_API_KEY}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(input)}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
       );
       const data = await response.json();
 
@@ -112,7 +98,7 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Live Chat Floating Button (bottom-right) */}
+      {/* Live Chat Floating Button */}
       {liveChatEnabled && !chatOpen && (
         <button
           className="fixed right-4 bottom-4 z-40 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 transition"
@@ -129,7 +115,6 @@ const HomePage = () => {
       {/* Live Chat Window */}
       {liveChatEnabled && chatOpen && (
         <div className="fixed right-4 bottom-4 z-50 w-80 max-w-full bg-white rounded-xl shadow-2xl flex flex-col">
-          {/* Header */}
           <div className="flex items-center justify-between px-4 py-2 bg-green-500 rounded-t-xl">
             <span className="text-white font-semibold">Live Chat AI</span>
             <button
@@ -140,7 +125,6 @@ const HomePage = () => {
               ×
             </button>
           </div>
-          {/* Messages */}
           <div className="flex-1 px-4 py-3 space-y-2 overflow-y-auto" style={{ maxHeight: 260 }}>
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -157,7 +141,6 @@ const HomePage = () => {
             ))}
             <div ref={messagesEndRef} />
           </div>
-          {/* Input */}
           <form
             className="flex px-4 py-2 border-t bg-gray-50"
             onSubmit={(e) => {
@@ -182,7 +165,7 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Normal homepage sections */}
+      {/* Homepage Sections */}
       <Hero />
       <Hero2 />
       <Exam />
