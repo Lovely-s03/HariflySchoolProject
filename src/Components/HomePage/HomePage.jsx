@@ -1,57 +1,23 @@
-// import React from 'react'
-// import Hero from './Hero'
-// import Hero2 from './Hero2'
-// import Exam from './Exam'
-// import TestimonialSection from './TestimonialSection'
-// import StudyResources from './StudyResources'
-// import PWFamily from './PWFamily'
-// import Result from './Result'
-// import Students from './Students'
-// import Location from './Location'
-// import AppPromoSection from './AppPromoSection'
-
-// const HomePage = () => {
-//   return (
-//     <div>
-//           <Hero/>
-//           <Hero2/>
-//           <Exam/>
-//           <Location/>
-//           <Students/>
-//           <Result/>
-//           <AppPromoSection/>
-//           <TestimonialSection/>
-//           <StudyResources/>
-//           <PWFamily/>
-//     </div>
-//   )
-// }
-
-// export default HomePage;
-
-
-
-import React, { useEffect, useRef, useState } from 'react'
-import Hero from './Hero'
-import Hero2 from './Hero2'
-import Exam from './Exam'
-import TestimonialSection from './TestimonialSection'
-import StudyResources from './StudyResources'
-import PWFamily from './PWFamily'
-import Result from './Result'
-import Students from './Students'
-import Location from './Location'
-import AppPromoSection from './AppPromoSection'
-
+import React, { useEffect, useRef, useState } from "react";
+import Hero from "./Hero";
+import Hero2 from "./Hero2";
+import Exam from "./Exam";
+import TestimonialSection from "./TestimonialSection";
+import StudyResources from "./StudyResources";
+import PWFamily from "./PWFamily";
+import Result from "./Result";
+import Students from "./Students";
+import Location from "./Location";
+import AppPromoSection from "./AppPromoSection";
 
 const HomePage = () => {
   const [showPermission, setShowPermission] = useState(false);
   const [liveChatEnabled, setLiveChatEnabled] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: 'Hi! How can I help you today?' }
+    { sender: "ai", text: "Hi! How can I help you today?" },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -78,12 +44,14 @@ const HomePage = () => {
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    setMessages((msgs) => [...msgs, { sender: 'user', text: input }]);
-    setInput('');
+    setMessages((msgs) => [...msgs, { sender: "user", text: input }]);
+    setInput("");
 
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(input)}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+          input
+        )}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
       );
       const data = await response.json();
 
@@ -95,11 +63,11 @@ const HomePage = () => {
         reply = `AI: Google API error: ${data.status}`;
       }
 
-      setMessages((msgs) => [...msgs, { sender: 'ai', text: reply }]);
+      setMessages((msgs) => [...msgs, { sender: "ai", text: reply }]);
     } catch (error) {
       setMessages((msgs) => [
         ...msgs,
-        { sender: 'ai', text: "AI: Sorry, I couldn't fetch data right now." },
+        { sender: "ai", text: "AI: Sorry, I couldn't fetch data right now." },
       ]);
     }
   };
@@ -112,7 +80,8 @@ const HomePage = () => {
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full text-center">
             <h2 className="font-semibold text-lg mb-2">Permission Required</h2>
             <p className="text-sm text-gray-600 mb-4">
-              This app needs permission to access certain features. Please allow access for the best experience.
+              This app needs permission to access certain features. Please allow
+              access for the best experience.
             </p>
             <div className="flex justify-center gap-3">
               <button
@@ -135,11 +104,17 @@ const HomePage = () => {
       {/* Live Chat Floating Button */}
       {liveChatEnabled && !chatOpen && (
         <button
-          className="fixed right-4 bottom-4 z-40 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 transition"
+          className="fixed right-4 bottom-4 z-40 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 transition animate-bounce"
           style={{ minWidth: 120 }}
           onClick={() => setChatOpen(true)}
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
             <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
           </svg>
           Live Chat
@@ -159,14 +134,22 @@ const HomePage = () => {
               ×
             </button>
           </div>
-          <div className="flex-1 px-4 py-3 space-y-2 overflow-y-auto" style={{ maxHeight: 260 }}>
+          <div
+            className="flex-1 px-4 py-3 space-y-2 overflow-y-auto"
+            style={{ maxHeight: 260 }}
+          >
             {messages.map((msg, idx) => (
-              <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div
+                key={idx}
+                className={`flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
+              >
                 <div
                   className={`inline-block px-3 py-2 rounded-xl text-sm ${
-                    msg.sender === 'ai'
-                      ? 'bg-gray-200 text-gray-800'
-                      : 'bg-green-500 text-white'
+                    msg.sender === "ai"
+                      ? "bg-gray-200 text-gray-800"
+                      : "bg-green-500 text-white"
                   }`}
                 >
                   {msg.text}
@@ -213,4 +196,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
