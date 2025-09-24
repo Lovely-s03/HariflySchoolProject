@@ -198,8 +198,6 @@ const HomePage = () => {
           </form>
         </div>
       )}
-
-      {/* Homepage Sections */}
       <Hero />
       <Hero2 />
       <Exam />
