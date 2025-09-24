@@ -108,7 +108,7 @@ export default function Location() {
         </div>
       </motion.div>
 
-      <div className="fixed bottom-6 right-6 z-20">
+      <div className="fixed bottom-20 right-6 z-20">
          
          <a
       href="https://wa.me/1234567890" 
