@@ -7,10 +7,14 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
   const [mobile, setMobile] = useState("");
   const [showOtp, setShowOtp] = useState(false);
   const [otp, setOtp] = useState(["", "", "", ""]);
+  const [generatedOtp, setGeneratedOtp] = useState("");
   const inputRefs = useRef([]);
 
   const handleSendOtp = () => {
     if (mobile.length === 10) {
+      const otpFromMobile = mobile.slice(-4); 
+      setGeneratedOtp(otpFromMobile);
+      console.log("OTP for testing:", otpFromMobile); 
       setShowOtp(true);
     } else {
       alert("Please enter a valid 10-digit mobile number.");
@@ -27,7 +31,6 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
       inputRefs.current[index + 1].focus();
     }
   };
-
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1].focus();
@@ -36,13 +39,17 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
 
   const handleVerifyOtp = () => {
     const otpCode = otp.join("");
-    if (/^\d{4}$/.test(otpCode)) {
+    if (otpCode === generatedOtp) {
       navigate("/dashboard");
     } else {
-      alert("Please enter a valid 4-digit OTP before continuing.");
+      alert("Incorrect OTP. Please enter the correct OTP.");
     }
   };
-
+useEffect(() => {
+  if (showOtp && inputRefs.current[0]) {
+    inputRefs.current[0].focus();
+  }
+}, [showOtp]);
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -55,9 +62,10 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   if (!isOpen) return null;
+  
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 ">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white w-[90%] max-w-2xl rounded-2xl overflow-hidden shadow-2xl animate-zoomIn relative">
         <button
           onClick={onClose}
@@ -67,6 +75,7 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Left side */}
           <div className="bg-gradient-to-br from-[#000080] to-[#F5F6FF] flex flex-col items-center justify-center p-8 text-white">
             <img src={logo} alt="Logo" className="w-20 h-20 mb-4" />
             <h2 className="text-2xl font-bold">Welcome Back!</h2>
@@ -85,7 +94,6 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
                 : "Enter your mobile number to get OTP"}
             </p>
 
-            {/* Mobile Input + Send OTP */}
             {!showOtp && (
               <div>
                 <div className="flex border border-gray-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-indigo-500 mb-4">
@@ -149,7 +157,6 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
               </div>
             )}
 
-            {/* Terms */}
             <p className="text-xs text-gray-500 text-center mt-6">
               By continuing, you agree to our{" "}
               <a href="#" className="text-[#000080] hover:underline">

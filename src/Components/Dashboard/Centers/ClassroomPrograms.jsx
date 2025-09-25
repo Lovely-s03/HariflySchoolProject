@@ -33,7 +33,7 @@ const ClassroomPrograms = () => {
   };
 
   return (
-    <div className="max-w-6xl m-auto w-full bg-white py-12 mt-[55px] md:mt-[130px] lg:mt-[110px] px-2">
+    <div className="max-w-6xl m-auto w-full bg-white py-5 lg:py-12 lg:mt-[110px] px-2">
       {/* Heading */}
       <h2 className="text-center text-2xl md:text-3xl font-semibold text-gray-900 mb-10">
         Discover the Perfect Offline Classroom Program for yourself

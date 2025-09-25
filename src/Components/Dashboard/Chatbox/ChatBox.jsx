@@ -6,7 +6,7 @@ const DoubtChatBox = () => {
     { id: 1, sender: "teacher", text: "Welcome to Doubt Class! 👩‍🏫 Ask your questions here." },
   ]);
   const [newMessage, setNewMessage] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState(null); // ✅ Modal ke liye state
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const messagesEndRef = useRef(null);
 
   const handleSend = () => {
@@ -79,7 +79,7 @@ const DoubtChatBox = () => {
         </div>
       )}
       {/* Chat Section */}
-      <div className="flex justify-center items-start gap-4 w-full">
+      <div className="flex flex-col lg:flex-row justify-center items-start gap-4 w-full">
         <div className="flex-1 max-w-3xl h-[80vh] flex flex-col border rounded-2xl shadow-xl bg-white overflow-hidden">
           <div className="bg-indigo-600 text-white p-4 flex justify-between items-center">
             <h2 className="text-lg font-bold">📚 Doubt Class</h2>
@@ -127,8 +127,8 @@ const DoubtChatBox = () => {
           </div>
         </div>
 
-        {/* Sidebar History */}
-        <div className="w-80 h-[80vh] border rounded-2xl shadow-xl bg-gray-50 p-4 overflow-y-auto">
+        {/* History */}
+        <div className="w-full lg:w-80 h-[80vh] border rounded-2xl shadow-xl bg-gray-50 p-4 overflow-y-auto">
           <h3 className="font-bold mb-4 text-gray-700">🕑 Chat History</h3>
           <div className="space-y-3">
             {messages.map((msg) => (

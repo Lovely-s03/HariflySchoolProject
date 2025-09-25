@@ -62,7 +62,7 @@ const RecommendedBatches = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {batches.map((batch) => (
           <div
             key={batch.id}

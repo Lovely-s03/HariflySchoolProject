@@ -74,10 +74,9 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* Permission Popup */}
       {showPermission && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/30">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full text-center">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full text-center m-5">
             <h2 className="font-semibold text-lg mb-2">Permission Required</h2>
             <p className="text-sm text-gray-600 mb-4">
               This app needs permission to access certain features. Please allow
@@ -101,7 +100,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Live Chat Floating Button */}
       {liveChatEnabled && !chatOpen && (
         <button
           className="fixed right-4 bottom-4 z-40 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 transition animate-bounce"

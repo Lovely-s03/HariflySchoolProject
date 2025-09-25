@@ -137,7 +137,7 @@ const CategoryCard = ({ title, tags, icon }) => {
             </span>
           ))}
         </div>
-        <button className="flex items-center gap-2 mt-4 text-gray-700 font-medium hover:text-indigo-600 transition">
+        <button className="flex items-center gap-2 mt-4 text-gray-700 font-medium hover:text-indigo-600 transition whitespace-nowrap">
           Explore Category <ArrowRight size={18} />
         </button>
       </div>
