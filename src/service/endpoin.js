@@ -1,4 +1,6 @@
-export const API_URL = "https://pw.harifly.in/api";
+import { LiaOutdentSolid } from "react-icons/lia";
+
+export const API_URL = "https://finalpw.harifly.in/api";
 export const API= {
     homesliders: `${API_URL}/home-sliders`,
     courses: `${API_URL}/courses`,
@@ -11,6 +13,9 @@ export const API= {
     testimonials: `${API_URL}/testimonials`,
     header_footer: `${API_URL}/header-footer`,
     about_us: `${API_URL}/about-us`,
-    privacy_policy: `${API_URL}/privacy-policy`, // privacy 
+    privacy_policy: `${API_URL}/privacy-policy`,
+    logout_student: `${API_URL}/logout-student`,
+    
+
 }
 

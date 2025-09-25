@@ -30,7 +30,7 @@ export default function ProfileDashboard() {
 </div>
 
         <div className="md:col-span-3 flex flex-col gap-6">
-          <div className="text-lg font-semibold">Level Up Overview</div>
+          {/* <div className="text-lg font-semibold">Level Up Overview</div>
           <div className="bg-white rounded-2xl shadow-sm p-6 grid grid-cols-2 gap-4">
             
             <div className="flex flex-col items-center">
@@ -41,7 +41,7 @@ export default function ProfileDashboard() {
               <p className="text-gray-500">Highest Level</p>
               <p className="text-sm font-semibold">NA</p>
             </div>
-          </div>
+          </div> */}
           <div className="bg-white rounded-2xl shadow-sm p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">Profile Detail</h3>
@@ -77,7 +77,7 @@ export default function ProfileDashboard() {
               </div>
 
               {/* Academic Details */}
-              <div>
+              {/* <div>
                 <h4 className="font-medium mb-2">Academic Details</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>
@@ -94,12 +94,12 @@ export default function ProfileDashboard() {
                     <span className="font-semibold">Language:</span> N/A
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
 
           {/* Performance Section */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
+          {/* <div className="bg-white rounded-2xl shadow-sm p-6">
             <h3 className="text-lg font-semibold mb-4">
               Performance as Doubt Solver
             </h3>
@@ -113,141 +113,153 @@ export default function ProfileDashboard() {
                 <p className="text-sm font-semibold">0%</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
       {/* Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-6 relative animate-fadeIn">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-            >
-              <FaTimes size={18} />
-            </button>
+  {isOpen && (
+  <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+    <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-0 relative animate-fadeIn">
+      {/* Close Button */}
+      <button
+        onClick={() => setIsOpen(false)}
+        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+      >
+        <FaTimes size={18} />
+      </button>
 
-            {/* Title */}
-            <h2 className="text-lg font-semibold mb-6">Edit Details</h2>
-            <form className="space-y-4">
-            
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  defaultValue="Shivam Singh"
-                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
+      {/* Title */}
+      <h2 className="text-lg font-semibold pt-6 px-6 mb-4">Edit Details</h2>
 
-              {/* Last Name */}
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Last Name"
-                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
-
-              {/* Gender */}
-              <div>
-                <label className="block text-sm font-medium mb-1">Gender</label>
-                <div className="flex gap-6">
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="gender"
-                      className="accent-blue-600"
-                    />{" "}
-                    Male
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="gender"
-                      className="accent-blue-600"
-                    />{" "}
-                    Female
-                  </label>
-                </div>
-              </div>
-
-              {/* Mobile Number */}
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Mobile Number
-                </label>
-                <div className="flex items-center border rounded-lg overflow-hidden">
-                  <select className="px-2 py-2 border-r bg-gray-50 outline-none">
-                    <option>IN +91</option>
-                  </select>
-                  <input
-                    type="text"
-                    defaultValue="9693137992"
-                    className="flex-1 px-3 py-2 outline-none"
-                  />
-                  <button
-                    type="button"
-                    className="px-3 text-blue-600 hover:underline text-sm"
-                  >
-                    Update Number
-                  </button>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="block text-sm font-medium mb-1">Email</label>
-                <input
-                  type="email"
-                  placeholder="Enter Email"
-                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-                />
-              </div>
-
-              {/* State */}
-              <div>
-                <label className="block text-sm font-medium mb-1">State</label>
-                <select className="w-full border rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500">
-                  <option>Select State</option>
-                </select>
-              </div>
-
-              {/* City */}
-              <div>
-                <label className="block text-sm font-medium mb-1">City</label>
-                <select className="w-full border rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500">
-                  <option>Select City</option>
-                </select>
-              </div>
-
-              {/* Actions */}
-              <div className="flex justify-end gap-3 pt-4">
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(false)}
-                  className="px-4 py-2 border rounded-lg text-gray-600 hover:bg-gray-100"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                >
-                  Save Changes
-                </button>
-              </div>
-            </form>
+      {/* Scrollable Form Body */}
+      <div 
+        className="max-h-[70vh] overflow-y-auto px-6 pb-4"
+        style={{ scrollbarWidth: 'thin', scrollbarColor: '#3b82f6 #e5e7eb' }}>
+        <form className="space-y-4">
+          {/* Profile Photo */}
+          <div>
+            <label className="block text-sm font-medium mb-2">Profile Photo</label>
+            <div className="flex items-center gap-4">
+              <img
+                src="https://via.placeholder.com/80"
+                alt="Profile Preview"
+                className="w-20 h-20 rounded-full border object-cover"
+              />
+              <input
+                type="file"
+                accept="image/*"
+                className="text-sm text-gray-600 file:mr-3 file:py-2 file:px-4
+                           file:rounded-lg file:border-0 file:text-sm
+                           file:font-medium file:bg-blue-50 file:text-blue-600
+                           hover:file:bg-blue-100"
+              />
+            </div>
           </div>
-        </div>
-      )}
+
+          {/* First Name */}
+          <div>
+            <label className="block text-sm font-medium mb-1">First Name</label>
+            <input
+              type="text"
+              defaultValue="Shivam Singh"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
+
+          {/* Last Name */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Last Name</label>
+            <input
+              type="text"
+              placeholder="Enter Last Name"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
+
+          {/* Gender */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Gender</label>
+            <div className="flex gap-6">
+              <label className="flex items-center gap-2">
+                <input type="radio" name="gender" className="accent-blue-600" /> Male
+              </label>
+              <label className="flex items-center gap-2">
+                <input type="radio" name="gender" className="accent-blue-600" /> Female
+              </label>
+            </div>
+          </div>
+
+          {/* Mobile Number */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Mobile Number</label>
+            <div className="flex items-center border rounded-lg overflow-hidden">
+              <select className="px-2 py-2 border-r bg-gray-50 outline-none">
+                <option>IN +91</option>
+              </select>
+              <input
+                type="text"
+                defaultValue="9693137992"
+                className="flex-1 px-3 py-2 outline-none"
+              />
+              {/* <button
+                type="button"
+                className="px-3 text-blue-600 hover:underline text-sm"
+              >
+                Update Number
+              </button> */}
+            </div>
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Email</label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+            />
+          </div>
+
+          {/* State */}
+          <div>
+            <label className="block text-sm font-medium mb-1">State</label>
+            <select className="w-full border rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500">
+              <option>Select State</option>
+            </select>
+          </div>
+
+          {/* City */}
+          <div>
+            <label className="block text-sm font-medium mb-1">City</label>
+            <select className="w-full border rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500">
+              <option>Select City</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      {/* Actions (outside scrollable area) */}
+      <div className="flex justify-end gap-3 pt-4 px-6 pb-6 bg-white">
+        <button
+          type="button"
+          onClick={() => setIsOpen(false)}
+          className="px-4 py-2 border rounded-lg text-gray-600 hover:bg-gray-100"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Save Changes
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 }

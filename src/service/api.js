@@ -110,3 +110,12 @@ export const getprivacy_policy = async () => {
     throw error;
   }
 };
+export const getlogout_student = async () => {
+  try {
+    const response = await axios.post(API.logout_student); 
+    return response;
+  } catch (error) {
+    console.error("Error fetching footer:", error);
+    throw error;
+  }
+};

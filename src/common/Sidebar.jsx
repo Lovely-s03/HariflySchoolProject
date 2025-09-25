@@ -92,10 +92,10 @@ useEffect(() => {
              </Link>
             
     
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+            {/* <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
               <BoltIcon className="h-5 w-5" />
               <span>Power Batch</span>
-            </li>
+            </li> */}
              <Link to="testseries" className=" flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
          
             
@@ -104,10 +104,10 @@ useEffect(() => {
              
             
              </Link>
-            <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
+            {/* <li className="flex items-center gap-3 text-gray-700 hover:bg-gray-100 p-2 rounded-lg cursor-pointer">
               <AcademicCapIcon className="h-5 w-5" />
               <span>Scholarship</span>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -125,7 +125,7 @@ useEffect(() => {
         </div>
 
         {/* Explore */}
-        <div>
+        {/* <div>
           <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase">
             Explore PW
           </h2>
@@ -143,7 +143,7 @@ useEffect(() => {
             </li>
           </ul>
          
-        </div>
+        </div> */}
          <div>
           <h2 className="text-xs font-semibold text-gray-500 mb-2 uppercase">
           More
