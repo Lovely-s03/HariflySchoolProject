@@ -75,7 +75,7 @@ export default function Hero() {
 
   if (loading) {
     return (
-      <div className="relative w-full mx-auto mt-[90px] sm:mt-[90px] md:mt-[160px] lg:mt-[140px] xl:mt-[120px]">
+      <div className="relative w-full mx-auto  lg:mt-[102px]">
         <div className="text-center py-20 text-gray-500">Loading...</div>
       </div>
     );
@@ -83,7 +83,7 @@ export default function Hero() {
 
   if (error) {
     return (
-      <div className="relative w-full mx-auto mt-[90px] sm:mt-[90px] md:mt-[160px] lg:mt-[140px] xl:mt-[120px]">
+      <div className="relative w-full mx-auto lg:mt-[102px] ">
         <div className="text-center py-20 text-red-500">Error loading sliders</div>
       </div>
     );
@@ -91,14 +91,14 @@ export default function Hero() {
 
   if (slides.length === 0) {
     return (
-      <div className="relative w-full mx-auto mt-[90px] sm:mt-[90px] md:mt-[160px] lg:mt-[140px] xl:mt-[120px]">
+      <div className="relative w-full mx-auto  lg:mt-[102px] ">
         <div className="text-center py-20 text-gray-500">No slides found</div>
       </div>
     );
   }
 
   return (
-   <div className="relative w-full mx-auto mt-[90px] sm:mt-[90px] md:mt-[160px] lg:mt-[140px] xl:mt-[120px]">
+   <div className="relative w-full mx-auto  lg:mt-[102px] ">
   <Slider {...settings}>
     {slides.map((item, index) => {
       const imageUrl = `https://pw.harifly.in/${item.image}`;

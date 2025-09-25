@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { getstudy_materials } from "../../service/api";
 
 
-const BASE_URL = "https://pw.harifly.in"; // ✅ fixed base URL
+const BASE_URL = "https://pw.harifly.in"; 
 
 const PWFamily = () => {
   const [channels, setChannels] = useState([]);

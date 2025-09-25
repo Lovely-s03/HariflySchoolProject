@@ -35,40 +35,42 @@ const Layout = () => {
 
 
   return (
-    <>
-      {!isDashboardRoute && !isOrderSummaryRoute &&  <Navbar/>}
-      <ScrollToTop/>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/course" element={<Course/>} />
-
-        <Route path="/dashboard" element={<Dashboard />} >
-        <Route index element={<Study />} />
-         <Route path="study" element={<Study/>} />
-         <Route path="testseries" element={<Testseries/>} />
-      <Route path="testpass" element={<TestPass/>} />
-         <Route path="batch" element={<Batch/>} />
-          <Route path="center" element={<Centers/>} />
-         <Route path="contact" element={<Contact/>} />
-         <Route path="explore" element={<Explore/>} />
-         <Route path="classes" element={<Classes/>} />
-         <Route path="profile" element={<Profile/>} />
-  <Route path="chatbox" element={<ChatBox/>} />
-
-
-         <Route path="goal" element={<Goal/>} />
-          <Route path="purchases" element={<Purchases/>} />
-          <Route path="purchases/:id" element={<OrderDetails/>} />
-          
-           </Route>
-             <Route path="/privacy" element={<Privacy/>} />
-                <Route path="/about-us" element={<AboutUs/>} />
-                 <Route path="/center" element={<Centers/>} />
-                <Route path="/order-summary" element={<BuyOrderSummary/>} />
-      </Routes>
   
-      {!isDashboardRoute && !isOrderSummaryRoute &&  <Footer/>}
+  <>
+      {!isDashboardRoute && !isOrderSummaryRoute && <Navbar />}
+
+      <ScrollToTop />
+      <div className=" pb-20 lg:pb-0"> 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/course" element={<Course />} />
+
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Study />} />
+            <Route path="study" element={<Study />} />
+            <Route path="testseries" element={<Testseries />} />
+            <Route path="testpass" element={<TestPass />} />
+            <Route path="batch" element={<Batch />} />
+            <Route path="center" element={<Centers />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="explore" element={<Explore />} />
+            <Route path="classes" element={<Classes />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="chatbox" element={<ChatBox />} />
+            <Route path="goal" element={<Goal />} />
+            <Route path="purchases" element={<Purchases />} />
+            <Route path="purchases/:id" element={<OrderDetails />} />
+          </Route>
+
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/center" element={<Centers />} />
+          <Route path="/order-summary" element={<BuyOrderSummary />} />
+        </Routes>
+   
+
+      {!isDashboardRoute && !isOrderSummaryRoute && <Footer />}
+         </div>
     </>
   );
 };
