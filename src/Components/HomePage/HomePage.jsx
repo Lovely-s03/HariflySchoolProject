@@ -102,7 +102,7 @@ const HomePage = () => {
 
       {liveChatEnabled && !chatOpen && (
         <button
-          className="fixed right-4 bottom-4 z-40 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 transition animate-bounce"
+          className="fixed right-4  bottom-20 lg:bottom-4 z-40 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 transition animate-bounce"
           style={{ minWidth: 120 }}
           onClick={() => setChatOpen(true)}
         >
