@@ -30,7 +30,7 @@ else if (location.pathname.includes("explore")) {
     pageTitle = "Back";
   }
    else if (location.pathname.includes("purchases") && !id) {
-    pageTitle = "My Purchases";
+    pageTitle = "My Order";
   }
     else if (location.pathname.includes("purchases") && id) {
     pageTitle = "Order Details ";

@@ -380,17 +380,12 @@ const Navbar = () => {
     <span className="text-sm font-bold">Home</span>
   </Link>
 
-  {/* About Icon */}
-  <Link to="/about-us" className="flex flex-col items-center text-md font-medium text-[#000080]">
+
+  <Link to="/dashboard/purchases" className="flex flex-col items-center text-md font-medium text-[#000080]">
     <FaUser className="mb-1"/>
-    <span className="text-md">About</span>
+    <span className="text-md">My order</span>
   </Link>
 
-  {/* Centers Icon */}
-  <Link to="center" className="flex flex-col items-center text-md font-medium text-[#000080]">
-    <FaSchool className="mb-1" />
-    <span className="text-md">Centers</span>
-  </Link>
 
   {/* Courses Dropdown */}
 <button
@@ -402,7 +397,7 @@ const Navbar = () => {
 
   {/* Text + arrow inline */}
   <span className="flex items-center text-md">
-    Courses <FiChevronDown className="ml-1" />
+ Batch <FiChevronDown className="ml-1" />
   </span>
 </button>
 
