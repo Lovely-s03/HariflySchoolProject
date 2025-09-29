@@ -1,23 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
-import logo from '../assets/glare_logo.webp';
+import logo from "../assets/glare_logo.webp";
 import { useNavigate } from "react-router-dom";
+import api from "../service/api";
 
 const MobileLoginModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const [mobile, setMobile] = useState("");
   const [showOtp, setShowOtp] = useState(false);
   const [otp, setOtp] = useState(["", "", "", ""]);
-  const [generatedOtp, setGeneratedOtp] = useState("");
   const inputRefs = useRef([]);
 
-  const handleSendOtp = () => {
-    if (mobile.length === 10) {
-      const otpFromMobile = mobile.slice(-4); 
-      setGeneratedOtp(otpFromMobile);
-      console.log("OTP for testing:", otpFromMobile); 
+  const handleSendOtp = async () => {
+    if (mobile.length !== 10) return alert("Enter valid 10-digit mobile");
+    try {
+      await api.post("/send-otp", { mobile });
       setShowOtp(true);
-    } else {
-      alert("Please enter a valid 10-digit mobile number.");
+    } catch (err) {
+      alert(err?.response?.data?.message || "Failed to send OTP");
     }
   };
 
@@ -26,47 +25,46 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
-
-    if (value && index < 3) {
-      inputRefs.current[index + 1].focus();
-    }
+    if (value && index < 3) inputRefs.current[index + 1].focus();
   };
+
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1].focus();
     }
   };
 
-  const handleVerifyOtp = () => {
+  const handleVerifyOtp = async () => {
     const otpCode = otp.join("");
-    if (otpCode === generatedOtp) {
+    if (!/^\d{4}$/.test(otpCode)) return alert("Enter 4-digit OTP");
+
+    try {
+      const res = await api.post("/login-student", { mobile, otp: otpCode });
+      const data = res.data;
+
+      if (data?.data?.token && data?.data?.token_type) {
+        const authToken = `${data.data.token_type} ${data.data.token}`;
+        sessionStorage.setItem("token", authToken); // ✅ Save token
+      }
+
       navigate("/dashboard");
-    } else {
-      alert("Incorrect OTP. Please enter the correct OTP.");
+      onClose();
+    } catch (err) {
+      alert(err?.response?.data?.message || "OTP verification failed");
     }
   };
-useEffect(() => {
-  if (showOtp && inputRefs.current[0]) {
-    inputRefs.current[0].focus();
-  }
-}, [showOtp]);
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
   }, [isOpen]);
 
   if (!isOpen) return null;
-  
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 ">
       <div className="bg-white w-[90%] max-w-2xl rounded-2xl overflow-hidden shadow-2xl animate-zoomIn relative">
+        {/* Close */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl cursor-pointer"
@@ -74,8 +72,9 @@ useEffect(() => {
           ✕
         </button>
 
+        {/* Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left side */}
+          {/* Left */}
           <div className="bg-gradient-to-br from-[#000080] to-[#F5F6FF] flex flex-col items-center justify-center p-8 text-white">
             <img src={logo} alt="Logo" className="w-20 h-20 mb-4" />
             <h2 className="text-2xl font-bold">Welcome Back!</h2>
@@ -84,6 +83,7 @@ useEffect(() => {
             </p>
           </div>
 
+          {/* Right */}
           <div className="p-8 flex flex-col justify-center">
             <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">
               Login to Continue
@@ -94,13 +94,15 @@ useEffect(() => {
                 : "Enter your mobile number to get OTP"}
             </p>
 
+            {/* Mobile input */}
             {!showOtp && (
               <div>
                 <div className="flex border border-gray-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-indigo-500 mb-4">
-                  <select className="px-3 py-2 bg-gray-100 border-r text-gray-700 text-sm outline-none">
+                  <select
+                    className="px-3 py-2 bg-gray-100 border-r text-gray-700 text-sm outline-none"
+                    defaultValue="+91"
+                  >
                     <option value="+91">+91</option>
-                    <option value="+1">+1</option>
-                    <option value="+44">+44</option>  
                   </select>
                   <input
                     type="tel"
@@ -113,7 +115,6 @@ useEffect(() => {
                     maxLength={10}
                   />
                 </div>
-
                 {mobile.length === 10 && (
                   <button
                     onClick={handleSendOtp}
@@ -125,7 +126,7 @@ useEffect(() => {
               </div>
             )}
 
-            {/* OTP Input */}
+            {/* OTP input */}
             {showOtp && (
               <div className="flex flex-col items-center mb-6">
                 <div className="flex gap-3 mb-4">
@@ -142,7 +143,6 @@ useEffect(() => {
                     />
                   ))}
                 </div>
-
                 <button
                   onClick={handleVerifyOtp}
                   className={`w-full py-3 rounded-xl font-semibold transition cursor-pointer ${
