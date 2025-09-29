@@ -2,6 +2,7 @@ import { LiaOutdentSolid } from "react-icons/lia";
 
 export const API_URL = "https://finalpw.harifly.in/api";
 export const API= {
+    // Content endpoints
     homesliders: `${API_URL}/home-sliders`,
     courses: `${API_URL}/courses`,
     categories: `${API_URL}/categories`,
@@ -14,8 +15,14 @@ export const API= {
     header_footer: `${API_URL}/header-footer`,
     about_us: `${API_URL}/about-us`,
     privacy_policy: `${API_URL}/privacy-policy`,
+    
+    // Authentication endpoints
+    send_otp: `${API_URL}/send-otp`,
+    login_student: `${API_URL}/login-student`,
     logout_student: `${API_URL}/logout-student`,
     
+    // Profile endpoints
+    student_profile: `${API_URL}/student-profile`,
+    profile: `${API_URL}/profile`,
 
 }
-
