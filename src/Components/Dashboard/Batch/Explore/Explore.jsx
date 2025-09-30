@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import BuyNowModal from "../../../../common/BuyNowModal";
 import { FaWhatsapp } from "react-icons/fa";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { MdCalculate } from "react-icons/md";
+import { GiAtomicSlashes } from "react-icons/gi";
+import { GiChemicalDrop } from "react-icons/gi";
+import { GiTestTubes } from "react-icons/gi";
+import { FiInfo } from "react-icons/fi";
 
 import { useNavigate } from "react-router-dom";
 
@@ -429,7 +435,6 @@ const videos = [
     bg: "bg-purple-100",
     text: "text-purple-600",
   },
-  
 ];
 
 const details = [
@@ -542,7 +547,6 @@ const icons = {
   ),
 };
 
-
 const subjects = [
   { name: "Physics", chapters: 3 },
   { name: "Maths", chapters: 3 },
@@ -552,7 +556,6 @@ const subjects = [
   { name: "Notices", chapters: 2 },
 ];
 
- 
 const features1 = [
   {
     title: "Saarthi",
@@ -595,6 +598,114 @@ const features1 = [
     icon: "♾️",
   },
 ];
+const teachers = [
+  {
+    name: "Kumar Shantanu Sir",
+    subject: "Physics",
+    exp: 12,
+    badge: "Physics Expert",
+    videoUrl: "", // Insert actual video URL or leave empty for placeholder
+  },
+  {
+    name: "Rahul Upadhyay Sir",
+    subject: "Maths",
+    exp: 11,
+    badge: "Maths Expert",
+    videoUrl: "",
+  },
+  {
+    name: "Shivam Mishra Sir",
+    subject: "Physical Chemistry",
+    exp: 9,
+    badge: "Physical Chemistry Expert",
+    videoUrl: "",
+  },
+  {
+    name: "Ankur Gupta Sir",
+    subject: "Organic Chemistry",
+    exp: 6,
+    badge: "Organic Chemistry Expert",
+    videoUrl: "",
+  },
+];
+
+function TeacherCard({ teacher, onSelect }) {
+  return (
+    <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center w-64 mx-2">
+      <div className="h-24 w-24 bg-gray-300 rounded-full mb-4" />
+      <span className="font-semibold text-lg mb-2">{teacher.name}</span>
+      <span className="text-gray-600 text-base">{teacher.subject}</span>
+      <span className="text-xs text-gray-500 mb-3">Exp: {teacher.exp}</span>
+      <button
+        className="bg-violet-300 rounded-full p-2 mt-auto self-end"
+        onClick={() => onSelect(teacher)}
+        aria-label="View Details"
+      >
+        <span>&rarr;</span>
+      </button>
+    </div>
+  );
+}
+function TeacherModal({ teacher, onClose }) {
+  if (!teacher) return null;
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+      <div className="bg-white rounded-2xl shadow-lg w-80 p-6 relative">
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-2xl text-gray-400 hover:text-black"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <div className="font-bold text-xl mb-1">{teacher.name}</div>
+        <div className="text-gray-500 font-medium mb-2">{teacher.subject}</div>
+        <div className="bg-blue-400 text-white py-1 px-3 rounded-md inline-block mb-4 font-medium shadow">
+          {teacher.badge}
+        </div>
+        <div className="w-full h-32 rounded-xl bg-black mb-4 flex items-center justify-center">
+          <button className="bg-white rounded-full w-10 h-10 flex items-center justify-center">
+            <svg
+              className="w-6 h-6 text-black"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <polygon points="9.5,7.5 16.5,12 9.5,16.5" />
+            </svg>
+          </button>
+        </div>
+        <div className="text-center">
+          <h3 className="font-bold text-xl mb-2">Introduction</h3>
+          <div className="mx-auto w-10 h-2 rounded bg-blue-400 mb-3" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const scheduleItems = [
+  {
+    label: "Physics",
+    icon: <FaChalkboardTeacher size={40} color="#193089" />,
+  },
+  {
+    label: "Maths",
+    icon: <MdCalculate size={40} color="#0b6dd1" />,
+  },
+  {
+    label: "Physical Chemistry",
+    icon: <GiAtomicSlashes size={40} color="#098E91" />,
+  },
+  {
+    label: "Organic Chemistry",
+    icon: <GiChemicalDrop size={40} color="#FF9600" />,
+  },
+  {
+    label: "Inorganic Chemistry",
+    icon: <GiTestTubes size={40} color="#5358EE" />,
+  },
+  
+];
 
 const handleShareOnWhatsApp = () => {
   const batchName = "Arjuna JEE 4.0 2026";
@@ -610,16 +721,15 @@ const ArjunaTabs = () => {
   const [showAll, setShowAll] = useState(false);
   const [openIdx, setOpenIdx] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
 
   const faqsToShow = showAll ? faqs : faqs.slice(0, 4);
   const currentFeatures = planFeatures[selectedPlan] || [];
   const navigate = useNavigate();
 
   const handleClick = (subject) => {
-    
     navigate("/dashboard/classes", { state: { subject } });
   };
-
 
   return (
     <div className="bg-[#000080] rounded-t-xl">
@@ -647,7 +757,7 @@ const ArjunaTabs = () => {
             onClick={handleShareOnWhatsApp}
             className="flex items-center px-4 py-1 border rounded font-medium text-gray-700 hover:bg-gray-50 transition"
           >
-            <FaWhatsapp className="mr-2" /> 
+            <FaWhatsapp className="mr-2" />
             Share Batch
           </button>
           <button className="flex items-center px-4 py-1 border rounded font-medium text-gray-700 hover:bg-gray-50 transition">
@@ -765,79 +875,101 @@ const ArjunaTabs = () => {
                 ))}
               </ul>
 
-      
               <div className="p-4  md:p-8 lg:p-10 lg:px-5 bg-white">
-  <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-gray-900 text-center">
-    Demo Videos
-  </h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-gray-900 text-center">
+                  Demo Videos
+                </h2>
 
-  <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-5">
-    {videos.map((video, idx) => (
-      <div
-        key={idx}
-        className={`group rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden ${video.bg} p-5 flex flex-col`}
-      >
-     
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center">
-            <div className="rounded-full bg-black text-white font-bold text-lg w-12 h-12 flex items-center justify-center">
-              {video.logo}
-            </div>
-            <div className="ml-3">
-              <div className={`font-semibold ${video.text} text-base md:text-lg`}>
-                {video.label}
+                <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                  {videos.map((video, idx) => (
+                    <div
+                      key={idx}
+                      className={`group rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden ${video.bg} p-5 flex flex-col`}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center">
+                          <div className="rounded-full bg-black text-white font-bold text-lg w-12 h-12 flex items-center justify-center">
+                            {video.logo}
+                          </div>
+                          <div className="ml-3">
+                            <div
+                              className={`font-semibold ${video.text} text-base md:text-lg`}
+                            >
+                              {video.label}
+                            </div>
+                          </div>
+                        </div>
+
+                        <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2 transition-transform duration-300 group-hover:scale-110">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            height={22}
+                            width={22}
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <polygon
+                              points="9.5,7.5 9.5,16.5 16.5,12"
+                              fill="white"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div className="mb-3">
+                        <p className="font-bold text-gray-800 text-sm md:text-base line-clamp-2">
+                          {video.subtitle}
+                        </p>
+                      </div>
+
+                      <div className="mt-auto">
+                        <div className="flex items-center text-gray-500 text-xs md:text-sm mb-2">
+                          <span>{video.date}</span>
+                          <span className="mx-2">•</span>
+                          <span>{video.time}</span>
+                        </div>
+                        <p className="font-semibold text-gray-900 text-sm md:text-base line-clamp-2 group-hover:text-purple-700 transition-colors duration-300">
+                          {video.title}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 flex justify-center">
+                  <button className="px-6 py-2.5 text-sm md:text-base rounded-full bg-gray-100 hover:bg-gray-200 font-semibold text-gray-700 transition-colors duration-300">
+                    View All
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <button
-            className="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2 transition-transform duration-300 group-hover:scale-110"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              height={22}
-              width={22}
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <polygon
-                points="9.5,7.5 9.5,16.5 16.5,12"
-                fill="white"
-              />
-            </svg>
-          </button>
-        </div>
-
-  
-        <div className="mb-3">
-          <p className="font-bold text-gray-800 text-sm md:text-base line-clamp-2">
-            {video.subtitle}
-          </p>
-        </div>
-
-    
-        <div className="mt-auto">
-          <div className="flex items-center text-gray-500 text-xs md:text-sm mb-2">
-            <span>{video.date}</span>
-            <span className="mx-2">•</span>
-            <span>{video.time}</span>
-          </div>
-          <p className="font-semibold text-gray-900 text-sm md:text-base line-clamp-2 group-hover:text-purple-700 transition-colors duration-300">
-            {video.title}
-          </p>
-        </div>
+            <div className="bg-gray-50  p-8">
+      <h2 className="text-xl font-semibold mb-6">Know Your Teachers</h2>
+      <div className="flex flex-row space-x-4">
+        {teachers.map((teacher, idx) => (
+          <TeacherCard key={idx} teacher={teacher} onSelect={setSelected} />
+        ))}
       </div>
-    ))}
-  </div>
-  <div className="mt-8 flex justify-center">
-    <button className="px-6 py-2.5 text-sm md:text-base rounded-full bg-gray-100 hover:bg-gray-200 font-semibold text-gray-700 transition-colors duration-300">
-      View All
-    </button>
-  </div>
-</div>
+      <TeacherModal teacher={selected} onClose={() => setSelected(null)} />
+    </div>
 
-            </div>
+    <div className="p-6">
+      <h2 className="text-xl font-semibold mb-8">Checkout Your Schedule</h2>
+      <div className="flex gap-6 overflow-x-auto">
+        {scheduleItems.map((item) => (
+          <div
+            key={item.label}
+            className="flex flex-col items-center justify-center w-48 h-40 bg-white rounded-lg shadow gap-4 border border-gray-200 min-w-[175px]"
+          >
+            {item.icon}
+            <span className="font-semibold text-xl mt-2">
+              {item.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
             <div className="bg-white rounded-xl shadow p-6  mx-auto">
               <h2 className="text-xl font-semibold mb-6">Other Details</h2>
               <ol className="list-decimal pl-6 space-y-3 mb-6">
@@ -991,5 +1123,3 @@ const ArjunaTabs = () => {
 };
 
 export default ArjunaTabs;
-
-
