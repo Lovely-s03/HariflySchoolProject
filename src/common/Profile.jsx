@@ -16,10 +16,9 @@ export default function ProfileDashboard() {
     photo: "",
   });
 
-useEffect(() => {
-  fetchProfile();
-}, []);
-
+  useEffect(() => {
+    fetchProfile();
+  }, []);
 
   const fetchProfile = async () => {
     setLoading(true);
@@ -68,19 +67,18 @@ useEffect(() => {
     try {
       const formDataToSend = new FormData();
       formDataToSend.append("name", formData.fullName);
-      formDataToSend.append("gender", formData.gender.toLowerCase()); // API expects lowercase
+      formDataToSend.append("gender", formData.gender.toLowerCase());
       formDataToSend.append("date_of_birth", formData.dob);
       formDataToSend.append("email", formData.email);
       formDataToSend.append("address", formData.address);
-      
+
       if (formData.photo instanceof File) {
         formDataToSend.append("profile_picture", formData.photo);
       }
-      
+
       const response = await updateProfile(formDataToSend);
       const result = response.data;
-      
-      // Update local state with the response data
+
       setProfile((prev) => ({
         ...prev,
         name: formData.fullName,
@@ -88,19 +86,24 @@ useEffect(() => {
         date_of_birth: formData.dob,
         email: formData.email,
         address: formData.address,
-        profile_picture: result.data?.profile_picture || result.profile_picture || prev.profile_picture,
+        profile_picture:
+          result.data?.profile_picture ||
+          result.profile_picture ||
+          prev.profile_picture,
       }));
-      
-      // Update localStorage with new profile data
-      localStorage.setItem("profile", JSON.stringify({
-        ...profile,
-        name: formData.fullName,
-        gender: formData.gender,
-        date_of_birth: formData.dob,
-        email: formData.email,
-        address: formData.address,
-      }));
-      
+
+      localStorage.setItem(
+        "profile",
+        JSON.stringify({
+          ...profile,
+          name: formData.fullName,
+          gender: formData.gender,
+          date_of_birth: formData.dob,
+          email: formData.email,
+          address: formData.address,
+        })
+      );
+
       setIsOpen(false);
       alert("Profile updated successfully!");
     } catch (error) {
@@ -112,15 +115,15 @@ useEffect(() => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Sidebar */}
         <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm">
           <div className="relative">
             <img
               src={profile.profile_picture || call}
               alt="avatar"
-              className="w-24 h-24 rounded-full border object-cover"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full border object-cover"
             />
             <button
               className="absolute bottom-0 right-0 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
@@ -129,33 +132,37 @@ useEffect(() => {
               <FaEdit size={14} />
             </button>
           </div>
-          <h2 className="mt-4 text-lg font-semibold text-center">
+          <h2 className="mt-4 text-base sm:text-lg md:text-xl font-semibold text-center">
             {profile.name || "N/A"}
           </h2>
-          <span className="mt-2 px-4 py-1 bg-gray-200 text-gray-600 text-sm rounded-full text-center">
+          <span className="mt-2 px-3 sm:px-4 py-1 bg-gray-200 text-gray-600 text-xs sm:text-sm rounded-full text-center">
             {profile.gender || "NA"}
           </span>
         </div>
 
         {/* Details Section */}
-        <div className="md:col-span-3 flex flex-col gap-6">
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">Profile Detail</h3>
+        <div className="sm:col-span-1 lg:col-span-3 flex flex-col gap-6">
+          <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-4 gap-3">
+              <h3 className="text-base sm:text-lg font-semibold">
+                Profile Detail
+              </h3>
               <button
-                className="flex items-center px-3 py-1.5 border rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition"
+                className="flex items-center justify-center px-3 py-1.5 border rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition"
                 onClick={() => setIsOpen(true)}
               >
                 <FaEdit className="mr-2" size={12} /> Edit
               </button>
             </div>
             {loading ? (
-              <p className="text-gray-500">Loading...</p>
+              <p className="text-gray-500 text-sm sm:text-base">Loading...</p>
             ) : (
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-medium mb-2">Personal Details</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
+                  <h4 className="font-medium mb-2 text-sm sm:text-base">
+                    Personal Details
+                  </h4>
+                  <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
                     <li>
                       <span className="font-semibold">Name:</span>{" "}
                       {profile.name || "N/A"}
@@ -164,10 +171,6 @@ useEffect(() => {
                       <span className="font-semibold">Email:</span>{" "}
                       {profile.email || "N/A"}
                     </li>
-                    {/* <li>
-                      <span className="font-semibold">Phone:</span>{" "}
-                      {profile.phone || "N/A"}
-                    </li> */}
                     <li>
                       <span className="font-semibold">Date of Birth:</span>{" "}
                       {profile.date_of_birth || "N/A"}
@@ -186,8 +189,8 @@ useEffect(() => {
 
       {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-0 relative animate-fadeIn">
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl p-0 relative animate-fadeIn">
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
@@ -196,9 +199,10 @@ useEffect(() => {
               <FaTimes size={18} />
             </button>
             {/* Title */}
-            <h2 className="text-lg font-semibold pt-6 px-6 mb-4">
+            <h2 className="text-base sm:text-lg font-semibold pt-6 px-6 mb-4">
               Edit Details
             </h2>
+
             {/* Scrollable Form */}
             <div className="max-h-[70vh] overflow-y-auto px-6 pb-4">
               <form className="space-y-4" onSubmit={handleSubmit}>
@@ -215,13 +219,13 @@ useEffect(() => {
                           : formData.photo || call
                       }
                       alt="Profile Preview"
-                      className="w-20 h-20 rounded-full border object-cover"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border object-cover"
                     />
                     <input
                       type="file"
                       accept="image/*"
                       onChange={handleFileChange}
-                      className="text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100"
+                      className="text-xs sm:text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-medium file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100"
                     />
                   </div>
                 </div>
@@ -235,7 +239,7 @@ useEffect(() => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none text-sm sm:text-base"
                     required
                   />
                 </div>
@@ -244,40 +248,23 @@ useEffect(() => {
                   <label className="block text-sm font-medium mb-1">
                     Gender
                   </label>
-                  <div className="flex gap-6">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="male"
-                        checked={formData.gender === "male" || formData.gender === "Male"}
-                        onChange={handleChange}
-                        className="accent-blue-600"
-                      />{" "}
-                      Male
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="female"
-                        checked={formData.gender === "female" || formData.gender === "Female"}
-                        onChange={handleChange}
-                        className="accent-blue-600"
-                      />{" "}
-                      Female
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="other"
-                        checked={formData.gender === "other" || formData.gender === "Other"}
-                        onChange={handleChange}
-                        className="accent-blue-600"
-                      />{" "}
-                      Other
-                    </label>
+                  <div className="flex flex-wrap gap-4 sm:gap-6">
+                    {["male", "female", "other"].map((g) => (
+                      <label
+                        key={g}
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <input
+                          type="radio"
+                          name="gender"
+                          value={g}
+                          checked={formData.gender.toLowerCase() === g}
+                          onChange={handleChange}
+                          className="accent-blue-600"
+                        />{" "}
+                        {g.charAt(0).toUpperCase() + g.slice(1)}
+                      </label>
+                    ))}
                   </div>
                 </div>
                 {/* DOB + Email */}
@@ -291,7 +278,7 @@ useEffect(() => {
                       name="dob"
                       value={formData.dob || ""}
                       onChange={handleChange}
-                      className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none text-sm sm:text-base"
                     />
                   </div>
                   <div>
@@ -303,7 +290,7 @@ useEffect(() => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none text-sm sm:text-base"
                       required
                     />
                   </div>
@@ -318,22 +305,22 @@ useEffect(() => {
                     rows="3"
                     value={formData.address}
                     onChange={handleChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none text-sm sm:text-base"
                   ></textarea>
                 </div>
                 {/* Actions */}
-                <div className="flex justify-end gap-3 pt-4">
+                <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4">
                   <button
                     type="button"
                     onClick={() => setIsOpen(false)}
-                    className="px-4 py-2 border rounded-lg text-gray-600 hover:bg-gray-100"
+                    className="px-4 py-2 border rounded-lg text-gray-600 hover:bg-gray-100 text-sm sm:text-base"
                     disabled={loading}
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300 text-sm sm:text-base"
                     disabled={loading}
                   >
                     {loading ? "Saving..." : "Save Changes"}
@@ -347,3 +334,5 @@ useEffect(() => {
     </div>
   );
 }
+
+

@@ -1,31 +1,27 @@
-import React from 'react'
+import React from "react";
 import { Routes, Route, useLocation, BrowserRouter } from "react-router-dom";
-import Navbar from '../Components/Navbar/Navbar'
-import Home from '../Components/HomePage/HomePage'
-import ScrollToTop from '../common/ScrollToTop'
-import Course from '../common/Course'
-import Dashboard from '../Components/Dashboard/Dashboard';
-import Footer from '../Components/Footer/Footer'
-import Study from '../Components/Dashboard/Study/Study';
-import Testseries from '../Components/Dashboard/Testseries/Testseries';
-import Batch from '../Components/Dashboard/Batch/Batch';
-import Privacy from '../Components/Privacy/Privacy';
-import AboutUs from '../Components/AboutUs/AboutUs';
-import Contact from '../Components/Dashboard/Contact/Contact';
-import Goal from '../Components/Dashboard/AllGoals/Goal';
-import Explore from '../Components/Dashboard/Batch/Explore/Explore';
-import BuyOrderSummary from './BuyOrderSummary';
-import TestPass from '../Components/Dashboard/Testseries/TestPass';
-import Profile from './Profile';
-
-
-
-import Classes from '../Components/Dashboard/Batch/Explore/Classes';
-import Centers from '../Components/Dashboard/Centers/Centers';
-import Purchases from '../Components/Dashboard/Purchases/Purchases';
-import OrderDetails from '../Components/Dashboard/Purchases/OrderDetails';
-import ChatBox from '../Components/Dashboard/Chatbox/ChatBox';
-
+import Navbar from "../Components/Navbar/Navbar";
+import Home from "../Components/HomePage/HomePage";
+import ScrollToTop from "../common/ScrollToTop";
+import Course from "../common/Course";
+import Dashboard from "../Components/Dashboard/Dashboard";
+import Footer from "../Components/Footer/Footer";
+import Study from "../Components/Dashboard/Study/Study";
+import Testseries from "../Components/Dashboard/Testseries/Testseries";
+import Batch from "../Components/Dashboard/Batch/Batch";
+import Privacy from "../Components/Privacy/Privacy";
+import AboutUs from "../Components/AboutUs/AboutUs";
+import Contact from "../Components/Dashboard/Contact/Contact";
+import Goal from "../Components/Dashboard/AllGoals/Goal";
+import Explore from "../Components/Dashboard/Batch/Explore/Explore";
+import BuyOrderSummary from "./BuyOrderSummary";
+import TestPass from "../Components/Dashboard/Testseries/TestPass";
+import Profile from "./Profile";
+import Classes from "../Components/Dashboard/Batch/Explore/Classes";
+import Centers from "../Components/Dashboard/Centers/Centers";
+import Purchases from "../Components/Dashboard/Purchases/Purchases";
+import OrderDetails from "../Components/Dashboard/Purchases/OrderDetails";
+import ChatBox from "../Components/Dashboard/Chatbox/ChatBox";
 
 const Layout = () => {
   const location = useLocation();
@@ -33,14 +29,12 @@ const Layout = () => {
   const isDashboardRoute = location.pathname.startsWith("/dashboard");
   const isOrderSummaryRoute = location.pathname === "/order-summary";
 
-
   return (
-  
-  <>
+    <>
       {!isDashboardRoute && !isOrderSummaryRoute && <Navbar />}
 
       <ScrollToTop />
-      <div className=" pb-20 lg:pb-0"> 
+      <div className=" pb-20 lg:pb-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/course" element={<Course />} />
@@ -67,10 +61,9 @@ const Layout = () => {
           <Route path="/center" element={<Centers />} />
           <Route path="/order-summary" element={<BuyOrderSummary />} />
         </Routes>
-   
 
-      {!isDashboardRoute && !isOrderSummaryRoute && <Footer />}
-         </div>
+        {!isDashboardRoute && !isOrderSummaryRoute && <Footer />}
+      </div>
     </>
   );
 };
