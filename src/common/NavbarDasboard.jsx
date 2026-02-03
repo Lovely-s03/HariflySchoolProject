@@ -48,7 +48,7 @@ const NavbarDashboard = ({ onMenuClick }) => {
           Glare
         </div>
         <span className="text-lg font-semibold hidden sm:block">
-          Physics Wallah
+          Harifly
         </span>
         <button className="ml-2 hidden md:flex items-center gap-2 bg-[#2b2f33] border border-gray-500 px-3 py-1 rounded-lg text-sm hover:bg-[#3a3f45] transition">
           <span role="img" aria-label="cake">🎂</span> 11th - IIT JEE

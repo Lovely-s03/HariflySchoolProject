@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import phone from "../../assets/million student.webp";
+import phone from "../../assets/founder.webp";
 
 const BASE_URL = "https://pw.harifly.in";
 

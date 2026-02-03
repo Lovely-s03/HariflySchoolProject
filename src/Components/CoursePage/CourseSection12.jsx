@@ -1,13 +1,13 @@
 import React from "react";
 import { FaUsers } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
-import arjun1 from "../../assets/arjun2.0.jpeg";
-import arjun2 from "../../assets/powerbatch.png";
+import arjun1 from "../../assets/coursegla.jpeg";
+import arjun2 from "../../assets/coursegla.jpeg";
 
 const courses = [
   {
     id: 1,
-    title: "Lakshya  JEE 3.0 2026",
+    title: "Harifly  JEE 3.0 2026",
     img: arjun1,
     for: "For JEE Aspirants",
     start: "14 Jul, 2025",
@@ -21,7 +21,7 @@ const courses = [
   },
   {
     id: 2,
-    title: "Lakshya  JEE Hindi 2.0 2026",
+    title: "Harifly  JEE Hindi 2.0 2026",
     img: arjun1,
     for: "IIT JEE",
     start: "16 Jul, 2025",
@@ -35,7 +35,7 @@ const courses = [
   },
   {
     id: 3,
-    title: "Lakshya  Power Batch 2027",
+    title: "Harifly  Power Batch 2027",
     img: arjun2,
     btnText: "BUY NOW",
     link: "#",

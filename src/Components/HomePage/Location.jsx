@@ -64,7 +64,7 @@ export default function Location() {
       >
         <div className="bg-white text-black rounded-lg shadow-lg p-6 md:p-7">
           <h3 className="text-lg md:text-2xl font-semibold text-center">
-            Find Vidyapeeth Centre in your city
+            Find  Centre in your city
           </h3>
           <p className="text-center text-gray-600 mt-1">
             Available in{" "}

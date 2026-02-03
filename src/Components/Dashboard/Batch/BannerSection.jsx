@@ -1,6 +1,6 @@
 // BannerSection.jsx
 import React from "react";
-import yakeen from '../../../assets/yakeen.png'
+import yakeen from '../../../assets/dummy.png'
 
 const BannerSection = () => {
   return (
@@ -36,7 +36,7 @@ const BannerSection = () => {
       </div>
 
       <div className="">
-       <img src={yakeen} alt="" />
+       <img src={yakeen} alt="" className="w-full h-[250px]"/>
       </div>
     </div>
   );

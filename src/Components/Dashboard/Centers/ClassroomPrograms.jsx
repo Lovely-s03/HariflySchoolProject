@@ -13,8 +13,8 @@ const cities = [{ name: "Patna", centres: 6, img: patna }];
 const centreTypes = [
   { code: "VP", name: "Vidyapeeth", desc: "Complete Offline centre", color: "bg-pink-100 text-pink-600" },
   { code: "PS", name: "Pathshala", desc: "Hybrid Learning centre", color: "bg-purple-100 text-purple-600" },
-  { code: "TC", name: "PW Tuition", desc: "Offline Tuition centre", color: "bg-blue-100 text-blue-600" },
-  { code: "RP", name: "Residential", desc: "Vidyapeeth Residential Program (VP-RP)", color: "bg-yellow-100 text-yellow-600" },
+  { code: "TC", name: " Tuition", desc: "Offline Tuition centre", color: "bg-blue-100 text-blue-600" },
+  { code: "RP", name: "Residential", desc: " Residential Program (VP-RP)", color: "bg-yellow-100 text-yellow-600" },
 ];
 
 // Sample batches

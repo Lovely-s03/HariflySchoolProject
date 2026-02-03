@@ -10,15 +10,33 @@ const MobileLoginModal = ({ isOpen, onClose }) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputRefs = useRef([]);
 
+  // const handleSendOtp = async () => {
+  //   if (mobile.length !== 10) return alert("Enter valid 10-digit mobile");
+  //   try {
+  //     await api.post("/send-otp", { mobile });
+  //     setShowOtp(true);
+  //   } catch (err) {
+  //     alert(err?.response?.data?.message || "Failed to send OTP");
+  //   }
+  // };
   const handleSendOtp = async () => {
-    if (mobile.length !== 10) return alert("Enter valid 10-digit mobile");
-    try {
-      await api.post("/send-otp", { mobile });
-      setShowOtp(true);
-    } catch (err) {
-      alert(err?.response?.data?.message || "Failed to send OTP");
-    }
-  };
+  if (mobile.length !== 10) {
+    alert("Enter valid 10-digit mobile");
+    return;
+  }
+
+  console.log("Sending OTP to:", mobile);
+
+  try {
+    const res = await api.post("/send-otp", { mobile });
+    console.log("OTP response:", res.data);
+    setShowOtp(true);
+  } catch (err) {
+    console.error("OTP error:", err.response || err);
+    alert(err?.response?.data?.message || "Failed to send OTP");
+  }
+};
+
 
   const handleOtpChange = (e, index) => {
     const value = e.target.value.replace(/\D/, "");

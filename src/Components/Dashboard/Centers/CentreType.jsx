@@ -5,13 +5,13 @@ const centres = [
     id: 1,
     type: "Complete Offline centre",
    
-    title: "Vidyapeeth Centres",
+    title: " Centres",
    
     description:
-      "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
+      "Harifly offers a blend of traditional classroom coaching & modern technology",
     img: center, 
     features: [
-      { name: "Vidyapeeth Classroom" },
+      { name: " Classroom" },
       { name: "Marks Improvement Plan" },
       { name: "All India Test Series" },
       { name: "Fastrack" },
@@ -21,13 +21,13 @@ const centres = [
     id: 2,
     type: "Complete Offline centre",
    
-    title: "Vidyapeeth Centres",
+    title: " Centres",
 
     description:
-      "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
+      "Harifly offers a blend of traditional classroom coaching & modern technology",
     img: center, 
     features: [
-      { name: "Vidyapeeth Classroom" },
+      { name: " Classroom" },
       { name: "Marks Improvement Plan" },
       { name: "All India Test Series" },
       { name: "Fastrack" },
@@ -37,13 +37,13 @@ const centres = [
     id: 3,
     type: "Complete Offline centre",
     
-    title: "Vidyapeeth Centres",
+    title: "Centres",
  
     description:
-      "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
+      "Harifly offers a blend of traditional classroom coaching & modern technology",
     img: center, 
     features: [
-      { name: "Vidyapeeth Classroom" },
+      { name: " Classroom" },
       { name: "Marks Improvement Plan" },
       { name: "All India Test Series" },
       { name: "Fastrack" },
@@ -53,13 +53,13 @@ const centres = [
     id: 4,
     type: "Complete Offline centre",
  
-    title: "Vidyapeeth Centres",
+    title: " Centres",
    
     description:
-      "PW Vidyapeeth offers a blend of traditional classroom coaching & modern technology",
+      "PW  offers a blend of traditional classroom coaching & modern technology",
     img: center, 
     features: [
-      { name: "Vidyapeeth Classroom" },
+      { name: " Classroom" },
       { name: "Marks Improvement Plan" },
       { name: "All India Test Series" },
       { name: "Fastrack" },

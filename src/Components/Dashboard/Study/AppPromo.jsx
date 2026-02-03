@@ -1,19 +1,19 @@
 import React from "react";
 import { Heart } from "lucide-react";
-import twoPhone from '../../../assets/Twophone.png'
+import twoPhone from '../../../assets/Qr1.png'
 
 const AppPromo = () => {
   return (
     <>
     <section className="w-full bg-white my-5  rounded-2xl shadow-sm py-9">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 py-5">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 ">
         
           <div className="flex gap-6">
-            <img
+            <img  
               src={twoPhone}
-              alt="App Screenshot 1"
-             
-            />
+              alt="App Screenshot 1" className="w-[1200px]"
+              />
+              
            </div>
               </div>
           </section>
@@ -24,7 +24,7 @@ const AppPromo = () => {
         </h2>
         <div className="flex items-center justify-start gap-2 mt-6 text-gray-600">
           <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-          <span className="text-base">From PhysicsWallah</span>
+          <span className="text-base">From Harifly</span>
         </div>
       </div>
     </section>

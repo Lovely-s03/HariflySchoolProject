@@ -17,13 +17,13 @@ const fallbackResources = [
   },
   {
     title: "NCERT Solutions",
-    desc: "Unlock academic excellence with Physics Wallah’s NCERT Solutions which provides you step-by-step solutions",
+    desc: "Unlock academic excellence with Harifly’s NCERT Solutions which provides you step-by-step solutions",
     img: ncrt,
     bg: "bg-yellow-50 hover:bg-yellow-100",
   },
   {
     title: "Notes",
-    desc: "Use Physics Wallah’s detailed study materials that simplify complex ideas into easily understandable language",
+    desc: "Use Harifly’s detailed study materials that simplify complex ideas into easily understandable language",
     img: notes,
     bg: "bg-green-50 hover:bg-green-100",
   },

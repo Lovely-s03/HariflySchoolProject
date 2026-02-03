@@ -1,8 +1,8 @@
 import React from "react";
 import { FaUsers } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
-import arjun1 from "../../assets/arjun2.0.jpeg";
-import arjun2 from "../../assets/powerbatch.png";
+import arjun1 from "../../assets/coursegla.jpeg";
+import arjun2 from "../../assets/coursegla.jpeg";
 
 const courses = [
   {

@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import pw from "../../assets/pw.jpg"
-import result from "../../assets/result.webp"
+import pw from "../../assets/dummy.png"
+import result from "../../assets/dummy.png"
 
 const Result = () => {
     const PrevArrow = ({ onClick }) => (
@@ -79,7 +79,8 @@ const NextArrow = ({ onClick }) => (
               <img
                 src={img}
                 alt={`Result ${idx}`}
-                className="rounded-lg shadow-lg w-full"
+                
+                className="rounded-lg shadow-lg w-full "
               />
             </div>
           ))}

@@ -1,6 +1,6 @@
 
 import React from "react";
-import pathsala from '../../../assets/pathshala.jpg'
+import pathsala from '../../../assets/dummy.png'
 const CounsellingSection = () => {
   return (
     <section className="max-w-6xl m-auto bg-white py-10 px-2 md:px-12 ">
@@ -10,7 +10,7 @@ const CounsellingSection = () => {
             Get free counselling sessions
           </h2>
           <p className="text-gray-600 mt-3 text-sm md:text-base max-w-lg">
-            PW Vidyapeeth brings Free Guidance sessions with Faculties of PW. 
+            Harifly  brings Free Guidance sessions with Faculties of PW. 
             Join and get your all queries resolved
           </p>
 

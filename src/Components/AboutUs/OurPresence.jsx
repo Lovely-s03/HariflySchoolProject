@@ -12,7 +12,7 @@ export default function OurPresence() {
           </h2>
           <p className="text-gray-600 mb-8 max-w-lg">
             Our footprint extends across more than 100 cities, with a widespread
-            network of over 120 Vidyapeeth centers spanning the entire country.
+            network of over 120 centers spanning the entire country.
           </p>
 
           <div className="space-y-4">

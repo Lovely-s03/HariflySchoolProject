@@ -411,7 +411,7 @@ const videos = [
     date: "03 September, 2025",
     time: "02:00 PM",
     label: "Important Update",
-    logo: "PW",
+    logo: "HT",
     bg: "bg-purple-100",
     text: "text-purple-600",
   },
@@ -420,8 +420,8 @@ const videos = [
     subtitle: "New Update Study Page (WEB)",
     date: "03 September, 2025",
     time: "02:00 PM",
-    label: "PHYSICSWALLAH",
-    logo: "PW",
+    label: "Harifly",
+    logo: "HT",
     bg: "bg-purple-100",
     text: "text-purple-600",
   },
@@ -430,8 +430,8 @@ const videos = [
     subtitle: "New Update Study Page (APP)",
     date: "03 September, 2025",
     time: "02:00 PM",
-    label: "PHYSICSWALLAH",
-    logo: "PW",
+    label: "Harifly",
+    logo: "HT",
     bg: "bg-purple-100",
     text: "text-purple-600",
   },
@@ -541,7 +541,7 @@ const icons = {
     <svg className="w-8 h-8 text-gray-400" viewBox="0 0 48 48" fill="none">
       <circle cx="24" cy="24" r="20" stroke="#BDBDBD" strokeWidth="4" />
       <text x="24" y="30" textAnchor="middle" fontSize="16" fill="#BDBDBD">
-        PW
+     Harifly   
       </text>
     </svg>
   ),
@@ -709,7 +709,7 @@ const scheduleItems = [
 
 const handleShareOnWhatsApp = () => {
   const batchName = "Arjuna JEE 4.0 2026";
-  const shareText = `Check out this amazing batch: ${batchName} on Physics Wallah!`;
+  const shareText = `Check out this amazing batch: ${batchName} on Harifly!`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   window.open(whatsappUrl, "_blank");
 };

@@ -8,14 +8,14 @@ const BuyOrderSummary = () => {
       const [activeTab, setActiveTab] = useState("book+note");
         const tabData = {
     "book+note": {
-      title: "Physics Wallah",
+      title: "Harifly",
       img: "https://images.news18.com/ibnlive/uploads/2023/06/alakh-pandey-physics-wallah-16863056274x3.jpg",
       price: "2765",
       oldPrice: "3549",
       discount: "22% OFF",
     },
     book: {
-      title: "PW Books",
+      title: "Books",
       img: "https://cdn.pw.live/pg/offering-cover/book.png", 
       price: "1599",
       oldPrice: "1999",
@@ -97,7 +97,7 @@ const BuyOrderSummary = () => {
     
         <div className="absolute top-4 right-4">
           <div className="w-10 h-10 flex items-center justify-center rounded-full border  text-xs font-bold">
-            PW
+            Harifly
           </div>
         </div>
 
@@ -140,7 +140,7 @@ const BuyOrderSummary = () => {
              <div className="flex items-center gap-2 border border-gray-50 rounded-xl p-4 shadow-sm bg-white mt-4">
             <input type="checkbox" defaultChecked />
             <p className="text-sm">
-              Donate to PW foundation <span className="font-semibold">₹10</span>
+              Donate to  foundation <span className="font-semibold">₹10</span>
             </p>
           </div>
            <div className="border border-gray-50 rounded-xl p-4 shadow-sm bg-white mt-4">
@@ -163,7 +163,7 @@ const BuyOrderSummary = () => {
                 <span>- ₹0</span>
               </div>
               <div className="flex justify-between">
-                <span>PW Foundation Donation</span>
+                <span>Foundation Donation</span>
                 <span>₹10</span>
               </div>
               <hr className="my-2" />

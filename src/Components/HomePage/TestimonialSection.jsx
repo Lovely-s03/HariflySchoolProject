@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import team from "../../assets/teamImage.png";
+import team from "../../assets/books.webp";
 import Slider from "react-slick";
 import { gettestimonials } from "../../service/api";
 
@@ -85,7 +85,7 @@ useEffect(() => {
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold">
-          Students <span className="text-red-500">❤️</span> Physics Wallah
+          Students <span className="text-red-500">❤️</span> Harifly
         </h2>
         <p className="text-gray-600 mt-2">Hear from our students</p>
       </div>

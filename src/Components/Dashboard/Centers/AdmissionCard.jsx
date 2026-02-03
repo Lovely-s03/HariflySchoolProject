@@ -7,7 +7,7 @@ const AdmissionCard = () => {
       {/* Left Content */}
       <div className="flex-1">
         <h2 className="text-3xl font-bold text-gray-900 mb-3">
-          Know more about Vidyapeeth Admissions ??
+          Know more about  Admissions ??
         </h2>
         <p className="text-gray-600 mb-4 text-[18px]">
           Speak to our admission counsellor over a phone call

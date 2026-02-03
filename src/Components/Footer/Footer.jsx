@@ -12,7 +12,7 @@ import { getheader_footer } from "../../service/api";
 const BASE_URL = "https://pw.harifly.in";
 
 export default function Footer() {
-  const [companyTitle, setCompanyTitle] = useState("Physics Wallah");
+  const [companyTitle, setCompanyTitle] = useState("Harifly");
   const [companyDesc, setCompanyDesc] = useState(
     "We understand that every student has unique needs and abilities..."
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { gettrusted_sections } from "../../../service/api";
-import banner from '../../../assets/banner.jpg'
+import banner from '../../../assets/dummy.png'
 
 export default function TrustedSection() {
   const [stats, setStats] = useState([]);
@@ -84,8 +84,8 @@ export default function TrustedSection() {
           </div>
         ))}
       </div>
-      <div className="pt-12">
-        <img src={banner} alt="" />
+      <div className="pt-12 ">
+        <img src={banner} alt="" className="w-full"/>
       </div>
     </section>
   );
